@@ -1,13 +1,79 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+:root {
+    --page-bg: #f7f7f7;
+    --card-bg: #fff;
+    --card-container-bg: #fff;
+    --dialog-bg: #fff;
+    --overlay-bg: #f0f0f060;
+    --text-contrast: #fcfaf2;
+    --text-prominent: #000;
+    --text-light: #fff;
+    --text: #191919;
+    --text-obscure: #666;
+    --text-obscurer: #888;
+    --text-opposite: #e6e6e6;
+    --card-shadow: 0px 2px 1px -1px rgba(255, 255, 255, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    --card-shadow-hover: 0px 4px 3px -3px rgba(255, 255, 255, 0.2), 0px 3px 3px 0px rgba(0, 0, 0, 0.14), 0px 3px 5px 0px rgba(0, 0, 0, 0.12);
+    --shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
+    --theme-color: #ce185e;
+    --theme-color-obscure: #ce185e9f;
+    --secondary-theme-color: #148077;
+    --secondary-theme-color: #1480779f;
+    --component-border: rgba(0, 0, 0, 0.23);
+    --skeleton-color: #e7e7e7;
+    --shimmer-color: rgba(255, 255, 255, 0.2);
+}
+
+[theme-mode="dark"] {
+    --page-bg: #0e202a;
+    --card-bg: #152d3a;
+    --card-container-bg: #112733;
+    --dialog-bg: #152d3a;
+    --overlay-bg: #2d59723f;
+    --text-contrast: #061f2c;
+    --text-prominent: #fff;
+    --text-light: #f7f7f7;
+    --text: #efefef;
+    --text-obscure: #b1b1b1;
+    --text-obscurer: #868686;
+    --text-opposite: #091b25;
+    --card-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+    --card-shadow-hover: 0px 4px 3px -3px rgba(0, 0, 0, 0.2), 0px 3px 3px 0px rgba(0, 0, 0, 0.14), 0px 3px 5px 0px rgba(0, 0, 0, 0.12);
+    --shadow: 0px 0px 8px #191919;
+    --theme-color: #e23678;
+    --theme-color-obscure: #e23678a7;
+    --secondary-theme-color: #36b6ab;
+    --secondary-theme-color: #36b6aba7;
+    --component-border: #FFFFFF59;
+    --skeleton-color: #202020;
+    --shimmer-color: rgba(40, 40, 40, 0.2);
+}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: var(--page-bg);
+    font-family: 'Fira Code', monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: 'Fira Code', monospace;;
+}
+
+.center {
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
 }
