@@ -1,0 +1,21 @@
+.container{
+    text-align: center;
+    padding-top: 1.5rem;
+}
+button{
+    background-color: var(--secondary-theme-color);
+    color: var(--text-light);
+    font-size: 1.25rem;
+    border: none;
+    outline: none;
+    border-radius: 0.25rem;
+    padding:0.75rem 1rem;
+    transition: transform 1s;
+    transform: scale(1);
+}
+
+button:hover{
+    transform: scale(1.2);
+    outline: none;
+}
+

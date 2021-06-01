@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 module.exports = {
     parser: 'babel-eslint',
     parserOptions: {
