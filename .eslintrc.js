@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 module.exports = {
     parser: 'babel-eslint',
     parserOptions: {
@@ -24,9 +25,7 @@ module.exports = {
         'no-return-assign': ['error', 'except-parens'],
         'no-unused-expressions': [
             2,
-            {
-                allowTaggedTemplates: true,
-            },
+            { allowTaggedTemplates: true, },
         ],
         'import/prefer-default-export': 0,
         'import': 0,
@@ -40,6 +39,18 @@ module.exports = {
             },
         ],
         'eqeqeq': 1,
+        'array-bracket-spacing': 1,
+        'object-curly-spacing': [1, 'always'],
+        'object-curly-newline': [1, {
+            'ObjectExpression': {
+                'multiline': true, 'minProperties': 3, 'consistent': false 
+            }, 
+        }],
+        'camelcase': 1,
+        'indent': 2,
+        'max-len': [2, {
+            code: 120, tabWidth: 4, ignoreTemplateLiterals: true 
+        }],
     },
     settings: {
         'import/resolver': 'webpack',
