@@ -51,6 +51,8 @@ module.exports = {
         'max-len': [2, {
             code: 120, tabWidth: 4, ignoreTemplateLiterals: true 
         }],
+        'arrow-spacing': [2, { before: true, after: true }],
+        'comma-spacing': [2, { before: false, after: true }]
     },
     settings: {
         'import/resolver': 'webpack',
