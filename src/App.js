@@ -4,13 +4,11 @@ import Description from './components/description/index';
 import Generate from './components/generate/index';
 
 const App = () => {
-  return (
-    <div>
+    return <div>
         <Header/>
         <Description/>
         <Generate/>
-    </div>
-  );
+    </div>;
 };
 
 export default App;

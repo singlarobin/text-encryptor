@@ -1,44 +1,36 @@
-import {useState} from 'react';
-import {MdClose, MdErrorOutline} from 'react-icons/md';
-import {IoWarningOutline} from 'react-icons/io5';
-import {BsCheckCircle} from 'react-icons/bs';
+import { useMemo } from 'react';
 import classes from './styles.module.css';
-import { useEffect } from 'react';
+import { InfoIcon, ErrorIcon, WarningIcon, SuccessIcon, CloseIcon } from '../icon/index';
+import { useState, useEffect } from 'react';
 
-const SnackBar = props =>{
-    const { message, severity, handleClose} = props;
-   //const [containerColor,setContainerColor] = useState('');
+const SnackBar = props => {
+    const [color, setColor] = useState('red');
+    const { message, severity, handleClose } = props;
 
-   useEffect(()=> setTimeout(handleClose,3000));
-   
-    const selectSeverityIcon=()=>{
-        switch(severity){
-            case 'success':
-                //setContainerColor('green');
-                return <BsCheckCircle/>;
-            case 'warning':
-                //setContainerColor('orange');
-                return <IoWarningOutline/>;
-            case 'info':
-                //setContainerColor('blue');
-                return <MdErrorOutline/>;
-            default:
-                //setContainerColor('red');
-                return <MdErrorOutline/>;
+    useEffect(() => setTimeout(handleClose, 3000));
+
+    const selectSeverityIcon = useMemo(() => {
+        switch (severity) {
+        case 'info':
+            return <InfoIcon />;
+        case 'error':
+            return <ErrorIcon />;
+        case 'warning':
+            return <WarningIcon />;
+        default:
+            return <SuccessIcon />;
         }
-    };
+    }, [severity]);
 
-    return(
-        <div className={classes.container} severity={severity} onClose={handleClose} >
-            <div className={classes.icon}>
-                {selectSeverityIcon()}
-            </div>
-            <div className={classes.content}>
-             {message}
-            </div>
-            <MdClose className={classes.icon} onClick={handleClose}/>
+    return <div className={classes.container} severity={severity} onClose={handleClose} >
+        <div className={classes.icon}>
+            {selectSeverityIcon}
         </div>
-    );
+        <div className={classes.content}>
+            {message}
+        </div>
+        <CloseIcon handleClose={handleClose} />
+    </div>;
 };
 
 export default SnackBar;

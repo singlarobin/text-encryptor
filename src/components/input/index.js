@@ -1,19 +1,20 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import classes from './styles.module.css';
 
-const Input = props =>{
-    const {inputTextVal,handleInputTextChange} = props;
-    const handleChange= e => handleInputTextChange(e.target.value);
+const Input = props => {
+    const { inputTextVal, handleInputTextChange } = props;
+    const handleChange = useCallback(e => {
+        console.log('input');
+        handleInputTextChange(e.target.value);
+    }, [inputTextVal]);
 
-    useEffect(()=>{
-        document.getElementById('textArea').value=inputTextVal;
-    },[inputTextVal]);
+    useEffect(() => {
+        document.getElementById('textArea').value = inputTextVal;
+    }, [inputTextVal]);
 
-    return(
-        <div className={classes.container}>
-            <textarea id='textArea' onChange={handleChange} placeholder="Enter Text">{inputTextVal}</textarea>
-        </div>
-    );
+    return <div className={classes.inputContainer}>
+        <textarea id='textArea' onChange={handleChange} placeholder="Enter Text">{inputTextVal}</textarea>
+    </div>;
 };
 
 export default Input;

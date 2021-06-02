@@ -1,9 +1,10 @@
-.container{
+.selectContainer{
     text-align: center;
     font-size: 1.25rem;
     color: var(--text-obscure);
     font-weight: 500;
 }
+
 select{
     font-size: 1rem;
     color: var(--text-obscure);
