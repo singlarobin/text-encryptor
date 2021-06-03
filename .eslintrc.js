@@ -43,15 +43,15 @@ module.exports = {
         'object-curly-spacing': [1, 'always'],
         'object-curly-newline': [1, {
             'ObjectExpression': {
-                'multiline': true, 'minProperties': 3, 'consistent': false 
-            }, 
+                'multiline': true, 'minProperties': 3, 'consistent': false
+            },
         }],
         'camelcase': 1,
         'indent': 2,
         'max-len': [2, {
-            code: 120, tabWidth: 4, ignoreTemplateLiterals: true 
+            code: 120, tabWidth: 4, ignoreTemplateLiterals: true
         }],
-        'arrow-spacing':[2,{ before:true, after:true }],
+        'arrow-spacing': [2, { before: true, after: true }],
         'comma-spacing': [2, { before: false, after: true }],
     },
     settings: {

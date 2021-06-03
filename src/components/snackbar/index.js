@@ -1,10 +1,12 @@
-import { useMemo } from 'react';
+import { useMemo, useEffect } from 'react';
 import classes from './styles.module.css';
-import { InfoIcon, ErrorIcon, WarningIcon, SuccessIcon, CloseIcon } from '../icon/index';
-import { useState, useEffect } from 'react';
+import CloseIcon from '../../assests/closeIcon';
+import ErrorIcon from '../../assests/errorIcon';
+import InfoIcon from '../../assests/infoIcon';
+import SuccessIcon from '../../assests/successIcon';
+import WarningIcon from '../../assests/warningIcon';
 
 const SnackBar = props => {
-    const [color, setColor] = useState('red');
     const { message, severity, handleClose } = props;
 
     useEffect(() => setTimeout(handleClose, 3000));

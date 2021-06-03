@@ -11,7 +11,6 @@ const Button = props => {
     const [snackbarSeverity, setSnackbarSeverity] = useState('');
 
     const handleButtonClick = useCallback(() => {
-        console.log('button');
         const message= isEmptyString(inputTextVal)?'Please Enter text to Encrypt!' : `Text (${inputTextVal}) is Encrypted which will be valid for ${validity}.`;
         const severity= isEmptyString(inputTextVal)?'info':'success';
         setSnackbarMessage(message);
