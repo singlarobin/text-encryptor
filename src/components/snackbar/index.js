@@ -24,14 +24,14 @@ const SnackBar = props => {
         }
     }, [severity]);
 
-    return <div className={classes.container} severity={severity} onClose={handleClose} >
+    return <div className={classes.snackbarContainer} severity={severity} onClose={handleClose} >
         <div className={classes.icon}>
             {selectSeverityIcon}
         </div>
-        <div className={classes.content}>
+        <div className={classes.message}>
             {message}
         </div>
-        <CloseIcon handleClose={handleClose} />
+        <CloseIcon onClick={handleClose} />
     </div>;
 };
 

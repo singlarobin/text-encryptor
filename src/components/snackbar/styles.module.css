@@ -1,4 +1,4 @@
-.container{
+.snackbarContainer{
     position: fixed;
     right:2rem;
     bottom:2rem;
@@ -9,7 +9,7 @@
     border-radius: 0.25rem;
 }
 
-.content{
+.message{
     padding-left: 1rem;
     padding-right: 1rem;
 }
