@@ -6,7 +6,7 @@ const Input = React.memo( props => {
     const handleChange = e => handleInputTextChange(e.target.value);
 
     return <div className={classes.inputContainer}>
-        <textarea id='textArea' onChange={handleChange} placeholder="Enter Text" value={inputTextVal}/>
+        <textarea onChange={handleChange} placeholder="Enter Text" value={inputTextVal}/>
     </div>;
 });
 
