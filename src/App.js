@@ -4,7 +4,8 @@ import Description from './components/description';
 import Generate from './components/generate';
 
 const App = () => {
-    return <div>
+
+    return <div className={'app'}>
         <Header/>
         <Description/>
         <Generate/>
