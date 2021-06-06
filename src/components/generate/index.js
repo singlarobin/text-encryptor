@@ -8,7 +8,7 @@ import { selectOptions, severityOptions } from '../constants';
 
 const Generate = () => {
     const [inputTextVal, setInputTextVal] = useState('');
-    const [validity, setValidity] = useState(selectOptions['15_MIN'].name);
+    const [validity, setValidity] = useState(selectOptions.MINS_15.name);
     const [openSnackbar, setOpenSnackbar]=useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const [snackbarSeverity, setSnackbarSeverity] = useState(severityOptions.INFO);
