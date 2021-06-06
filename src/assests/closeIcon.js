@@ -1,7 +1,17 @@
-const CloseIcon = props =>
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" height='1.5rem' width='1.5rem'
-        fill="none" viewBox="0 0 24 24" stroke="currentColor" onClick={props.onClick}>
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+const CloseIcon = props => {
+    const { height, width, fillColor, strokeColor, strokeWidth, onClick } = props;
+    
+    return <svg xmlns='http://www.w3.org/2000/svg' height={height} width={width} viewBox='0 0 24 24' onClick={onClick}>
+        <path fill={fillColor} stroke={strokeColor} strokeWidth={strokeWidth} d='M6 18L18 6M6 6l12 12' />
     </svg>;
+};
 
 export default CloseIcon;
+
+CloseIcon.defaultProps = {
+    height: '1.5rem',
+    width: '1.5rem',
+    fillColor: 'none',
+    strokeColor: '#fff',
+    strokeWidth: 1.5,
+};
