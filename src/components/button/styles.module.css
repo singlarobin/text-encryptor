@@ -1,18 +1,13 @@
-.buttonContainer {
-    text-align: center;
-    padding-top: 1.5rem;
-}
-
 button {
     background-color: var(--secondary-theme-color);
     color: var(--text-light);
     font-size: 1.25rem;
     border: none;
     outline: none;
+    box-shadow: none;
     border-radius: 0.25rem;
-    padding: 0.75rem 1rem;
-    transition: transform 1s;
-    transform: scale(1);
+    padding: 0.5rem 0.75rem;
+    transition: box-shadow 0.15s, background-color 0.15s;
 }
 
 button:hover {

@@ -3,6 +3,7 @@ import Input from '../input';
 import Select from '../select';
 import Button from '../button';
 import SnackBar from '../snackbar';
+import classes from './styles.module.css';
 import isEmptyString from '../../utils';
 import { selectOptions, severityOptions } from '../constants';
 
@@ -27,9 +28,16 @@ const Generate = () => {
     }, [inputTextVal, openSnackbar, validity]);
     
     return <div>
-        <Input inputTextVal={inputTextVal} handleInputTextChange={handleInputTextChange} />
+        <div className={classes.inputContainer}>
+            <Input inputTextVal={inputTextVal} handleInputTextChange={handleInputTextChange} 
+                placeholderValue='Enter Text' />
+        </div>
+        
         <Select handleValidityChange={handleValidityChange} />
-        <Button label='Encrypt' onClick={handleButtonClick} />
+        <div className={classes.buttonContainer}>
+            <Button onClick={handleButtonClick} > Encrypt </Button>
+        </div>
+        
         {openSnackbar && 
             <SnackBar message={snackbarMessage} severity={snackbarSeverity} handleClose={handleSnackbarClose}/>}
     </div>;

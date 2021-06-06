@@ -1,12 +1,12 @@
 import React from 'react';
-import classes from './styles.module.css';
+import './styles.module.css';
 
 const Button = React.memo(props => {
-    const { label, onClick } = props;
+    const { children, Style, onClick } = props;
 
-    return <div className={classes.buttonContainer}>
-        <button onClick={onClick}>{label}</button>
-    </div>;
+    return <button style={Style} onClick={onClick}>{children}</button>;
 });
 
 export default Button;
+
+Button.defaultProps = { style:{}, };
