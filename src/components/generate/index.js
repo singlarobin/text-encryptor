@@ -15,13 +15,10 @@ const Generate = () => {
 
     const handleInputTextChange = useCallback(value => setInputTextVal(value), [inputTextVal]);
     const handleValidityChange = useCallback(value => setValidity(value), [validity]);
-    const handleSnackbarClose = useCallback(() => {
-        //learTimeout(value);
-        setOpenSnackbar(false);
-    }, [openSnackbar]);
+    const handleSnackbarClose = useCallback(() => setOpenSnackbar(false), [openSnackbar]);
 
     const handleButtonClick = useCallback(() => {
-        const message= isEmptyString(inputTextVal)?'Please Enter text to Encrypt!' : `Text (${inputTextVal}) is Encrypted, valid for ${validity}.`;
+        const message= isEmptyString(inputTextVal)? 'Please Enter text to Encrypt!' : `Text (${inputTextVal}) is Encrypted, valid for ${validity}.`;
         const severity= isEmptyString(inputTextVal)? severityOptions.INFO : severityOptions.SUCCESS;
         setSnackbarMessage(message);
         setSnackbarSeverity(severity);
