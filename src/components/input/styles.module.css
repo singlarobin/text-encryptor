@@ -1,10 +1,10 @@
 .inputContainer {
     width: 70vw;
     height: 20vh;
-    margin:1.5rem auto;
+    margin: 1.5rem auto;
     background-color: var(--card-bg);
     box-shadow: var(--card-shadow-hover);
-    transition: box-shadow 0.2s ease-in-out, tranform 0.2s ease-in-out, background-color 0.5s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out, tranform 0.2s ease-in-out, background-color 0.2s ease-in-out;
     border-radius: 0.5rem;
 }
 

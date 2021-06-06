@@ -1,17 +1,17 @@
-import { useCallback } from 'react';
+import React from 'react';
 import classes from './styles.module.css';
-import { selectOptions } from '../utils/constants';
+import { selectOptions } from '../constants';
 
-const Select = props => {
+const Select = React.memo(props => {
     const { handleValidityChange } = props;
-    const handleChange= useCallback( e => handleValidityChange(e.target.value));
+    const handleChange= e => handleValidityChange(e.target.value);
     
     return <div className={classes.selectContainer}>
         <label> Valid for: </label>
         <select name='validity' onChange={handleChange}>
-            {selectOptions.map((obj, index) => (<option key={index} value={obj.name}>{obj.name}</option>))}
+            {Object.entries(selectOptions).map(([key, obj]) => <option key={key} value={obj.value}>{obj.name}</option>)}
         </select>
     </div>;
-};
+});
 
 export default Select;

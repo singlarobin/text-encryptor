@@ -1,13 +1,8 @@
 import classes from './styles.module.css';
-import { descriptionValue } from '../utils/constants';
+import { descriptionValue } from '../constants';
 
-const Description =() => {
-    return <div className={classes.descriptionContainer}>
-        <div className={classes.descriptionContent}>
-            {descriptionValue}
-        </div>
-
-    </div>;
+const Description = () => {
+    return <div className={classes.descriptionContainer}> {descriptionValue} </div>;
 };
 
 export default Description;

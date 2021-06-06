@@ -3,35 +3,38 @@ import Input from '../input';
 import Select from '../select';
 import Button from '../button';
 import SnackBar from '../snackbar';
-import { selectOptions, isEmptyString } from '../utils/constants';
+import isEmptyString from '../../utils';
+import { selectOptions, severityOptions } from '../constants';
 
 const Generate = () => {
     const [inputTextVal, setInputTextVal] = useState('');
-    const [validity, setValidity] = useState(selectOptions[0].name);
+    const [validity, setValidity] = useState(selectOptions['15_MIN'].name);
     const [openSnackbar, setOpenSnackbar]=useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState('');
-    const [snackbarSeverity, setSnackbarSeverity] = useState('');
+    const [snackbarSeverity, setSnackbarSeverity] = useState(severityOptions.INFO);
 
-    const handleInputTextChange = value => setInputTextVal(value);
-    const handleValidityChange = value => setValidity(value);
-    const handleSnackbarClose = () => setOpenSnackbar(false);
+    const handleInputTextChange = useCallback(value => setInputTextVal(value), [inputTextVal]);
+    const handleValidityChange = useCallback(value => setValidity(value), [validity]);
+    const handleSnackbarClose = useCallback(() => {
+        //learTimeout(value);
+        setOpenSnackbar(false);
+    }, [openSnackbar]);
 
     const handleButtonClick = useCallback(() => {
         const message= isEmptyString(inputTextVal)?'Please Enter text to Encrypt!' : `Text (${inputTextVal}) is Encrypted, valid for ${validity}.`;
-        const severity= isEmptyString(inputTextVal)?'info':'success';
+        const severity= isEmptyString(inputTextVal)? severityOptions.INFO : severityOptions.SUCCESS;
         setSnackbarMessage(message);
         setSnackbarSeverity(severity);
         setOpenSnackbar(true);
         handleInputTextChange('');
-    }, [inputTextVal]);
+    }, [inputTextVal, openSnackbar, validity]);
     
     return <div>
         <Input inputTextVal={inputTextVal} handleInputTextChange={handleInputTextChange} />
         <Select handleValidityChange={handleValidityChange} />
         <Button label='Encrypt' onClick={handleButtonClick} />
         {openSnackbar && 
-            <SnackBar message={snackbarMessage} severity={snackbarSeverity} 
-                handleInputTextChange={handleInputTextChange} handleClose={handleSnackbarClose}/>}
+            <SnackBar message={snackbarMessage} severity={snackbarSeverity} handleClose={handleSnackbarClose}/>}
     </div>;
 };
 

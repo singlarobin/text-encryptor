@@ -1,15 +1,13 @@
-import { useCallback } from 'react';
+import React from 'react';
 import classes from './styles.module.css';
 
-const Input = props => {
+const Input = React.memo( props => {
     const { inputTextVal, handleInputTextChange } = props;
-    const handleChange = useCallback(e => {
-        handleInputTextChange(e.target.value);
-    }, [inputTextVal]);
+    const handleChange = e => handleInputTextChange(e.target.value);
 
     return <div className={classes.inputContainer}>
         <textarea id='textArea' onChange={handleChange} placeholder="Enter Text" value={inputTextVal}/>
     </div>;
-};
+});
 
 export default Input;

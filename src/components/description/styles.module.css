@@ -1,10 +1,4 @@
 .descriptionContainer {
-    margin:0 auto;
-    background-color: var(--page-bg);
-}
-
-.descriptionContent {
-    text-align: justify;
     padding: 1rem 2rem;
     color: var(--text-obscure);
 }
