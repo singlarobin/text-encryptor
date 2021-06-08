@@ -6,7 +6,7 @@ import ErrorIcon from '../../assests/errorIcon';
 import InfoIcon from '../../assests/infoIcon';
 import SuccessIcon from '../../assests/successIcon';
 import WarningIcon from '../../assests/warningIcon';
-import { severityOptions } from '../constants';
+import { SEVERITY } from '../constants';
 
 const SnackBar = React.memo(props => {
     const { message, severity, handleClose } = props;
@@ -21,11 +21,11 @@ const SnackBar = React.memo(props => {
 
     const selectSeverityIcon = useMemo(() => {
         switch (severity) {
-        case severityOptions.INFO:
+        case SEVERITY.INFO:
             return <InfoIcon />;
-        case severityOptions.WARNING:
+        case SEVERITY.WARNING:
             return <WarningIcon />;
-        case severityOptions.ERROR:
+        case SEVERITY.ERROR:
             return <ErrorIcon/>;
         default:
             return <SuccessIcon />;
