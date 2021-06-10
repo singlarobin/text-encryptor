@@ -1,4 +1,4 @@
-textarea {
+.inputContent {
     width: inherit;
     height: inherit;
     color: var(--text-obscure);
@@ -11,6 +11,6 @@ textarea {
     resize: none;
 }
 
-textarea::placeholder {
+.inputContent::placeholder {
     opacity: 0.75;
 }

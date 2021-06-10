@@ -1,4 +1,4 @@
-button {
+.buttonContent {
     background-color: var(--secondary-theme-color);
     color: var(--text-light);
     font-size: 1.25rem;
@@ -10,7 +10,7 @@ button {
     transition: box-shadow 0.15s, background-color 0.15s;
 }
 
-button:hover {
+.buttonContent:hover {
     box-shadow: var(--card-shadow-hover);
     outline: none;
 }
