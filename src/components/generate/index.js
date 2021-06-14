@@ -4,7 +4,7 @@ import Select from '../select';
 import Button from '../button';
 import SnackBar from '../snackbar';
 import classes from './styles.module.css';
-import { isEmptyString } from '../../utils';
+import isEmptyString from '../../utils';
 import { VALID_FOR_OPTIONS, SEVERITY } from '../constants';
 
 const Generate = () => {

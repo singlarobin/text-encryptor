@@ -1,0 +1,18 @@
+.page {
+    width: inherit;
+    height: inherit;
+    overflow-x: hidden;
+    overflow-y: inherit;
+    position: relative;
+    background-color: var(--page-bg);
+    transition: background-color .5s ease-in-out,color .5s ease-in-out;
+}
+
+.iconContainer {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    z-index: 100;
+}
