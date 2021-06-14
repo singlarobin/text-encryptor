@@ -1,5 +1,3 @@
-import { convertToMilliSeconds } from '../../utils';
-
 const DESCRIPTION_VALUE = `Excepteur pariatur nulla in ulla
 mco aliqua ea cupidatat incididunt proident culpa sint non exercitation deserunt dolor. 
 Voluptate voluptate dolor reprehenderit laboris fugiat laboris consequat id ex ullamco ad duis elit. 
@@ -13,6 +11,21 @@ const TIME_UNIT = Object.freeze({
     HOUR: 'Hour',
     DAY : 'Day'
 });
+
+const convertToMilliSeconds = (name, value) => {
+    const minToMilliSec = 60*1000;
+    const hourToMilliSec = 60*minToMilliSec;
+    const dayToMilliSec = 24*hourToMilliSec;
+
+    switch(name){
+    case TIME_UNIT.MINUTE:
+        return value*minToMilliSec;
+    case TIME_UNIT.HOUR:
+        return value*hourToMilliSec;
+    case TIME_UNIT.DAY:
+        return value*dayToMilliSec;
+    }
+};
 
 const VALID_FOR_OPTIONS = Object.freeze({
     MIN_15 : { 'name': '15 Minute', 'value': convertToMilliSeconds(TIME_UNIT.MINUTE, 15) }, //Value is in milliseconds
