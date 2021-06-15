@@ -1,0 +1,17 @@
+.messageContainer {
+    width: 70vw;
+    height: 20vh;
+    margin: 1.5rem auto;
+    padding: 1rem;
+    color: var(--text-obscure);
+    word-wrap: break-word;
+    background-color: var(--card-bg);
+    box-shadow: var(--card-shadow-hover);
+    transition: box-shadow 0.2s ease-in-out, tranform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    border-radius: 0.5rem;
+}
+
+.buttonContainer {
+    text-align: center;
+    padding: 1.5rem;
+}

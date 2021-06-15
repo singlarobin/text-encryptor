@@ -1,17 +1,12 @@
 import './App.css';
 import Page from './components/page';
-import Header from './components/header';
-import Description from './components/description';
-import Generate from './components/generate';
-// import classes from '*.module.css';
+import Routing from './components/router';
 
 const App = () => {
 
     return <Page>
         <div className={'appContainer'}>
-            <Header/>
-            <Description/>
-            <Generate/>
+            <Routing/>
         </div>
     </Page>;
 };
