@@ -5,7 +5,6 @@ import Generate from '../generate';
 import Message from '../message';
 
 const Routing = () => {
-
     return <Router>
         <Header/>
         <Description/>

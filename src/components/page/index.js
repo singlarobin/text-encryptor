@@ -23,7 +23,10 @@ const Page = props => {
 
     return <div className={classes.page} >
         <div className={classes.iconContainer}>
-            <Button style={{ backgroundColor:darkMode ? '#0e202a':'#f7f7f7', color:'#868686' }}>
+            <Button style={{ 
+                backgroundColor:darkMode ? '#0e202a':'#f7f7f7', padding: '0rem', 
+                borderRadius: '0rem', 
+            }}>
                 <DarkModeIcon onClick={handleThemeChange}/>
             </Button>
         </div>
