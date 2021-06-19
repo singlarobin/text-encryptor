@@ -4,13 +4,13 @@ import { VALID_FOR_OPTIONS } from '../constants';
 
 const Select = React.memo(props => {
     const { handleValidityChange } = props;
-    const handleChange= e => handleValidityChange(e.target.value);
+    const handleChange= e =>  handleValidityChange(e.target.value);
     
     return <div className={classes.selectContainer}>
-        <label> Valid for: </label>
-        <select name='validity' onChange={handleChange}>
+        <label className={classes.selectLabel}> Valid for: </label>
+        <select className={classes.selectContent} name='validity' onChange={handleChange}>
             {Object.entries(VALID_FOR_OPTIONS).map(([key, obj]) => 
-                <option key={key} value={obj.value}>{obj.name}</option>)}
+                <option className={classes.selectOptions} key={key} value={obj.value}>{obj.name}</option>)}
         </select>
     </div>;
 });

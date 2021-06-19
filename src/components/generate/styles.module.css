@@ -1,24 +1,19 @@
-.inputContainer {
-    width: 70vw;
-    height: 20vh;
-    margin: 1rem auto;
-    background-color: var(--card-bg);
-    box-shadow: var(--card-shadow-hover);
-    transition: box-shadow 0.2s ease-in-out, tranform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-    border-radius: 0.5rem;
-}
-
 .buttonContainer {
     text-align: center;
     padding: 1rem;
 }
 
 .urlContainer {
-    margin: 1rem 3rem;
+    width : 70vw;
+    margin: 1rem auto;
     padding: 1rem;
-    word-wrap: break-word;
+    color: var(--text);
     background-color: var(--card-bg);
+    font-size: 1.25rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    word-wrap: break-word;
     box-shadow: var(--card-shadow-hover);
     transition: box-shadow 0.2s ease-in-out, tranform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-    border-radius: 0.5rem;
+    
 }

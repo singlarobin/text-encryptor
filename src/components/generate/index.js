@@ -3,14 +3,17 @@ import Input from '../input';
 import Select from '../select';
 import Button from '../button';
 import SnackBar from '../snackbar';
+import Error from '../error';
 import classes from './styles.module.css';
 import isEmptyString from '../../utils';
 import { VALID_FOR_OPTIONS, SEVERITY } from '../constants';
 
 const Generate = () => {
     const [inputTextVal, setInputTextVal] = useState('');
+    const [inputSecretKey, setInputSecretKey] = useState('');
     const [validity, setValidity] = useState(VALID_FOR_OPTIONS.MIN_15.value);
     const [openSnackbar, setOpenSnackbar] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const [snackbarSeverity, setSnackbarSeverity] = useState(SEVERITY.INFO);
     const [url, setUrl] = useState('');
@@ -18,34 +21,41 @@ const Generate = () => {
     const [error, setError] = useState(false);
 
     const handleInputTextChange = useCallback(value => setInputTextVal(value), [inputTextVal]);
+    const handleInputSecretKeyChange = useCallback(value => setInputSecretKey(value), [inputSecretKey]);
     const handleValidityChange = useCallback(value => setValidity(value), [validity]);
     const handleSnackbarClose = useCallback(() => setOpenSnackbar(false), [openSnackbar]);
+    const handleRedirectToHome = useCallback(() => setUrl(''));
 
-    const handleButtonClick = useCallback(() => {
-        const message= isEmptyString(inputTextVal)? 'Please Enter text to Encrypt!' : 'Successfully Encrypted!';
-        const severity= isEmptyString(inputTextVal)? SEVERITY.INFO : SEVERITY.SUCCESS;
+    const handleEncryption = useCallback(() => {
+        const message= (isEmptyString(inputTextVal) || isEmptyString(inputSecretKey)) &&
+            'Missing either Text to Encrypt or Secret Key!';
+        const severity= (isEmptyString(inputTextVal) || isEmptyString(inputSecretKey)) && SEVERITY.INFO;
         setSnackbarMessage(message);
         setSnackbarSeverity(severity);
-        setOpenSnackbar(true);
-        if(!isEmptyString(inputTextVal)){
+        setOpenSnackbar(!isEmptyString(message));
+        if(!isEmptyString(inputTextVal) && !isEmptyString(inputSecretKey)){
             makePostRequest();
         }
         handleInputTextChange('');
-    }, [inputTextVal, openSnackbar]);
+    }, [inputTextVal, inputSecretKey, openSnackbar]);
 
     const makePostRequest = useCallback(() => {
         fetch('http://localhost:5050/api/v1/messages', {
             method: 'POST', 
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ content: inputTextVal, validFor: validity })
+            body: JSON.stringify({ 
+                content: inputTextVal, 
+                validFor: validity, 
+                secretKey: inputSecretKey
+            })
         })
             .then(res => res.json())
             .then(result => {
-                //console.log(result);
-                setUrl(result.url);
+                setErrorMessage('message' in result? result.message : '');
+                setUrl('message' in result? '': result.data.url);
             });
 
-    }, [inputTextVal, validity]);
+    }, [inputTextVal, inputSecretKey, validity]);
 
     const handleUrlCopy = () => {
         if(isEmptyString(url)) return;
@@ -73,20 +83,24 @@ const Generate = () => {
     }; 
 
     return  <Fragment>
-        {isEmptyString(url) ? <Fragment>
-            <div className={classes.inputContainer}>
-                <Input inputTextVal={inputTextVal} handleInputTextChange={handleInputTextChange} 
-                    placeholderValue='Enter Text' />
-            </div>
-            <Select handleValidityChange={handleValidityChange} />
-            <div className={classes.buttonContainer}>
-                <Button onClick={handleButtonClick} > Encrypt </Button>
-            </div>
+        {!isEmptyString(errorMessage)? <Fragment>
+            <Error message={errorMessage}/>
         </Fragment> : <Fragment>
-            <div className={classes.urlContainer} id='urlElement'> {url} </div>
-            <div className={classes.buttonContainer}>
-                <Button onClick={handleUrlCopy}> Cop{urlCopied?'ied!':'y'}  </Button>
-            </div>
+            {isEmptyString(url) ? <Fragment>
+                <Input inputVal={inputTextVal} handleInputChange={handleInputTextChange} 
+                    placeholderValue='Enter Text' rows={4} />
+                <Input inputVal={inputSecretKey} handleInputChange={handleInputSecretKeyChange}
+                    placeholderValue='Enter Secret Key' rows={1} style={{ marginTop:'0rem' }}/>
+                <Select handleValidityChange={handleValidityChange} />
+                <Button onClick={handleEncryption} 
+                    style={{ margin: '1rem', padding: '0.5rem 0.75rem' }} > Encrypt </Button>
+            </Fragment> : <Fragment>
+                <p className={classes.urlContainer}> {url} </p>
+                <Button onClick={handleUrlCopy} 
+                    style={{ margin: '1rem', padding: '0.25rem 0.5rem' }}>Cop{urlCopied?'ied!':'y'}</Button>
+                <Button onClick={handleRedirectToHome} 
+                    style={{ margin: '1rem', padding: '0.25rem 0.5rem' }}>Create New Message</Button>
+            </Fragment>}
         </Fragment>}
         {openSnackbar && 
             <SnackBar message={snackbarMessage} severity={snackbarSeverity} handleClose={handleSnackbarClose}/>}

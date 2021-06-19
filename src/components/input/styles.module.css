@@ -1,15 +1,16 @@
 .inputContent {
-    width: inherit;
-    height: inherit;
+    width: 70vw;
+    margin: 1rem auto;
+    padding: 1rem;
     color: var(--text);
     background-color: var(--card-bg);
-    padding: 1rem;
-    font-weight: 500;
-    font-size: 1.25rem;;
-    border: none;
+    font-size: 1.25rem;
     border-radius: 0.5rem;
+    border: none;
     outline: none;
     resize: none;
+    box-shadow: var(--card-shadow-hover);
+    transition: box-shadow 0.2s ease-in-out, tranform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .inputContent::placeholder {
