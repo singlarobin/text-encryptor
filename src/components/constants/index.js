@@ -6,6 +6,8 @@ Minim ut commodo exercitation deserunt sunt qui proident culpa ad ex tempor aliq
 Et ullamco deserunt minim adipisicing et est dolor.
 `;
 
+const getMessageUrl = 'http://localhost:5050/api/v1/messages/';
+
 const TIME_UNIT = Object.freeze({
     MINUTE : 'Minute',
     HOUR: 'Hour',
@@ -46,6 +48,7 @@ const SEVERITY = Object.freeze({
 
 export {
     DESCRIPTION_VALUE,
+    getMessageUrl,
     TIME_UNIT,
     VALID_FOR_OPTIONS,
     SEVERITY

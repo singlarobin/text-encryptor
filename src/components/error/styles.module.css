@@ -1,0 +1,14 @@
+.errorContent {
+    width: 70vw;
+    height: 20vh;
+    font-size: 1.25rem;
+    font-weight: 500;
+    word-wrap: break-word;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    color: var(--text);
+    background-color: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.2s ease-in-out, tranform 0.2s ease-in-out, background-color 0.2s ease-in-out;;
+}
