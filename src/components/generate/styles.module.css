@@ -17,3 +17,8 @@
     transition: box-shadow 0.2s ease-in-out, tranform 0.2s ease-in-out, background-color 0.2s ease-in-out;
     
 }
+
+.urlContainer:hover {
+    text-decoration: underline;
+    opacity: 0.75;
+}

@@ -25,6 +25,11 @@ const Generate = () => {
     const handleValidityChange = useCallback(value => setValidity(value), [validity]);
     const handleSnackbarClose = useCallback(() => setOpenSnackbar(false), [openSnackbar]);
     const handleRedirectToHome = useCallback(() => setUrl(''));
+    const openInNewTab = useCallback(() => {
+        const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+        if (newWindow) newWindow.opener = null;
+    }, [url]);
+      
 
     const handleEncryption = useCallback(() => {
         const message= (isEmptyString(inputTextVal) || isEmptyString(inputSecretKey)) &&
@@ -95,7 +100,7 @@ const Generate = () => {
                 <Button onClick={handleEncryption} 
                     style={{ margin: '1rem', padding: '0.5rem 0.75rem' }} > Encrypt </Button>
             </Fragment> : <Fragment>
-                <p className={classes.urlContainer}> {url} </p>
+                <p className={classes.urlContainer} onClick={openInNewTab}> {url} </p>
                 <Button onClick={handleUrlCopy} 
                     style={{ margin: '1rem', padding: '0.25rem 0.5rem' }}>Cop{urlCopied?'ied!':'y'}</Button>
                 <Button onClick={handleRedirectToHome} 
