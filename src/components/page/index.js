@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Button from '../button';
+import IconButton from '../iconButton';
 import classes from './styles.module.css';
 import DarkModeIcon from '../../assests/darkModeIcon';
 import { themes, getTheme, setTheme } from '../../utils/theme';
@@ -22,14 +22,15 @@ const Page = props => {
     };
 
     return <div className={classes.page} >
-        <div className={classes.iconContainer}>
-            <Button style={{ 
-                backgroundColor:darkMode ? '#0e202a':'#f7f7f7', padding: '0rem', 
-                borderRadius: '0rem', 
-            }}>
-                <DarkModeIcon onClick={handleThemeChange}/>
-            </Button>
-        </div>
+        <IconButton style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            position: 'absolute', 
+            top:'8px', 
+            right:'8px' 
+        }}>
+            <DarkModeIcon onClick={handleThemeChange}/>
+        </IconButton>
         {props.children}
 
     </div>;

@@ -5,6 +5,7 @@ import Button from '../button';
 import Input from '../input';
 import SnackBar from '../snackbar';
 import Error from '../error';
+import Loader from '../loader';
 import isEmptyString from '../../utils';
 import { SEVERITY } from '../constants';
 import { getMessageUrl } from '../constants';
@@ -12,6 +13,7 @@ import { getMessageUrl } from '../constants';
 const Message = props => {
     const { id } =useParams();
     const [url, setUrl] = useState(getMessageUrl);
+    const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [decryptMessage, setDecryptMessage] = useState(''); 
     const [inputSecretKey, setInputSecretKey] = useState('');
@@ -23,52 +25,51 @@ const Message = props => {
         fetch(url+id)
             .then(response => response.json())
             .then(result => {
-                setErrorMessage(result.data? '': result.message);
-                setUrl(url+id+'/decrypt');
+                console.log(result);
+                setErrorMessage(result.hasOwnProperty('message')? result.message : '');
+                setUrl(!result.hasOwnProperty('message') ? url+id+'/decrypt': url);
             });
-    }, [errorMessage]);
+    }, []);
 
     const handleInputSecretKeyChange = useCallback( value => setInputSecretKey(value), [inputSecretKey]);
     const handleSnackbarClose = useCallback(() => setOpenSnackbar(false), [openSnackbar]);
-
+    const handleRedirectToHome = useCallback(() => props.history.push('/'));
+    
     const handleDecryption = useCallback(() => { 
         const message = isEmptyString(inputSecretKey)?  'Missing Secret Key!':'';
         const severity = isEmptyString(inputSecretKey) && SEVERITY.INFO;
-        // console.log('message: ', message);
         if(!isEmptyString(message)){
             setSnackbarMessage(message);
             setSnackbarSeverity(severity);
             setOpenSnackbar(true);
         }
         else{
-            //setUrl(url+'?secretKey='+inputSecretKey);
             makeGetRequest();
         }
     });
 
     const makeGetRequest = useCallback(() => {
-        //console.log('1');
-        fetch(url+'/'+inputSecretKey)
+        setLoading(true);
+        fetch(url+'?secretKey='+inputSecretKey)
             .then(response => response.json())
             .then(result => {
+                setLoading(false);
                 console.log(result);
-                setErrorMessage('message' in result? result.message: '');
-
-                //setErrorMessage(result.message)
-                //const { data, content } =result.data;
-                //console.log('data', result.data);
-                //console.log('result.message: ', isEmptyString(result.message));
-                //setDecryptMessage(!isEmptyString(content) && content);
+                setErrorMessage(result.hasOwnProperty('message') ? result.message: '');
+                if(!result.hasOwnProperty('message')){
+                    if(result.data.hasOwnProperty('data') || result.data.hasOwnProperty('content')){
+                        setDecryptMessage(result.data.hasOwnProperty('data')? result.data.data: result.data.content);
+                    }
+                    else{
+                        setErrorMessage(result.data);
+                    }
+                }
             });
     });
 
-    const handleRedirectToHome = useCallback(() => props.history.push('/'));
-
     return <Fragment>
         {!isEmptyString(errorMessage)? <Fragment>
-            <Error message={errorMessage}/>
-            <Button onClick={handleRedirectToHome} 
-                style={{ margin: '1rem', padding: '0.25rem 0.5rem' }}>Create New Message</Button>
+            <Error message={errorMessage} />
         </Fragment> : <Fragment>
             {isEmptyString(decryptMessage)? <Fragment>
                 <Input inputVal={ inputSecretKey} placeholderValue='Enter Secret Key' rows={1} 
@@ -78,8 +79,9 @@ const Message = props => {
             </Fragment> : <Fragment>
                 <p className={classes.messageContainer}> {decryptMessage} </p>
                 <Button onClick={handleRedirectToHome} 
-                    style={{ margin: '1rem', padding: '0.25rem 0.5rem' }}>Create New Message</Button>
+                    style={{ margin: '1rem', padding: '0.5rem 0.75rem' }}>Create New Message </Button>
             </Fragment>}
+            <Loader loading={loading} />
             {openSnackbar && 
             <SnackBar message={snackbarMessage} severity={snackbarSeverity} handleClose={handleSnackbarClose}/>}
         </Fragment>}

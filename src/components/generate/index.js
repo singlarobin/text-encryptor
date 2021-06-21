@@ -4,6 +4,7 @@ import Select from '../select';
 import Button from '../button';
 import SnackBar from '../snackbar';
 import Error from '../error';
+import Loader from '../loader';
 import classes from './styles.module.css';
 import isEmptyString from '../../utils';
 import { VALID_FOR_OPTIONS, SEVERITY } from '../constants';
@@ -12,6 +13,7 @@ const Generate = () => {
     const [inputTextVal, setInputTextVal] = useState('');
     const [inputSecretKey, setInputSecretKey] = useState('');
     const [validity, setValidity] = useState(VALID_FOR_OPTIONS.MIN_15.value);
+    const[loading, setLoading] = useState(false);
     const [openSnackbar, setOpenSnackbar] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [snackbarMessage, setSnackbarMessage] = useState('');
@@ -24,13 +26,11 @@ const Generate = () => {
     const handleInputSecretKeyChange = useCallback(value => setInputSecretKey(value), [inputSecretKey]);
     const handleValidityChange = useCallback(value => setValidity(value), [validity]);
     const handleSnackbarClose = useCallback(() => setOpenSnackbar(false), [openSnackbar]);
-    const handleRedirectToHome = useCallback(() => setUrl(''));
     const openInNewTab = useCallback(() => {
         const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
         if (newWindow) newWindow.opener = null;
     }, [url]);
       
-
     const handleEncryption = useCallback(() => {
         const message= (isEmptyString(inputTextVal) || isEmptyString(inputSecretKey)) &&
             'Missing either Text to Encrypt or Secret Key!';
@@ -45,6 +45,7 @@ const Generate = () => {
     }, [inputTextVal, inputSecretKey, openSnackbar]);
 
     const makePostRequest = useCallback(() => {
+        setLoading(true);
         fetch('http://localhost:5050/api/v1/messages', {
             method: 'POST', 
             headers: { 'Content-Type': 'application/json' },
@@ -56,6 +57,7 @@ const Generate = () => {
         })
             .then(res => res.json())
             .then(result => {
+                setLoading(false);
                 setErrorMessage('message' in result? result.message : '');
                 setUrl('message' in result? '': result.data.url);
             });
@@ -104,9 +106,10 @@ const Generate = () => {
                 <Button onClick={handleUrlCopy} 
                     style={{ margin: '1rem', padding: '0.25rem 0.5rem' }}>Cop{urlCopied?'ied!':'y'}</Button>
                 <Button onClick={handleRedirectToHome} 
-                    style={{ margin: '1rem', padding: '0.25rem 0.5rem' }}>Create New Message</Button>
+                    style={{ margin: '1rem', padding: '0.5rem 0.75rem' }}>Create New Message</Button>
             </Fragment>}
         </Fragment>}
+        <Loader loading={loading}/>
         {openSnackbar && 
             <SnackBar message={snackbarMessage} severity={snackbarSeverity} handleClose={handleSnackbarClose}/>}
     </Fragment>;  

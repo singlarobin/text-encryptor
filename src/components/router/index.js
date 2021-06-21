@@ -3,6 +3,7 @@ import Header from '../header';
 import Description from '../description';
 import Generate from '../generate';
 import Message from '../message';
+import Error from '../error';
 
 const Routing = () => {
     return <Router>
@@ -11,6 +12,7 @@ const Routing = () => {
         <Switch>
             <Route exact path='/' component={Generate} />
             <Route exact path='/messages/:id' component={Message} />
+            <Route path='*' component={Error} />
         </Switch>
     </Router>;
 };
