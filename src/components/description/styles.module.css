@@ -12,9 +12,7 @@
 }
 
 .content {
-    height: 20vh;
     width: 70vw;
-    overflow-y: auto;
     margin: 0.5rem;
     font-size: 1rem;
     color: var(--text);

@@ -1,16 +1,18 @@
-import { Fragment, useCallback } from 'react';
+import { Fragment } from 'react';
 import classes from './styles.module.css';
 import Button from '../button';
 
 const Error = props => {
-    const { message } = props;
-    const handleRedirectToHome = useCallback(() => props.history.push('/'));
-
+    const { message, status, buttonLabel, onClick } = props;
+    
     return <Fragment>
         <p className={classes.errorContent}>{message}</p>
-        <Button onClick={handleRedirectToHome} 
-            style={{ margin: '1rem', padding: '0.5rem 0.75rem' }}>Back To Home Page</Button>
+        {typeof(onClick) === 'function'&&  
+        <Button onClick={onClick} 
+            style={{ margin: '1rem', padding: '0.5rem 0.75rem' }}>{buttonLabel}</Button>}
+       
     </Fragment>;
+};
 
 export default Error;
 

@@ -4,6 +4,7 @@ import Select from '../select';
 import Button from '../button';
 import SnackBar from '../snackbar';
 import Loader from '../loader';
+import Error from '../error';
 import classes from './styles.module.css';
 import isEmptyString from '../../utils';
 import { VALID_FOR_OPTIONS, SEVERITY } from '../constants';
@@ -15,6 +16,7 @@ const Generate = () => {
     const [loading, setLoading] = useState(false);
     const [openSnackbar, setOpenSnackbar] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const [errorStatus, setErrorStatus] = useState('');
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const [snackbarSeverity, setSnackbarSeverity] = useState(SEVERITY.INFO);
     const [url, setUrl] = useState('');
@@ -27,6 +29,7 @@ const Generate = () => {
     const handleSnackbarClose = useCallback(() => setOpenSnackbar(false), [openSnackbar]);
     const handleRedirectToHome = useCallback(() => {
         setErrorMessage('');
+        setErrorStatus('');
         setUrl('');
     }, [errorMessage, url]);
 
@@ -64,6 +67,7 @@ const Generate = () => {
             .then(result => {
                 setLoading(false);
                 setErrorMessage(result.error !== null? result.error.message : '');
+                setErrorStatus(result.error !== null? result.status : '');
                 setUrl(result.data !== null? result.data.url : url);
             });
 
@@ -96,9 +100,7 @@ const Generate = () => {
 
     return  <Fragment>
         {!isEmptyString(errorMessage)? <Fragment>
-            <p className={classes.errorContent}>{errorMessage}</p>
-            <Button onClick={handleRedirectToHome} 
-                style={{ margin: '1rem', padding: '0.5rem 0.75rem' }}>Create New Message</Button>
+            <Error message={errorMessage} status={errorStatus} buttonLabel={`Create New Message`} onClick={handleRedirectToHome}/>
         </Fragment> : <Fragment>
             {isEmptyString(url) ? <Fragment>
                 <Input inputVal={inputTextVal} handleInputChange={handleInputTextChange} 

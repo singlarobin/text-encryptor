@@ -5,6 +5,7 @@ import Button from '../button';
 import Input from '../input';
 import SnackBar from '../snackbar';
 import Loader from '../loader';
+import Error from '../error';
 import isEmptyString from '../../utils';
 import { SEVERITY } from '../constants';
 import { getMessageUrl } from '../constants';
@@ -14,6 +15,7 @@ const Message = props => {
     const [url, setUrl] = useState(getMessageUrl);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const [errorStatus, setErrorStatus] = useState('');
     const [decryptMessage, setDecryptMessage] = useState(''); 
     const [inputSecretKey, setInputSecretKey] = useState('');
     const [openSnackbar, setOpenSnackbar] = useState(false);
@@ -25,6 +27,7 @@ const Message = props => {
             .then(response => response.json())
             .then(result => {
                 setErrorMessage(result.error !== null? result.error.message : '');
+                setErrorStatus(result.error !== null? result.status : '');
                 setUrl(result.data !== null? url+id+'/decrypt' : url);
             });
     }, []);
@@ -53,15 +56,14 @@ const Message = props => {
             .then(result => {
                 setLoading(false);
                 setErrorMessage(result.error !== null? result.error.message : '');
+                setErrorStatus(result.error !== null? result.status : '');
                 setDecryptMessage(result.data !== null? result.data.message : '');
             });
     });
 
     return <Fragment>
         {!isEmptyString(errorMessage)? <Fragment>
-            <p className={classes.messageContent}>{errorMessage}</p>
-            <Button onClick={handleRedirectToHome} 
-                style={{ margin: '1rem', padding: '0.5rem 0.75rem' }}>Create New Message</Button>
+            <Error message={errorMessage} status={errorStatus} buttonLabel={`Create New Message`} onClick={handleRedirectToHome}/>
         </Fragment> : <Fragment>
             {isEmptyString(decryptMessage)? <Fragment>
                 <Input inputVal={ inputSecretKey} placeholderValue='Enter Secret Key' rows={1} 
