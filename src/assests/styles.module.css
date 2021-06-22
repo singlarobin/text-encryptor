@@ -2,3 +2,10 @@
     filter: brightness(200%);
     transition: background-color .5s ease-in-out,color .5s ease-in-out;
 }
+
+.expandIconRotate {
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}

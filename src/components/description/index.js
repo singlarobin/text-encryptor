@@ -1,24 +1,27 @@
 import classes from './styles.module.css';
 import { DESCRIPTION_VALUE } from '../constants';
+import IconButton from '../iconButton';
 import ExpandIcon from '../../assests/expandIcon';
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 
 const Description = () => {
     const [showContent, setShowContent] = useState(false);
 
     const handleShowContent = () => setShowContent(!showContent);
 
-    return <div className={classes.descriptionContainer}>
+    return <Fragment>
         <div className={classes.heading}>
             <div className={classes.label}>
                 How it Works?
             </div>
-            <ExpandIcon onClick={handleShowContent}/>
+            <IconButton style={{ padding: '0rem' }}>
+                <ExpandIcon onClick={handleShowContent}/>
+            </IconButton>
         </div>
         {showContent && <p className={classes.content}>
             {DESCRIPTION_VALUE} 
         </p>}
-    </div>;
+    </Fragment>;
 };
 
 export default Description;
