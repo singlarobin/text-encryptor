@@ -5,13 +5,12 @@ import Button from '../button';
 const Error = props => {
     const { message } = props;
     const handleRedirectToHome = useCallback(() => props.history.push('/'));
-    
+
     return <Fragment>
         <p className={classes.errorContent}>{message}</p>
         <Button onClick={handleRedirectToHome} 
-            style={{ margin: '1rem', padding: '0.5rem 0.75rem' }}>Create New Message</Button>
+            style={{ margin: '1rem', padding: '0.5rem 0.75rem' }}>Back To Home Page</Button>
     </Fragment>;
-};
 
 export default Error;
 

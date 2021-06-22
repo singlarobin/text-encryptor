@@ -4,14 +4,13 @@ import { useParams } from 'react-router-dom';
 import Button from '../button';
 import Input from '../input';
 import SnackBar from '../snackbar';
-import Error from '../error';
 import Loader from '../loader';
 import isEmptyString from '../../utils';
 import { SEVERITY } from '../constants';
 import { getMessageUrl } from '../constants';
 
 const Message = props => {
-    const { id } =useParams();
+    const { id } = useParams();
     const [url, setUrl] = useState(getMessageUrl);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
@@ -25,9 +24,8 @@ const Message = props => {
         fetch(url+id)
             .then(response => response.json())
             .then(result => {
-                console.log(result);
-                setErrorMessage(result.hasOwnProperty('message')? result.message : '');
-                setUrl(!result.hasOwnProperty('message') ? url+id+'/decrypt': url);
+                setErrorMessage(result.error !== null? result.error.message : '');
+                setUrl(result.data !== null? url+id+'/decrypt' : url);
             });
     }, []);
 
@@ -54,22 +52,16 @@ const Message = props => {
             .then(response => response.json())
             .then(result => {
                 setLoading(false);
-                console.log(result);
-                setErrorMessage(result.hasOwnProperty('message') ? result.message: '');
-                if(!result.hasOwnProperty('message')){
-                    if(result.data.hasOwnProperty('data') || result.data.hasOwnProperty('content')){
-                        setDecryptMessage(result.data.hasOwnProperty('data')? result.data.data: result.data.content);
-                    }
-                    else{
-                        setErrorMessage(result.data);
-                    }
-                }
+                setErrorMessage(result.error !== null? result.error.message : '');
+                setDecryptMessage(result.data !== null? result.data.message : '');
             });
     });
 
     return <Fragment>
         {!isEmptyString(errorMessage)? <Fragment>
-            <Error message={errorMessage} />
+            <p className={classes.messageContent}>{errorMessage}</p>
+            <Button onClick={handleRedirectToHome} 
+                style={{ margin: '1rem', padding: '0.5rem 0.75rem' }}>Create New Message</Button>
         </Fragment> : <Fragment>
             {isEmptyString(decryptMessage)? <Fragment>
                 <Input inputVal={ inputSecretKey} placeholderValue='Enter Secret Key' rows={1} 
@@ -77,7 +69,7 @@ const Message = props => {
                 <Button onClick={handleDecryption} 
                     style={{ margin: '1rem', padding:'0.5rem 0.75rem' }}> Decrypt </Button>
             </Fragment> : <Fragment>
-                <p className={classes.messageContainer}> {decryptMessage} </p>
+                <p className={classes.messageContent}> {decryptMessage} </p>
                 <Button onClick={handleRedirectToHome} 
                     style={{ margin: '1rem', padding: '0.5rem 0.75rem' }}>Create New Message </Button>
             </Fragment>}

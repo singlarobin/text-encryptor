@@ -10,9 +10,9 @@ const Routing = () => {
         <Header/>
         <Description/>
         <Switch>
-            <Route exact path='/' component={Generate} />
-            <Route exact path='/messages/:id' component={Message} />
-            <Route path='*' component={Error} />
+            <Route exact path='/' component={Generate}/>
+            <Route exact path='/messages/:id' component={Message}/>
+            <Route path='*' component={Error}/>
         </Switch>
     </Router>;
 };

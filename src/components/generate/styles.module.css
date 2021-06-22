@@ -3,10 +3,12 @@
     padding: 1rem;
 }
 
-.urlContainer {
+.urlContent {
     width : 70vw;
+    height: 20vh;
     margin: 1rem auto;
     padding: 1rem;
+    overflow-y: auto;
     color: var(--text);
     background-color: var(--card-bg);
     font-size: 1.25rem;
@@ -15,10 +17,25 @@
     word-wrap: break-word;
     box-shadow: var(--card-shadow-hover);
     transition: box-shadow 0.2s ease-in-out, tranform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-    
 }
 
-.urlContainer:hover {
+.urlContent:hover {
     text-decoration: underline;
     opacity: 0.75;
+}
+
+.errorContent {
+    width : 70vw;
+    height: 20vh;
+    margin: 1rem auto;
+    padding: 1rem;
+    overflow-y: auto;
+    color: var(--text);
+    background-color: var(--card-bg);
+    font-size: 1.25rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    word-wrap: break-word;
+    box-shadow: var(--card-shadow-hover);
+    transition: box-shadow 0.2s ease-in-out, tranform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
