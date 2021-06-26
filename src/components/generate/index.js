@@ -31,7 +31,7 @@ const Generate = () => {
         setErrorMessage('');
         setErrorStatus('');
         setUrl('');
-    }, [errorMessage, url]);
+    }, [errorMessage, url, errorStatus]);
 
     const openInNewTab = useCallback(() => {
         const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
@@ -40,12 +40,12 @@ const Generate = () => {
     
     const handleEncryption = useCallback(() => {
         const message= (isEmptyString(inputTextVal) || isEmptyString(inputSecretKey)) &&
-            'Missing either Text to Encrypt or Secret Key!';
+            'Missing either Text to Encrypt or Secret Key!' ;
         const severity= (isEmptyString(inputTextVal) || isEmptyString(inputSecretKey)) && SEVERITY.INFO;
         setSnackbarMessage(message);
         setSnackbarSeverity(severity);
         setOpenSnackbar(!isEmptyString(message));
-        if(!isEmptyString(inputTextVal) && !isEmptyString(inputSecretKey)){
+        if(isEmptyString(message)){
             makePostRequest();
         }
         handleInputTextChange('');
@@ -73,7 +73,7 @@ const Generate = () => {
 
     }, [inputTextVal, inputSecretKey, validity]);
 
-    const handleUrlCopy = () => {
+    const handleUrlCopy = useCallback(() => {
         if(isEmptyString(url)) return;
         let textArea = document.createElement('textarea');
         textArea.value = url;
@@ -92,11 +92,10 @@ const Generate = () => {
             setSnackbarSeverity(SEVERITY.ERROR);
             setOpenSnackbar(true);
         }
-
         document.body.removeChild(textArea);        
         setUrlCopied(true);
         setTimeout(() => setUrlCopied(false), 2000);
-    }; 
+    }, [url]); 
 
     return  <Fragment>
         {!isEmptyString(errorMessage)? <Fragment>

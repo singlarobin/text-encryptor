@@ -34,20 +34,18 @@ const Message = props => {
 
     const handleInputSecretKeyChange = useCallback( value => setInputSecretKey(value), [inputSecretKey]);
     const handleSnackbarClose = useCallback(() => setOpenSnackbar(false), [openSnackbar]);
-    const handleRedirectToHome = useCallback(() => props.history.push('/'));
+    const handleRedirectToHome = useCallback(() => props.history.replace('/'), []);
     
     const handleDecryption = useCallback(() => { 
-        const message = isEmptyString(inputSecretKey)?  'Missing Secret Key!':'';
+        const message = isEmptyString(inputSecretKey) && 'Missing Secret Key!';
         const severity = isEmptyString(inputSecretKey) && SEVERITY.INFO;
-        if(!isEmptyString(message)){
-            setSnackbarMessage(message);
-            setSnackbarSeverity(severity);
-            setOpenSnackbar(true);
-        }
-        else{
+        setSnackbarMessage(message);
+        setSnackbarSeverity(severity);
+        setOpenSnackbar(!isEmptyString(message));
+        if(isEmptyString(message)){
             makeGetRequest();
         }
-    });
+    }, [inputSecretKey]);
 
     const makeGetRequest = useCallback(() => {
         setLoading(true);
@@ -59,7 +57,7 @@ const Message = props => {
                 setErrorStatus(result.error !== null? result.status : '');
                 setDecryptMessage(result.data !== null? result.data.message : '');
             });
-    });
+    }, [url, inputSecretKey]);
 
     return <Fragment>
         {!isEmptyString(errorMessage)? <Fragment>

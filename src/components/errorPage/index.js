@@ -6,7 +6,7 @@ const ErrorPage = props => {
     const status='404';
     const message = 'Page Not Found!';
     const buttonName='Back To Home Page';
-    const handleRedirectToHome = useCallback(() => props.history.push('/'));
+    const handleRedirectToHome = useCallback(() => props.history.replace('/'));
     
     return <Error message={message} status={status} buttonLabel={buttonName} onClick={handleRedirectToHome}/>;
 };

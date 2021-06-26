@@ -16,3 +16,15 @@
     text-align: center;
     padding: 1.5rem;
 }
+
+@media screen and (min-width: 600px) {
+    .messageContent {
+        width: 60vw;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .messageContent {
+        width: 50vw;
+    }
+}

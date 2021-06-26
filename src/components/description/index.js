@@ -10,15 +10,15 @@ const Description = () => {
     const handleShowContent = () => setShowContent(!showContent);
 
     return <Fragment>
-        <div className={classes.heading}>
-            <div className={classes.label}>
+        <div className={classes.descriptionContainer}>
+            <div className={classes.descriptionLabel}>
                 How it Works?
             </div>
             <IconButton style={{ padding: '0rem' }}>
                 <ExpandIcon onClick={handleShowContent}/>
             </IconButton>
         </div>
-        {showContent && <p className={classes.content}>
+        {showContent && <p className={classes.descriptionContent}>
             {DESCRIPTION_VALUE} 
         </p>}
     </Fragment>;

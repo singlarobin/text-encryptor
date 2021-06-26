@@ -26,8 +26,9 @@ const Page = props => {
             display: 'flex', 
             alignItems: 'center', 
             position: 'absolute', 
-            top:'8px', 
-            right:'8px' 
+            top:'16px', 
+            right:'16px', 
+            padding :'0rem'
         }}>
             <DarkModeIcon onClick={handleThemeChange}/>
         </IconButton>

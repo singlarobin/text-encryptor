@@ -11,6 +11,5 @@
 
 .buttonContent:hover {
     box-shadow: var(--card-shadow-hover);
-    outline: none;
 }
 

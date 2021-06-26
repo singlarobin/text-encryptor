@@ -3,7 +3,6 @@
     height: inherit;
     overflow-x: hidden;
     overflow-y: inherit;
-    position: relative;
     background-color: var(--page-bg);
     transition: background-color .5s ease-in-out,color .5s ease-in-out;
 }

@@ -8,5 +8,3 @@ const Button = React.memo(props => {
 });
 
 export default Button;
-
-Button.defaultProps = { style:{}, };

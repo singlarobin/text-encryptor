@@ -17,3 +17,15 @@
     opacity: 0.75;
     color: var(--text);
 }
+
+@media screen and (min-width: 600px) {
+    .inputContent {
+        width: 60vw;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .inputContent {
+        width: 50vw;
+    }
+}

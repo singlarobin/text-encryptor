@@ -23,3 +23,15 @@
     text-decoration: underline;
     opacity: 0.75;
 }
+
+@media screen and (min-width: 600px) {
+    .urlContent {
+        width: 60vw;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .urlContent {
+        width: 50vw;
+    }
+}
