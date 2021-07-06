@@ -1,28 +1,18 @@
 import { useCallback } from 'react';
-import classes from './styles.module.css';
 
 const ExpandIcon = props => {
-    const { height, width, fill, strokeColor, strokeWidth, strokeLinecap, strokeLinejoin, onClick } = props;
+    const { height, width, fill, strokeColor, strokeWidth, strokeLinecap, strokeLinejoin, style, onClick } = props;
 
     const handleClick = useCallback(() => {
-        var iconClasses = document.getElementById('expandIcon').classList;
-        if(iconClasses.contains(classes.expandIconRotate)){
-            iconClasses.remove(classes.expandIconRotate);
-        }
-        else{
-            iconClasses.add(classes.expandIconRotate);   
-        }
-        onClick();
+        if (typeof (onClick) === 'function') onClick();
     });
 
-    return <svg xmlns="http://www.w3.org/2000/svg" id='expandIcon' height={height} width={width} viewBox="0 0 24 24" 
-        onClick={handleClick} fill={fill} stroke={strokeColor} strokeWidth={strokeWidth} 
+    return <svg xmlns="http://www.w3.org/2000/svg" id='expandIcon' style={style} height={height} width={width}
+        viewBox="0 0 24 24" onClick={handleClick} fill={fill} stroke={strokeColor} strokeWidth={strokeWidth}
         strokeLinecap={strokeLinecap} strokeLinejoin={strokeLinejoin}>
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-        <line x1="7" y1="21" x2="7" y2="3" />
-        <path d="M20 18l-3 3l-3 -3" />
-        <path d="M4 18l3 3l3 -3" />
-        <line x1="17" y1="21" x2="17" y2="3" />
+        <path stroke="none" d="M0 0h24v24H0z" />
+        <polyline points="7 7 12 12 17 7" />
+        <polyline points="7 13 12 18 17 13" />
     </svg>;
 };
 
@@ -32,7 +22,7 @@ ExpandIcon.defaultProps = {
     height: '1rem',
     width: '1rem',
     fill: 'none',
-    strokeColor: '#888',
+    strokeColor: '#0e202a',
     strokeWidth: 1.5,
     strokeLinecap: 'round',
     strokeLinejoin: 'round'

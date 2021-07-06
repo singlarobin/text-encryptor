@@ -1,26 +1,28 @@
 .errorContent {
-    width: 70vw;
+    width: 80vw;
+    max-width: 700px;
     height: 20vh;
-    font-size: 1.25rem;
+    font-size: 0.9rem;
     font-weight: 500;
     word-wrap: break-word;
-    margin: 1rem auto;
-    padding: 1rem;
+    margin: 1rem auto 0.75rem;
+    padding: 0.75rem;
     border-radius: 0.5rem;
     color: var(--text);
     background-color: var(--card-bg);
     box-shadow: var(--card-shadow);
-    transition: box-shadow 0.2s ease-in-out, tranform 0.2s ease-in-out, background-color 0.2s ease-in-out;;
+    transition: box-shadow 0.2s ease-in-out, tranform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width:550px) {
     .errorContent {
-        width: 60vw;
+        width: 75vw;
     }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1000px) {
     .errorContent {
-        width: 50vw;
+        width: 65vw;
+        padding: 1rem;
     }
 }

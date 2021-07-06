@@ -1,17 +1,23 @@
+.container {
+    width: 80vw;
+    max-width: 700px;
+}
+
 .buttonContainer {
     text-align: center;
     padding: 1rem;
 }
 
 .urlContent {
-    width : 70vw;
+    width: 80vw;
+    max-width: 700px;
     height: 20vh;
-    margin: 1rem auto;
-    padding: 1rem;
+    margin: 1rem auto 0.75rem;
+    padding: 0.75rem;
     overflow-y: auto;
     color: var(--text);
     background-color: var(--card-bg);
-    font-size: 1.25rem;
+    font-size: 0.9rem;
     font-weight: 500;
     border-radius: 0.5rem;
     word-wrap: break-word;
@@ -21,17 +27,28 @@
 
 .urlContent:hover {
     text-decoration: underline;
-    opacity: 0.75;
+    opacity: 0.5;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 550px) {
     .urlContent {
-        width: 60vw;
+        width: 75vw;
+    }
+
+    .container {
+        display: flex;
+        width: 75vw;
     }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1000px) {
     .urlContent {
-        width: 50vw;
+        width: 65vw;
+        padding: 1rem;
+    }
+
+    .container {
+        display: flex;
+        width: 65vw;
     }
 }

@@ -1,6 +1,7 @@
 .headerContent {
     font-size: 4rem;
     font-weight: 700;
+    line-height: 3.9rem;
     letter-spacing: -0.25px;
     text-shadow: 12px 12px 2px rgba(0, 0, 0, 0.15);
     color: var(--theme-color);

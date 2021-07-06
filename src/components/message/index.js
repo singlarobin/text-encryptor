@@ -67,11 +67,11 @@ const Message = props => {
                 <Input inputVal={ inputSecretKey} placeholderValue='Enter Secret Key' rows={1} 
                     handleInputChange={handleInputSecretKeyChange} />
                 <Button onClick={handleDecryption} 
-                    style={{ margin: '1rem', padding:'0.5rem 0.75rem' }}> Decrypt </Button>
+                    style={{ margin: '0rem auto', padding:'0.5rem 0.75rem' }}> Decrypt </Button>
             </Fragment> : <Fragment>
                 <p className={classes.messageContent}> {decryptMessage} </p>
                 <Button onClick={handleRedirectToHome} 
-                    style={{ margin: '1rem', padding: '0.5rem 0.75rem' }}>Create New Message </Button>
+                    style={{ margin: '0rem auto', padding: '0.5rem 0.75rem' }}>Create New Message </Button>
             </Fragment>}
             <Loader loading={loading} />
             {openSnackbar && 

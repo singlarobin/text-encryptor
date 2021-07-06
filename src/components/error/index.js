@@ -9,7 +9,7 @@ const Error = props => {
         <p className={classes.errorContent}>{message}</p>
         {typeof(onClick) === 'function'&&  
         <Button onClick={onClick} 
-            style={{ margin: '1rem', padding: '0.5rem 0.75rem' }}>{buttonLabel}</Button>}
+            style={{ margin: '0rem auto', padding: '0.5rem 0.75rem' }}>{buttonLabel}</Button>}
        
     </Fragment>;
 };

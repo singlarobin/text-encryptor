@@ -16,6 +16,6 @@ DarkModeIcon.defaultProps = {
     height: '1.5rem',
     width: '1.5rem',
     fill: 'none',
-    stroke: '#666',
+    stroke: '#f7f7f7',
     strokeWidth: 1.5,
 };
