@@ -64,10 +64,6 @@
         width: 10rem;
     }
 
-    .selectListContainer {
-        left: 1.3rem;
-    }
-
     .selectListItem {
         width: 10rem;
     }
@@ -80,6 +76,5 @@
 
     .selectListContainer {
         top: 3.7rem;
-        left: 1.3rem;
     }
 }
