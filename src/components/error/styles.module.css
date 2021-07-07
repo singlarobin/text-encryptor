@@ -1,28 +1,47 @@
-.errorContent {
+.errorContainer {
     width: 80vw;
     max-width: 550px;
     height: 20vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0rem auto 0.75rem;
+    transition: tranform 0.2s ease-in-out;
+}
+
+.errorStatus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -3rem;
+    margin-left: -7rem;
+    font-size: 8rem;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 5.9rem;
+    opacity: 0.15;
+    color: var(--text-obscurer);
+}
+
+.errorContent {
+    position: absolute;
     font-size: 0.9rem;
+    line-height: 1.2rem;
     font-weight: 500;
     word-wrap: break-word;
-    margin: 1rem auto 0.75rem;
-    padding: 0.75rem;
-    border-radius: 0.5rem;
+    text-align: center;
     color: var(--text);
-    background-color: var(--card-bg);
-    box-shadow: var(--card-shadow);
-    transition: box-shadow 0.2s ease-in-out, tranform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 @media screen and (min-width:550px) {
-    .errorContent {
+    .errorContainer {
         width: 75vw;
     }
 }
 
 @media screen and (min-width: 1000px) {
-    .errorContent {
+    .errorContainer {
         width: 65vw;
-        padding: 1rem;
     }
 }
