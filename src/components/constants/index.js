@@ -4,34 +4,34 @@ mco aliqua ea cupidatat incididunt proident culpa sint non exercitation deserunt
 const getMessageUrl = 'http://localhost:5050/api/v1/messages/';
 
 const TIME_UNIT = Object.freeze({
-    MINUTE : 'Minute',
+    MINUTE: 'Minute',
     HOUR: 'Hour',
-    DAY : 'Day'
+    DAY: 'Day'
 });
 
 const convertToMilliSeconds = (name, value) => {
-    const minToMilliSec = 60*1000;
-    const hourToMilliSec = 60*minToMilliSec;
-    const dayToMilliSec = 24*hourToMilliSec;
+    const minToMilliSec = 60 * 1000;
+    const hourToMilliSec = 60 * minToMilliSec;
+    const dayToMilliSec = 24 * hourToMilliSec;
 
-    switch(name){
+    switch (name) {
     case TIME_UNIT.MINUTE:
-        return value*minToMilliSec;
+        return value * minToMilliSec;
     case TIME_UNIT.HOUR:
-        return value*hourToMilliSec;
+        return value * hourToMilliSec;
     case TIME_UNIT.DAY:
-        return value*dayToMilliSec;
+        return value * dayToMilliSec;
     }
 };
 
 const VALID_FOR_OPTIONS = Object.freeze({
-    MIN_15 : { 'name': '15 Minutes', 'value': convertToMilliSeconds(TIME_UNIT.MINUTE, 15) }, //Value is in milliseconds
-    MIN_30 : { 'name': '30 Minutes', 'value': convertToMilliSeconds(TIME_UNIT.MINUTE, 30) },
-    HOUR_1 : { 'name': '1 Hour', 'value': convertToMilliSeconds(TIME_UNIT.HOUR, 1) }, 
-    HOUR_3 : { 'name': '3 Hours', 'value': convertToMilliSeconds(TIME_UNIT.HOUR, 3) },
-    HOUR_6 : { 'name': '6 Hours', 'value': convertToMilliSeconds(TIME_UNIT.HOUR, 6) },
-    HOUR_12 : { 'name': '12 Hours', 'value': convertToMilliSeconds(TIME_UNIT.HOUR, 12) },
-    DAY_1 : { 'name': '1 Day', 'value':  convertToMilliSeconds(TIME_UNIT.DAY, 1) } 
+    MIN_15: { 'name': '15 Minutes', 'value': convertToMilliSeconds(TIME_UNIT.MINUTE, 15) }, //Value is in milliseconds
+    MIN_30: { 'name': '30 Minutes', 'value': convertToMilliSeconds(TIME_UNIT.MINUTE, 30) },
+    HOUR_1: { 'name': '1 Hour', 'value': convertToMilliSeconds(TIME_UNIT.HOUR, 1) },
+    HOUR_3: { 'name': '3 Hours', 'value': convertToMilliSeconds(TIME_UNIT.HOUR, 3) },
+    HOUR_6: { 'name': '6 Hours', 'value': convertToMilliSeconds(TIME_UNIT.HOUR, 6) },
+    HOUR_12: { 'name': '12 Hours', 'value': convertToMilliSeconds(TIME_UNIT.HOUR, 12) },
+    DAY_1: { 'name': '1 Day', 'value': convertToMilliSeconds(TIME_UNIT.DAY, 1) }
 });
 
 const SEVERITY = Object.freeze({

@@ -1,4 +1,4 @@
-import isEmptyString from './index';
+import { isEmptyString } from './index';
 
 export const themes = Object.freeze({
     DARK: 'dark',

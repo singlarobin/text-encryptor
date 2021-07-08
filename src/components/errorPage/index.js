@@ -3,12 +3,12 @@ import Error from '../error';
 import { useCallback } from 'react';
 
 const ErrorPage = props => {
-    const status='404';
+    const status = '404';
     const message = 'Page Not Found!';
-    const buttonName='Back To Home Page';
+    const buttonName = 'Home';
     const handleRedirectToHome = useCallback(() => props.history.replace('/'));
-    
-    return <Error message={message} status={status} buttonLabel={buttonName} onClick={handleRedirectToHome}/>;
+
+    return <Error message={message} status={status} buttonLabel={buttonName} onClick={handleRedirectToHome} />;
 };
 
 export default ErrorPage;

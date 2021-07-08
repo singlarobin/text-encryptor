@@ -1,5 +1,5 @@
 .messageContent {
-    width: 80vw;
+    width: 70vw;
     max-width: 550px;
     height: 20vh;
     margin: 1rem auto 0.75rem;
@@ -13,15 +13,15 @@
     border-radius: 0.5rem;
 }
 
-@media screen and (min-width: 550px) {
+@media screen and (min-width: 768px) {
     .messageContent {
-        width: 75vw;
+        width: 60vw;
     }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1024px) {
     .messageContent {
-        width: 65vw;
+        width: 50vw;
         padding: 1rem;
     }
 }

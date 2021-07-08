@@ -7,12 +7,12 @@ import ErrorPage from '../errorPage';
 
 const Routing = () => {
     return <Router>
-        <Header/>
-        <Description/>
+        <Header />
+        <Description />
         <Switch>
-            <Route exact path='/' component={Generate}/>
-            <Route exact path='/messages/:id' component={Message}/>
-            <Route path='*' component={ErrorPage}/>
+            <Route exact path='/' component={Generate} />
+            <Route exact path='/messages/:id' component={Message} />
+            <Route path='*' component={ErrorPage} />
         </Switch>
     </Router>;
 };

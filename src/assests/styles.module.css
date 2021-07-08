@@ -1,3 +1,27 @@
+.close {
+    cursor: pointer;
+}
+
+.close:hover {
+    filter: brightness(70%);
+}
+
+.darkMode {
+    cursor: pointer;
+}
+
 .darkMode:hover {
-    filter: brightness(200%);
+    filter: brightness(70%);
+}
+
+.expand {
+    cursor: pointer;
+}
+
+.lightMode {
+    cursor: pointer;
+}
+
+.lightMode:hover {
+    filter: brightness(30%);
 }

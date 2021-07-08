@@ -4,13 +4,12 @@ import Button from '../button';
 
 const Error = props => {
     const { message, status, buttonLabel, onClick } = props;
-    
+
     return <Fragment>
         <p className={classes.errorContent}>{message}</p>
-        {typeof(onClick) === 'function'&&  
-        <Button onClick={onClick} 
-            style={{ margin: '0rem auto', padding: '0.5rem 0.75rem' }}>{buttonLabel}</Button>}
-       
+        {typeof (onClick) === 'function' &&
+            <Button onClick={onClick}
+                style={{ margin: '0rem auto', padding: '0.5rem 0.75rem' }}>{buttonLabel}</Button>}
     </Fragment>;
 };
 

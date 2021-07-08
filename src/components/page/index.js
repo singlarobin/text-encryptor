@@ -20,7 +20,7 @@ const Page = props => {
         const currTheme = getTheme();
         setDarkMode(currTheme === themes.DARK ? false : true);
         setTheme(currTheme === themes.DARK ? themes.LIGHT : themes.DARK);
-        if (typeof (props.shouldComponentUpdate) === 'function') props.shouldComponentUpdate(new Date().getTime());
+        if (typeof props.shouldComponentUpdate === 'function') props.shouldComponentUpdate(new Date().getTime());
     };
 
     return <div className={classes.page} >
