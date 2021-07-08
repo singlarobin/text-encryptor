@@ -6,7 +6,7 @@ const Error = props => {
     const { message, status, buttonLabel, onClick } = props;
 
     return <Fragment>
- <div className={classes.errorContainer}>
+        <div className={classes.errorContainer}>
             <div className={classes.errorStatus}>{status}</div>
             <div className={classes.errorContent}>
                 {message}
