@@ -12,18 +12,13 @@ const Description = () => {
 
     return <div className={classes.descriptionContainer}>
         <div className={classes.descriptionHeading}>
-            <div className={classes.descriptionLabel}>
-                How it Works?
-            </div>
+            <div className={classes.descriptionLabel}>How it Works?</div>
             <IconButton style={{ padding: '0rem' }}>
                 <ExpandIcon strokeColor={themed('#0e202a', '#f7f7f7')}
-                    style={{ transform: showContent ? 'rotate(180deg)' : 'rotate(0)', }}
-                    onClick={handleShowContent} />
+                    style={{ transform: showContent ? 'rotate(180deg)' : 'rotate(0)', }} onClick={handleShowContent} />
             </IconButton>
         </div>
-        {showContent && <p className={classes.descriptionContent}>
-            {DESCRIPTION_VALUE}
-        </p>}
+        {showContent && <p className={classes.descriptionContent}>{DESCRIPTION_VALUE}</p>}
     </div>;
 };
 

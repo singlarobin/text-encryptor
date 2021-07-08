@@ -4,5 +4,5 @@
     overflow-x: hidden;
     overflow-y: inherit;
     background-color: var(--page-bg);
-    transition: background-color .5s ease-in-out,color .5s ease-in-out;
+    transition: background-color .5s ease-in-out, color .5s ease-in-out;
 }

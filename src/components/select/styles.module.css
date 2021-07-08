@@ -19,6 +19,7 @@
     font-size: 0.9rem;
     font-family: inherit;
     flex-grow: 1;
+    width: 10rem;
     color: var(--text);
     background-color: var(--card-bg);
     outline: none;
@@ -34,12 +35,13 @@
 
 .selectListContainer {
     position: absolute;
-    top: 3.3rem;
-    left: 1.3rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 12%);
 }
 
 .selectListItem {
-    width: 70vw;
+    width: 60vw;
     font-size: 0.9rem;
     font-family: inherit;
     color: var(--text);
@@ -51,30 +53,21 @@
 }
 
 .selectListItem:hover {
-    filter: brightness(50%);
+    filter: brightness(90%);
 }
 
-@media screen and (min-width: 550px) {
-    .selectContainer {
-        margin-left: 1rem;
-        margin-bottom: 0rem;
-    }
-
-    .selectInput {
-        width: 10rem;
-    }
-
+@media screen and (min-width: 768px) {
     .selectListItem {
         width: 10rem;
     }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1024px) {
     .selectContent {
         padding: 1rem;
     }
 
     .selectListContainer {
-        top: 3.7rem;
+        transform: translate(-50%, 14%);
     }
 }

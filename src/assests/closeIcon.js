@@ -1,9 +1,13 @@
+import classes from './styles.module.css';
+
 const CloseIcon = props => {
     const { height, width, fillColor, strokeColor, strokeWidth, onClick } = props;
-    
-    return <svg xmlns='http://www.w3.org/2000/svg' height={height} width={width} viewBox='0 0 24 24' onClick={onClick}>
-        <path fill={fillColor} stroke={strokeColor} strokeWidth={strokeWidth} d='M6 18L18 6M6 6l12 12' />
-    </svg>;
+
+    return <div className={classes.close} onClick={onClick}>
+        <svg xmlns='http://www.w3.org/2000/svg' height={height} width={width} viewBox='0 0 24 24'>
+            <path fill={fillColor} stroke={strokeColor} strokeWidth={strokeWidth} d='M6 18L18 6M6 6l12 12' />
+        </svg>
+    </div>;
 };
 
 export default CloseIcon;

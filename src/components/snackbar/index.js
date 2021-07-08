@@ -27,7 +27,7 @@ const SnackBar = React.memo(props => {
         case SEVERITY.WARNING:
             return <WarningIcon />;
         case SEVERITY.ERROR:
-            return <ErrorIcon/>;
+            return <ErrorIcon />;
         default:
             return <SuccessIcon />;
         }
@@ -36,20 +36,18 @@ const SnackBar = React.memo(props => {
     return <div className={classes.snackbarContainer}>
         <IconButton style={{
             backgroundColor: 'blue',
-            padding :'0rem'
+            padding: '0rem'
         }}>
             {selectSeverityIcon}
         </IconButton>
-        <div className={classes.message}>
-            {message}
-        </div>
+        <div className={classes.message}> {message} </div>
         <IconButton style={{
             backgroundColor: 'blue',
-            padding :'0rem'
+            padding: '0rem'
         }}>
             <CloseIcon onClick={snackbarClose} />
         </IconButton>
-        
+
     </div>;
 });
 

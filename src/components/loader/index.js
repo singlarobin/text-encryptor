@@ -4,8 +4,8 @@ import { Fragment } from 'react';
 const Loader = props => {
     const { loading } = props;
     return <Fragment>
-        {loading?<div className={classes.loader} />
-            :null}
+        {loading ? <div className={classes.loader} />
+            : null}
     </Fragment>;
 };
 
