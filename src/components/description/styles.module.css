@@ -7,13 +7,14 @@
 .descriptionHeading {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .descriptionLabel {
     font-size: 1.25rem;
     font-weight: 600;
     color: var(--secondary-theme-color);
+    transition: color 0.2s ease-in-out,
 }
 
 .descriptionContent {
@@ -21,7 +22,7 @@
     font-size: 0.75rem;
     color: var(--text);
     word-wrap: break-word;
-    transition: tranform 0.2s ease-in-out,
+    transition: color 0.2s ease-in-out,
 }
 
 @media screen and (min-width: 768px) {

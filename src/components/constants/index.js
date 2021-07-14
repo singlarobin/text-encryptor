@@ -1,7 +1,7 @@
 const DESCRIPTION_VALUE = `Excepteur pariatur nulla in ulla
 mco aliqua ea cupidatat incididunt proident culpa sint non exercitation deserunt dolor.`;
 
-const getMessageUrl = 'http://localhost:5050/api/v1/messages/';
+const MESSAGE_API_URL = 'http://localhost:5050/api/v1/messages/';
 
 const TIME_UNIT = Object.freeze({
     MINUTE: 'Minute',
@@ -43,7 +43,7 @@ const SEVERITY = Object.freeze({
 
 export {
     DESCRIPTION_VALUE,
-    getMessageUrl,
+    MESSAGE_API_URL,
     TIME_UNIT,
     VALID_FOR_OPTIONS,
     SEVERITY

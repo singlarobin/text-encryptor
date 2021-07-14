@@ -7,7 +7,7 @@ import Loader from '../loader';
 import Error from '../error';
 import classes from './styles.module.css';
 import { isEmptyString, copyText } from '../../utils';
-import { SEVERITY } from '../constants';
+import { SEVERITY, MESSAGE_API_URL } from '../constants';
 
 const Generate = () => {
     const [inputTextVal, setInputTextVal] = useState('');
@@ -23,7 +23,7 @@ const Generate = () => {
     const [url, setUrl] = useState('');
     const [urlCopied, setUrlCopied] = useState(false);
 
-    useEffect(() => fetchResult && sendNewMessageRequest(), [fetchResult]);
+
 
     const handleInputTextChange = useCallback(value => setInputTextVal(value), []);
     const handleInputSecretKeyChange = useCallback(value => setInputSecretKey(value), []);
@@ -48,13 +48,19 @@ const Generate = () => {
         setSnackbarSeverity(severity);
         setOpenSnackbar(!isEmptyString(message));
         setFetchResult(isEmptyString(message) ? true : false);
+        useAsyncExec();
     }, [inputTextVal, inputSecretKey, validity]);
+
+    const useAsyncExec = () => {
+        setTimeout(() => {
+            handleInputTextChange('');
+            handleInputSecretKeyChange('');
+        }, 0);
+    };
 
     const sendNewMessageRequest = useCallback(() => {
         setLoading(true);
-        handleInputTextChange('');
-        handleInputSecretKeyChange('');
-        fetch('http://localhost:5050/api/v1/messages', {
+        fetch(MESSAGE_API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -67,12 +73,16 @@ const Generate = () => {
             .then(result => {
                 setLoading(false);
                 setFetchResult(false);
-                setErrorMessage(result.error !== null ? result.error.message : '');
-                setErrorStatus(result.error !== null ? result.status : '');
-                setUrl(result.data !== null ? result.data.url : url);
+                setErrorMessage(result.error?.message || '');
+                setErrorStatus(result.error ? result.status : '');
+                setUrl(result.data?.url || '');
+                // handleInputTextChange('');
+                // handleInputSecretKeyChange('');
             });
 
     }, [inputTextVal, inputSecretKey, validity]);
+
+    useEffect(() => fetchResult && sendNewMessageRequest(), [fetchResult, sendNewMessageRequest]);
 
     const handleUrlCopy = useCallback(() => {
         if (isEmptyString(url)) return;
@@ -94,15 +104,15 @@ const Generate = () => {
                             style={{ marginTop: '0rem' }} />
                         <Select validity={validity} handleValidityChange={handleValidityChange} />
                     </div>
-                    <Button onClick={handleEncryption} style={{ margin: '0 auto', padding: '0.5rem 0.75rem' }}>
+                    <Button onClick={handleEncryption} style={{ margin: '1rem auto', padding: '0.5rem 0.75rem' }}>
                         Encrypt
                     </Button>
                 </Fragment> : <Fragment>
                     <p className={classes.urlContent} onClick={openInNewTab}> {url} </p>
-                    <Button onClick={handleUrlCopy} style={{ margin: '0 auto 0.75rem', padding: '0.25rem 0.5rem' }}>
+                    <Button onClick={handleUrlCopy} style={{ margin: '0 auto', padding: '0.25rem 0.5rem' }}>
                         Cop{urlCopied ? 'ied!' : 'y'}
                     </Button>
-                    <Button onClick={handleRedirectToHome} style={{ margin: '0 auto', padding: '0.5rem 0.75rem' }}>
+                    <Button onClick={handleRedirectToHome} style={{ margin: '1rem auto', padding: '0.5rem 0.75rem' }}>
                         Create Message
                     </Button>
                 </Fragment>}

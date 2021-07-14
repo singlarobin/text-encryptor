@@ -12,7 +12,7 @@
     outline: none;
     border: none;
     box-shadow: var(--card-shadow-hover);
-    transition: box-shadow 0.2s ease-in-out, tranform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 
 .selectInput {
@@ -25,12 +25,13 @@
     outline: none;
     border: none;
     resize: none;
-    transition: tranform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 
 .selectInput::placeholder {
     opacity: 0.5;
     color: var(--text);
+    transition: color 0.5s ease-in-out;
 }
 
 .selectListContainer {
@@ -38,6 +39,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, 12%);
+    transition: transform 0.5s ease-in-out;
 }
 
 .selectListItem {
@@ -50,6 +52,7 @@
     outline: none;
     border: none;
     box-shadow: none;
+    transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 
 .selectListItem:hover {

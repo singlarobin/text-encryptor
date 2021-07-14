@@ -8,11 +8,11 @@ import Loader from '../loader';
 import Error from '../error';
 import { isEmptyString } from '../../utils';
 import { SEVERITY } from '../constants';
-import { getMessageUrl } from '../constants';
+import { MESSAGE_API_URL } from '../constants';
 
 const Message = props => {
     const { id } = useParams();
-    const [url, setUrl] = useState(getMessageUrl);
+    const [url, setUrl] = useState(MESSAGE_API_URL);
     const [loading, setLoading] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [errorStatus, setErrorStatus] = useState('');
@@ -28,13 +28,11 @@ const Message = props => {
         fetch(url + id)
             .then(response => response.json())
             .then(result => {
-                setErrorMessage(result.error !== null ? result.error.message : '');
-                setErrorStatus(result.error !== null ? result.status : '');
-                setUrl(result.data !== null ? url + id + '/decrypt' : url);
+                setErrorMessage(result.error?.message || '');
+                setErrorStatus(result.error ? result.status : '');
+                setUrl(result.data ? url + id + '/decrypt' : url);
             });
     }, []);
-
-    useEffect(() => fetchResult && fetchMessage(), [fetchResult]);
 
     const handleInputSecretKeyChange = useCallback(value => setInputSecretKey(value), []);
     const handleSnackbarClose = useCallback(() => setOpenSnackbar(false), []);
@@ -55,27 +53,29 @@ const Message = props => {
             .then(response => response.json())
             .then(result => {
                 setLoading(false);
-                setErrorMessage(result.error !== null ? result.error.message : '');
-                setErrorStatus(result.error !== null ? result.status : '');
-                setDecryptMessage(result.data !== null ? result.data.message : '');
+                setErrorMessage(result.error?.message || '');
+                setErrorStatus(result.error ? result.status : '');
+                setDecryptMessage(result.data?.message || '');
             });
     }, [url, inputSecretKey]);
 
+    useEffect(() => fetchResult && fetchMessage(), [fetchResult, fetchMessage]);
+
     return <Fragment>
         {!isEmptyString(errorMessage) ? <Fragment>
-            <Error message={errorMessage} status={errorStatus} buttonLabel={`Create New Message`} onClick={handleRedirectToHome} />
+            <Error message={errorMessage} status={errorStatus} buttonLabel={`Create Message`} onClick={handleRedirectToHome} />
         </Fragment> : <Fragment>
             {isEmptyString(decryptMessage) ? <Fragment>
                 <Input inputVal={inputSecretKey} placeholderValue='Enter Secret Key' rows={1}
                     handleInputChange={handleInputSecretKeyChange} />
                 <Button onClick={handleDecryption}
-                    style={{ margin: '0rem auto', padding: '0.5rem 0.75rem' }}>
+                    style={{ margin: '1rem auto', padding: '0.5rem 0.75rem' }}>
                     Decrypt
                 </Button>
             </Fragment> : <Fragment>
                 <p className={classes.messageContent}> {decryptMessage} </p>
                 <Button onClick={handleRedirectToHome}
-                    style={{ margin: '0rem auto', padding: '0.5rem 0.75rem' }}>
+                    style={{ margin: '1rem auto', padding: '0.5rem 0.75rem' }}>
                     Create Message
                 </Button>
             </Fragment>}

@@ -11,8 +11,7 @@
 .urlContent {
     width: 70vw;
     max-width: 550px;
-    height: 20vh;
-    margin: 1rem auto 0.75rem;
+    margin: 1rem auto 2.25rem;
     padding: 0.75rem;
     overflow-y: auto;
     color: var(--text);
@@ -22,7 +21,7 @@
     border-radius: 0.5rem;
     word-wrap: break-word;
     box-shadow: var(--card-shadow-hover);
-    transition: box-shadow 0.2s ease-in-out, tranform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    transition: box-shadow 0.5s ease-in-out, color 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 
 .urlContent:hover {

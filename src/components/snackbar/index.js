@@ -40,12 +40,14 @@ const SnackBar = React.memo(props => {
         }}>
             {selectSeverityIcon}
         </IconButton>
-        <div className={classes.message}> {message} </div>
-        <IconButton style={{
-            backgroundColor: 'blue',
-            padding: '0rem'
-        }}>
-            <CloseIcon onClick={snackbarClose} />
+        <div className={classes.message}>{message}</div>
+        <IconButton onClick={snackbarClose}
+            style={{
+                backgroundColor: 'blue',
+                padding: '0rem',
+                cursor: 'pointer',
+            }}>
+            <CloseIcon />
         </IconButton>
 
     </div>;

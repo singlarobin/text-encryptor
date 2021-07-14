@@ -13,26 +13,28 @@ const Page = props => {
 
     const loadTheme = () => {
         const currTheme = getTheme();
-        setDarkMode(currTheme === themes.DARK ? true : false);
+        setDarkMode(currTheme === themes.DARK);
         setTheme(currTheme);
     };
     const handleThemeChange = () => {
         const currTheme = getTheme();
-        setDarkMode(currTheme === themes.DARK ? false : true);
+        setDarkMode(currTheme !== themes.DARK );
         setTheme(currTheme === themes.DARK ? themes.LIGHT : themes.DARK);
         if (typeof props.shouldComponentUpdate === 'function') props.shouldComponentUpdate(new Date().getTime());
     };
 
     return <div className={classes.page} >
-        <IconButton style={{
-            display: 'flex',
-            alignItems: 'center',
-            position: 'absolute',
-            top: '16px',
-            right: '16px',
-            padding: '0rem'
-        }}>
-            {darkMode ? <DarkModeIcon onClick={handleThemeChange} /> : <LightModeIcon onClick={handleThemeChange} />}
+        <IconButton onClick={handleThemeChange}
+            style={{
+                display: 'flex',
+                alignItems: 'center',
+                position: 'absolute',
+                top: '16px',
+                right: '16px',
+                padding: '0rem',
+                cursor: 'pointer',
+            }}>
+            {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
         </IconButton>
         {props.children}
     </div>;

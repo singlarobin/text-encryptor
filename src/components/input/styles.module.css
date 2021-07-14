@@ -12,12 +12,13 @@
     outline: none;
     resize: none;
     box-shadow: var(--card-shadow-hover);
-    transition: box-shadow 0.2s ease-in-out, tranform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 .inputContent::placeholder {
     opacity: 0.5;
     color: var(--text);
+    transition: color 0.5s ease-in-out;
 }
 
 @media screen and (min-width: 768px) {
@@ -30,9 +31,6 @@
 
 @media screen and (min-width: 1024px) {
     .inputContent {
-        width: 50vw;
-        flex-grow: 1;
         padding: 1rem;
-        font-size: 1rem;
     }
 }
