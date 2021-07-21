@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useMemo, useEffect } from 'react';
 import classes from './styles.module.css';
 import IconButton from '../iconButton';
@@ -8,12 +8,13 @@ import InfoIcon from '../../assests/infoIcon';
 import SuccessIcon from '../../assests/successIcon';
 import WarningIcon from '../../assests/warningIcon';
 import { SEVERITY } from '../constants';
+import useAsyncExec from '../../hooks/useAsyncExec';
 
-const SnackBar = React.memo(props => {
+const SnackBar = props => {
     const { message, severity, handleClose } = props;
     const [timer, setTimer] = useState(0);
 
-    useEffect(() => setTimer(setTimeout(handleClose, 3000)), []);
+    useEffect(() => setTimer(useAsyncExec(handleClose, 3000)), []);
 
     const snackbarClose = () => {
         clearTimeout(timer);
@@ -34,23 +35,16 @@ const SnackBar = React.memo(props => {
     }, [severity]);
 
     return <div className={classes.snackbarContainer}>
-        <IconButton style={{
-            backgroundColor: 'blue',
-            padding: '0rem'
-        }}>
-            {selectSeverityIcon}
-        </IconButton>
+        {selectSeverityIcon}
         <div className={classes.message}>{message}</div>
-        <IconButton onClick={snackbarClose}
+        <IconButton  onClick={snackbarClose}
             style={{
-                backgroundColor: 'blue',
                 padding: '0rem',
                 cursor: 'pointer',
             }}>
             <CloseIcon />
         </IconButton>
-
     </div>;
-});
+};
 
 export default SnackBar;

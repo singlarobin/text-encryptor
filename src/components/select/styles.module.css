@@ -1,6 +1,7 @@
 .selectContainer {
     margin: 0rem auto 0.75rem;
     position: relative;
+    width: 70vw;
 }
 
 .selectContent {
@@ -9,8 +10,6 @@
     background-color: var(--card-bg);
     padding: 0.75rem;
     border-radius: 0.5rem;
-    outline: none;
-    border: none;
     box-shadow: var(--card-shadow-hover);
     transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
@@ -19,7 +18,7 @@
     font-size: 0.9rem;
     font-family: inherit;
     flex-grow: 1;
-    width: 10rem;
+    width: 50vw;
     color: var(--text);
     background-color: var(--card-bg);
     outline: none;
@@ -36,14 +35,16 @@
 
 .selectListContainer {
     position: absolute;
-    top: 50%;
+    top: 120%;
     left: 50%;
-    transform: translate(-50%, 12%);
+    width: 60vw;
+    transform: translateX(-50%);
     transition: transform 0.5s ease-in-out;
+    cursor: pointer;
+    border-radius: 0.5rem;
 }
 
 .selectListItem {
-    width: 60vw;
     font-size: 0.9rem;
     font-family: inherit;
     color: var(--text);
@@ -55,22 +56,37 @@
     transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 
+.selectListItem:first-of-type {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.selectListItem:last-of-type {
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+
 .selectListItem:hover {
     filter: brightness(90%);
 }
 
 @media screen and (min-width: 768px) {
-    .selectListItem {
+    .selectContainer {
+        width: 13rem;
+    }
+
+    .selectInput {
         width: 10rem;
     }
+
+    .selectListContainer {
+        width: 10rem;
+    }
+
 }
 
 @media screen and (min-width: 1024px) {
     .selectContent {
         padding: 1rem;
-    }
-
-    .selectListContainer {
-        transform: translate(-50%, 14%);
     }
 }

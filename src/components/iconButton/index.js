@@ -4,11 +4,11 @@ import classes from './styles.module.css';
 const IconButton = React.memo(props => {
     const { children, style, onClick } = props;
 
-    const handleClick = useCallback(() => {
-        if (typeof onClick === 'function') onClick();
-    });
+    const handleClick = useCallback((e) => {
+        if (typeof onClick === 'function') onClick(e);
+    }, [onClick]);
 
-    return <button className={classes.iconButton} style={style} onClick={handleClick}>{children}</button>;
+    return <button className={classes.iconButton} style={style} onClick={e => handleClick(e)}>{children}</button>;
 });
 
 export default IconButton;

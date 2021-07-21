@@ -3,7 +3,7 @@ import classes from './styles.module.css';
 import Button from '../button';
 
 const Error = props => {
-    const { message, status, buttonLabel, onClick } = props;
+    const { error: { message, status }, buttonLabel, onClick } = props;
 
     return <Fragment>
         <div className={classes.errorContainer}>

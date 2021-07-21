@@ -2,21 +2,18 @@
     position: fixed;
     right: 2rem;
     bottom: 2rem;
+    width: 80vw;;
+    max-width: 400px;
     display: flex;
-    /* background-color: blue; */
+    align-items: center;
+    background-color: var(--secondary-theme-color);
     color: var(--text-light);
     padding: 0.75rem 1rem 0.5rem;
     border-radius: 0.25rem;
-    transition: color 0.5s ease-in-out;
+    transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 
 .message {
     padding: 0 1rem;
-    width: 60vw;
-}
-
-@media screen and (min-width: 800px) {
-    .message {
-        width: fit-content;
-    }
+    width: fit-content;
 }

@@ -26,7 +26,7 @@
 
 .urlContent:hover {
     text-decoration: underline;
-    opacity: 0.5;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
@@ -43,12 +43,6 @@
 
 @media screen and (min-width: 1024px) {
     .urlContent {
-        width: 50vw;
         padding: 1rem;
-    }
-
-    .container {
-        display: flex;
-        width: 50vw;
     }
 }

@@ -2,7 +2,7 @@ const isEmptyString = value => !value || (typeof value === 'string' && value.tri
 
 const copyText = (textToCopy) => {
     let textArea = document.createElement('textarea');
-    let error='';
+    let error = null;
     textArea.value = textToCopy;
     textArea.style.top = '0';
     textArea.style.left = '0';
@@ -13,7 +13,6 @@ const copyText = (textToCopy) => {
     try {
         document.execCommand('copy');
     } catch (err) {
-        console.log(err);
         error = err;
     }
     document.body.removeChild(textArea);

@@ -7,31 +7,28 @@ import Loader from '../loader';
 import Error from '../error';
 import classes from './styles.module.css';
 import { isEmptyString, copyText } from '../../utils';
-import { SEVERITY, MESSAGE_API_URL } from '../constants';
+import { SEVERITY, MESSAGE_API_URL, VALID_FOR_OPTIONS } from '../constants';
+import useAsyncExec from '../../hooks/useAsyncExec';
 
 const Generate = () => {
     const [inputTextVal, setInputTextVal] = useState('');
     const [inputSecretKey, setInputSecretKey] = useState('');
-    const [validity, setValidity] = useState('');
+    const [validity, setValidity] = useState(VALID_FOR_OPTIONS.MIN_15);
     const [loading, setLoading] = useState(false);
     const [openSnackbar, setOpenSnackbar] = useState(false);
-    const [errorMessage, setErrorMessage] = useState('');
-    const [errorStatus, setErrorStatus] = useState('');
+    const [error, setError] = useState(null);
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const [snackbarSeverity, setSnackbarSeverity] = useState(SEVERITY.INFO);
     const [fetchResult, setFetchResult] = useState(false);
     const [url, setUrl] = useState('');
     const [urlCopied, setUrlCopied] = useState(false);
 
-
-
     const handleInputTextChange = useCallback(value => setInputTextVal(value), []);
     const handleInputSecretKeyChange = useCallback(value => setInputSecretKey(value), []);
     const handleValidityChange = useCallback(value => setValidity(value), []);
     const handleSnackbarClose = useCallback(() => setOpenSnackbar(false), []);
     const handleRedirectToHome = useCallback(() => {
-        setErrorMessage('');
-        setErrorStatus('');
+        setError(null);
         setUrl('');
     }, []);
 
@@ -41,22 +38,20 @@ const Generate = () => {
     }, [url]);
 
     const handleEncryption = useCallback(() => {
-        const message = (isEmptyString(inputTextVal) || isEmptyString(inputSecretKey) || isEmptyString(validity)) &&
-            'Missing either Text to Encrypt or Secret Key or Validity Duration!';
+        const message = (isEmptyString(inputTextVal) || isEmptyString(inputSecretKey) || isEmptyString(validity)) ?
+            'Missing either Text to Encrypt or Secret Key or Validity Duration!' : '';
         const severity = (isEmptyString(inputTextVal) || isEmptyString(inputSecretKey)) && SEVERITY.INFO;
         setSnackbarMessage(message);
         setSnackbarSeverity(severity);
         setOpenSnackbar(!isEmptyString(message));
         setFetchResult(isEmptyString(message) ? true : false);
-        useAsyncExec();
-    }, [inputTextVal, inputSecretKey, validity]);
-
-    const useAsyncExec = () => {
-        setTimeout(() => {
+        useAsyncExec(() => {
+            setFetchResult(false);
             handleInputTextChange('');
             handleInputSecretKeyChange('');
-        }, 0);
-    };
+            handleValidityChange(VALID_FOR_OPTIONS.MIN_15);
+        });
+    }, [inputTextVal, inputSecretKey, validity]);
 
     const sendNewMessageRequest = useCallback(() => {
         setLoading(true);
@@ -71,15 +66,17 @@ const Generate = () => {
         })
             .then(res => res.json())
             .then(result => {
-                setLoading(false);
-                setFetchResult(false);
-                setErrorMessage(result.error?.message || '');
-                setErrorStatus(result.error ? result.status : '');
+                if (result.error) {
+                    setError({ message: result.error.message, status: result.status });
+                }
                 setUrl(result.data?.url || '');
-                // handleInputTextChange('');
-                // handleInputSecretKeyChange('');
+            })
+            .catch(error => {
+                setError({ message: error.message, status: '500' });
+            })
+            .finally(() => {
+                setLoading(false);
             });
-
     }, [inputTextVal, inputSecretKey, validity]);
 
     useEffect(() => fetchResult && sendNewMessageRequest(), [fetchResult, sendNewMessageRequest]);
@@ -88,12 +85,12 @@ const Generate = () => {
         if (isEmptyString(url)) return;
         if (!isEmptyString(copyText(url))) return;
         setUrlCopied(true);
-        setTimeout(() => setUrlCopied(false), 2000);
+        useAsyncExec(() => setUrlCopied(false), 2000);
     }, [url]);
 
     return <Fragment>
-        {!isEmptyString(errorMessage) ?
-            <Error message={errorMessage} status={errorStatus} buttonLabel={`Create Message`} onClick={handleRedirectToHome} />
+        {!isEmptyString(error) ?
+            <Error error={error} buttonLabel={`Create Message`} onClick={handleRedirectToHome} />
             : <Fragment>
                 {isEmptyString(url) ? <Fragment>
                     <Input inputVal={inputTextVal} handleInputChange={handleInputTextChange}

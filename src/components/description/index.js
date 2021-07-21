@@ -21,7 +21,7 @@ const Description = () => {
                 <ExpandIcon strokeColor={themed('#0e202a', '#f7f7f7')}
                     style={{
                         transform: showContent ? 'rotate(180deg)' : 'rotate(0)',
-                        transition: 'transform 0.2s ease-in-out'
+                        transition: 'transform 0.5s ease-in-out'
                     }} />
             </IconButton>
         </div>

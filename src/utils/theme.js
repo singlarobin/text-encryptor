@@ -6,13 +6,13 @@ export const themes = Object.freeze({
 });
 
 export const getTheme = () => {
-    const theme = !isEmptyString(localStorage.getItem('pricingTheme')) ?
-        localStorage.getItem('pricingTheme') : themes.LIGHT;
+    const theme = !isEmptyString(localStorage.getItem('swooshTheme')) ?
+        localStorage.getItem('swooshTheme') : themes.LIGHT;
     return theme;
 };
 
 export const setTheme = theme => {
-    localStorage.setItem('pricingTheme', theme);
+    localStorage.setItem('swooshTheme', theme);
     document.documentElement.setAttribute('theme-mode', theme);
 };
 

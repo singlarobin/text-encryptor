@@ -2,6 +2,6 @@
     border: none;
     outline: none;
     box-shadow: none;
-    background-color: var(--page-bg);
+    background-color: transparent;
     transition: background-color .5s ease-in-out;
 }
