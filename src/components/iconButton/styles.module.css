@@ -1,0 +1,11 @@
+.iconButton {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    transition: background-color .5s ease-in-out;
+}
+
+.iconButton:hover {
+    filter: brightness(70%);
+}

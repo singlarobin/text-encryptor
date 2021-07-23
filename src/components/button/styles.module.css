@@ -1,0 +1,15 @@
+.buttonContent {
+    background-color: var(--secondary-theme-color);
+    color: var(--text-light);
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 0.25rem;
+    transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out, color 0.5s ease-in-out ;
+}
+
+.buttonContent:hover {
+    box-shadow: var(--card-shadow-hover);
+    cursor: pointer;
+}
