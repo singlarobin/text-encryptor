@@ -29,11 +29,18 @@ const Message = props => {
 
     useEffect(() => {
         //Check if id exists or not
+        setLoading(true);
         fetch(url + id)
             .then(response => response.json())
             .then(result => {
                 if (!isEmptyString(result.error)) handleErrorInResponse(result);
                 setUrl(result.data ? url + id + '/decrypt' : url);
+            })
+            .catch(error => {
+                setError({ message: error.message, status: '500' });
+            })
+            .finally(() => {
+                setLoading(false);
             });
     }, []);
 

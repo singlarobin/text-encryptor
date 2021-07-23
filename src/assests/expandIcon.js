@@ -14,6 +14,6 @@ ExpandIcon.defaultProps = {
     height: '1rem',
     width: '1rem',
     fill: 'none',
-    strokeColor: '#0e202a',
+    strokeColor: '#666',
     strokeWidth: 1.5,
 };

@@ -18,7 +18,7 @@ const Description = () => {
                     padding: '0rem',
                     cursor: 'pointer',
                 }}>
-                <ExpandIcon strokeColor={themed('#0e202a', '#f7f7f7')}
+                <ExpandIcon strokeColor={themed('#666', '#f7f7f7')}
                     style={{
                         transform: showContent ? 'rotate(180deg)' : 'rotate(0)',
                         transition: 'transform 0.5s ease-in-out'
