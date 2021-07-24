@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/text-encryptor/static/css/main.e30c35f8.chunk.css",
-    "main.js": "/text-encryptor/static/js/main.e1293812.chunk.js",
-    "main.js.map": "/text-encryptor/static/js/main.e1293812.chunk.js.map",
+    "main.js": "/text-encryptor/static/js/main.2a02afa1.chunk.js",
+    "main.js.map": "/text-encryptor/static/js/main.2a02afa1.chunk.js.map",
     "runtime-main.js": "/text-encryptor/static/js/runtime-main.82bf74de.js",
     "runtime-main.js.map": "/text-encryptor/static/js/runtime-main.82bf74de.js.map",
     "static/js/2.e426ced8.chunk.js": "/text-encryptor/static/js/2.e426ced8.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.82bf74de.js",
     "static/js/2.e426ced8.chunk.js",
     "static/css/main.e30c35f8.chunk.css",
-    "static/js/main.e1293812.chunk.js"
+    "static/js/main.2a02afa1.chunk.js"
   ]
 }
