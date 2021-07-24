@@ -1,11 +1,10 @@
 const DESCRIPTION_VALUE = `Excepteur pariatur nulla in ulla
 mco aliqua ea cupidatat incididunt proident culpa sint non exercitation deserunt dolor.`;
 
-const MESSAGE_API_URL = 'http://localhost:5050/api/v1/messages/';
 const MESSAGE_API_URI_DEV = 'http://localhost:5050/api/v1/messages';
 const MESSAGE_API_URI_PROD = 'https://swoosh-server.herokuapp.com/api/v1/messages/';
 
-export const BOOKS_API_URI = process.env.NODE_ENV === 'development' ? MESSAGE_API_URI_DEV : MESSAGE_API_URI_PROD;
+const MESSAGE_API_URL = process.env.NODE_ENV === 'development' ? MESSAGE_API_URI_DEV : MESSAGE_API_URI_PROD;
 
 const TIME_UNIT = Object.freeze({
     MINUTE: 'Minute',

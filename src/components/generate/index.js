@@ -88,7 +88,6 @@ const Generate = () => {
         useAsyncExec(() => setUrlCopied(false), 2000);
     }, [url]);
 
-    console.log('qq', isEmptyString(error));
     return <Fragment>
         {!isEmptyString(error) ?
             <Error error={error} buttonLabel={`Create Message`} onClick={handleRedirectToHome} />
