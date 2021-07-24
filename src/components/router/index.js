@@ -10,7 +10,7 @@ const Routing = () => {
         <Header />
         <Description />
         <Switch>
-            <Route exact path='/' component={Generate} />
+            <Route exact path='/text-encryptor/' component={Generate} />
             <Route exact path='/messages/:id' component={Message} />
             <Route path='*' component={ErrorPage} />
         </Switch>
