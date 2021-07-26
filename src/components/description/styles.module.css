@@ -8,13 +8,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 0.5rem;
 }
 
 .descriptionLabel {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--secondary-theme-color);
-    transition: color 0.2s ease-in-out,
+    transition: color var(--transition-duration) ease-in-out,
 }
 
 .descriptionContent {
@@ -22,7 +23,7 @@
     font-size: 0.75rem;
     color: var(--text);
     word-wrap: break-word;
-    transition: color 0.2s ease-in-out,
+    transition: color var(--transition-duration) ease-in-out,
 }
 
 @media screen and (min-width: 768px) {

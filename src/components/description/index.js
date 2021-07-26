@@ -5,6 +5,7 @@ import ExpandIcon from '../../assests/expandIcon';
 import { useState } from 'react';
 import { themed } from '../../utils/theme';
 
+// TODO - add hr above the description content
 const Description = () => {
     const [showContent, setShowContent] = useState(false);
 
@@ -13,15 +14,11 @@ const Description = () => {
     return <div className={classes.descriptionContainer}>
         <div className={classes.descriptionHeading}>
             <div className={classes.descriptionLabel}>How it Works?</div>
-            <IconButton onClick={handleShowContent}
-                style={{
-                    padding: '0rem',
-                    cursor: 'pointer',
-                }}>
-                <ExpandIcon strokeColor={themed('#666', '#f7f7f7')}
+            <IconButton onClick={handleShowContent}>
+                <ExpandIcon strokeColor={themed('#1480779f', '#36b6aba7')}
                     style={{
                         transform: showContent ? 'rotate(180deg)' : 'rotate(0)',
-                        transition: 'transform 0.5s ease-in-out'
+                        transition: 'transform 0.25s ease-in-out'
                     }} />
             </IconButton>
         </div>

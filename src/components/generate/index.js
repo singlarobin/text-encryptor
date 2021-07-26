@@ -7,7 +7,7 @@ import Loader from '../loader';
 import Error from '../error';
 import classes from './styles.module.css';
 import { isEmptyString, copyText } from '../../utils';
-import { SEVERITY, MESSAGE_API_URL, VALID_FOR_OPTIONS } from '../constants';
+import { SEVERITY, MESSAGE_API_URL, VALID_FOR_OPTIONS, HOMEPAGE_PATH } from '../constants';
 import useAsyncExec from '../../hooks/useAsyncExec';
 
 const Generate = () => {
@@ -29,7 +29,7 @@ const Generate = () => {
     const handleSnackbarClose = useCallback(() => setOpenSnackbar(false), []);
     const handleRedirectToHome = useCallback(() => {
         setError(null);
-        setUrl('');
+        setUrl(HOMEPAGE_PATH);
     }, []);
 
     const openInNewTab = useCallback(() => {

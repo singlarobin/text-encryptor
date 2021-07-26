@@ -27,6 +27,8 @@
     --component-border: rgba(0, 0, 0, 0.23);
     --skeleton-color: #e7e7e7;
     --shimmer-color: rgba(255, 255, 255, 0.2);
+    /* non-color constants */
+    --transition-duration: 0.25s;
 }
 
 [theme-mode="dark"] {

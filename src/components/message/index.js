@@ -7,7 +7,7 @@ import SnackBar from '../snackbar';
 import Loader from '../loader';
 import Error from '../error';
 import { isEmptyString } from '../../utils';
-import { SEVERITY } from '../constants';
+import { HOMEPAGE_PATH, SEVERITY } from '../constants';
 import { MESSAGE_API_URL } from '../constants';
 import useAsyncExec from '../../hooks/useAsyncExec';
 
@@ -27,26 +27,11 @@ const Message = props => {
         setError({ message: result.error.message, status: result.status });
     }, []);
 
-    useEffect(() => {
-        //Check if id exists or not
-        setLoading(true);
-        fetch(url + id)
-            .then(response => response.json())
-            .then(result => {
-                if (!isEmptyString(result.error)) handleErrorInResponse(result);
-                setUrl(result.data ? url + id + '/decrypt' : url);
-            })
-            .catch(error => {
-                setError({ message: error.message, status: '500' });
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    }, []);
-
     const handleInputSecretKeyChange = useCallback(value => setInputSecretKey(value), []);
+
     const handleSnackbarClose = useCallback(() => setOpenSnackbar(false), []);
-    const handleRedirectToHome = useCallback(() => props.history.replace('/'), []);
+
+    const handleRedirectToHome = useCallback(() => props.history.replace(HOMEPAGE_PATH), []);
 
     const handleDecryption = useCallback(() => {
         const message = isEmptyString(inputSecretKey) ? 'Missing Secret Key!' : '';
@@ -76,6 +61,23 @@ const Message = props => {
                 setLoading(false);
             });
     }, [url, inputSecretKey]);
+
+    useEffect(() => {
+        //Check if id exists or not
+        setLoading(true);
+        fetch(url + id)
+            .then(response => response.json())
+            .then(result => {
+                if (!isEmptyString(result.error)) handleErrorInResponse(result);
+                setUrl(result.data ? url + id + '/decrypt' : url);
+            })
+            .catch(error => {
+                setError({ message: error.message, status: '500' });
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }, []);
 
     useEffect(() => fetchResult && fetchMessage(), [fetchResult, fetchMessage]);
 
