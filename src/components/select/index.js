@@ -33,7 +33,7 @@ const Select = props => {
                     <ExpandIcon strokeColor={themed('#666', '#f7f7f7')}
                         style={{
                             transform: isOpen ? 'rotate(180deg)' : 'rotate(0)',
-                            transition: 'transform 0.5s ease-in-out'
+                            transition: 'transform 0.15s'
                         }} />
                 </IconButton>
             </div>

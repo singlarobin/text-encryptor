@@ -91,28 +91,26 @@ const Generate = () => {
     return <Fragment>
         {!isEmptyString(error) ?
             <Error error={error} buttonLabel={`Create Message`} onClick={handleRedirectToHome} />
-            : <Fragment>
-                {isEmptyString(url) ? <Fragment>
-                    <Input inputVal={inputTextVal} handleInputChange={handleInputTextChange}
-                        placeholderValue='Enter Text' rows={4} />
-                    <div className={classes.container}>
-                        <Input inputVal={inputSecretKey} handleInputChange={handleInputSecretKeyChange}
-                            placeholderValue='Enter Secret Key' rows={1}
-                            style={{ marginTop: '0rem' }} />
-                        <Select validity={validity} handleValidityChange={handleValidityChange} />
-                    </div>
-                    <Button onClick={handleEncryption} style={{ margin: '1rem auto', padding: '0.5rem 0.75rem' }}>
-                        Encrypt
-                    </Button>
-                </Fragment> : <Fragment>
-                    <p className={classes.urlContent} onClick={openInNewTab}> {url} </p>
-                    <Button onClick={handleUrlCopy} style={{ margin: '0 auto', padding: '0.25rem 0.5rem' }}>
-                        Cop{urlCopied ? 'ied!' : 'y'}
-                    </Button>
-                    <Button onClick={handleRedirectToHome} style={{ margin: '1rem auto', padding: '0.5rem 0.75rem' }}>
-                        Create Message
-                    </Button>
-                </Fragment>}
+            : isEmptyString(url) ? <Fragment>
+                <Input inputVal={inputTextVal} handleInputChange={handleInputTextChange}
+                    placeholderValue='Enter Text' rows={10} />
+                <div className={classes.container}>
+                    <Input inputVal={inputSecretKey} handleInputChange={handleInputSecretKeyChange}
+                        placeholderValue='Enter Secret Key' rows={1}
+                        style={{ marginTop: '0rem' }} />
+                    <Select validity={validity} handleValidityChange={handleValidityChange} />
+                </div>
+                <Button onClick={handleEncryption} style={{ margin: '1rem auto', padding: '0.5rem 0.75rem' }}>
+                    Encrypt
+                </Button>
+            </Fragment> : <Fragment>
+                <p className={classes.urlContent} onClick={openInNewTab}>{url}</p>
+                <Button onClick={handleUrlCopy} style={{ margin: '0 auto', padding: '0.25rem 0.5rem' }}>
+                    Cop{urlCopied ? 'ied!' : 'y'}
+                </Button>
+                <Button onClick={handleRedirectToHome} style={{ margin: '1rem auto', padding: '0.5rem 0.75rem' }}>
+                    Create Message
+                </Button>
             </Fragment>}
         <Loader loading={loading} />
         {openSnackbar &&

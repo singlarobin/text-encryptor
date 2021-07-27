@@ -1,15 +1,20 @@
 .headerContent {
     font-size: 4rem;
     font-weight: 700;
-    line-height: 3.9rem;
     letter-spacing: -0.25px;
     text-shadow: 12px 12px 2px rgba(0, 0, 0, 0.15);
     color: var(--theme-color);
-    margin-top: 3rem;
-    transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+    margin: 2rem auto;
+    transition: color var(--transition-duration) ease-in-out;
 }
 
 .headerContent span {
     color: var(--text-light);
-    transition: color 0.5s ease-in-out;
+    transition: color var(--transition-duration) ease-in-out;
+}
+
+@media screen and (min-width: 1024px) {
+    .headerContent {
+        margin: 3rem auto;
+    }
 }

@@ -14,11 +14,11 @@ const Description = () => {
     return <div className={classes.descriptionContainer}>
         <div className={classes.descriptionHeading}>
             <div className={classes.descriptionLabel}>How it Works?</div>
-            <IconButton onClick={handleShowContent}>
-                <ExpandIcon strokeColor={themed('#1480779f', '#36b6aba7')}
+            <IconButton onClick={handleShowContent} style={{ filter: 'brightness(90%)' }}>
+                <ExpandIcon strokeColor={themed('#148077', '#36b6ab')}
                     style={{
                         transform: showContent ? 'rotate(180deg)' : 'rotate(0)',
-                        transition: 'transform 0.25s ease-in-out'
+                        transition: 'transform 0.15s'
                     }} />
             </IconButton>
         </div>

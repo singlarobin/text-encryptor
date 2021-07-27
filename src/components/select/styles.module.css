@@ -1,7 +1,7 @@
 .selectContainer {
     margin: 0rem auto 0.75rem;
     position: relative;
-    width: 70vw;
+    width: 90vw;
 }
 
 .selectContent {
@@ -11,7 +11,7 @@
     padding: 0.75rem;
     border-radius: 0.5rem;
     box-shadow: var(--card-shadow-hover);
-    transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out;
+    transition: box-shadow var(--transition-duration) ease-in-out, background-color var(--transition-duration) ease-in-out;
 }
 
 .selectInput {
@@ -24,24 +24,25 @@
     outline: none;
     border: none;
     resize: none;
-    transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+    transition: color var(--transition-duration) ease-in-out, background-color var(--transition-duration) ease-in-out;
 }
 
 .selectInput::placeholder {
     opacity: 0.5;
     color: var(--text);
-    transition: color 0.5s ease-in-out;
+    transition: color var(--transition-duration) ease-in-out;
 }
 
 .selectListContainer {
     position: absolute;
     top: 120%;
     left: 50%;
-    width: 60vw;
+    width: 100%;
+    box-shadow: var(--card-shadow);
     transform: translateX(-50%);
-    transition: transform 0.5s ease-in-out;
+    transition: box-shadow var(--transition-duration) ease-in-out;
     cursor: pointer;
-    border-radius: 0.5rem;
+    border-radius: 0.25rem;
 }
 
 .selectListItem {
@@ -53,7 +54,7 @@
     outline: none;
     border: none;
     box-shadow: none;
-    transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+    transition: color var(--transition-duration) ease-in-out, background-color var(--transition-duration) ease-in-out;
 }
 
 .selectListItem:first-of-type {
@@ -78,11 +79,6 @@
     .selectInput {
         width: 10rem;
     }
-
-    .selectListContainer {
-        width: 10rem;
-    }
-
 }
 
 @media screen and (min-width: 1024px) {
