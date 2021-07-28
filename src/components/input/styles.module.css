@@ -2,13 +2,13 @@
     padding: 0.75rem;
     font-family: inherit;
     color: var(--text);
-    background-color: var(--card-bg);
+    background-color: transparent;
     font-size: 0.9rem;
     border-radius: 0.5rem;
     border: none;
     outline: none;
     resize: none;
-    box-shadow: var(--card-shadow-hover);
+    box-shadow: var(--neu-shadow);
     transition: box-shadow var(--transition-duration), background-color var(--transition-duration), color var(--transition-duration);
 }
 

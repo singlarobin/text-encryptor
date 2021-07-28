@@ -8,14 +8,14 @@
     border: none;
     outline: none;
     padding: 1rem 1.8rem;
-    box-shadow: var(--neu-shadow);
+    box-shadow: var(--button-shadow);
     border-radius: 6px;
     transition: box-shadow var(--transition-duration), background-color var(--transition-duration), color var(--transition-duration) ;
 }
 
 .buttonContent:hover, .buttonContent:focus {
     color: var(--button-color-hover);
-    box-shadow: var(--neu-shadow-hover);
+    box-shadow: var(--button-shadow-hover);
     cursor: pointer;
     transition: box-shadow var(--transition-duration);
 }

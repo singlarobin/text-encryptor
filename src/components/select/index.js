@@ -50,7 +50,7 @@ const Select = props => {
                             })}
                             style={{
                                 color: selectedItem === item[1] && '#36b6ab',
-                                filter: highlightedIndex === index && 'brightness(90%)'
+                                backgroundColor: highlightedIndex === index && themed('#fff', '#152d3a')
                             }}>
                             {item[1].name}
                         </div>)}

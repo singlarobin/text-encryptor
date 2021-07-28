@@ -27,14 +27,19 @@
     --component-border: rgba(0, 0, 0, 0.23);
     --skeleton-color: #e7e7e7;
     --shimmer-color: rgba(255, 255, 255, 0.2);
-    --neu-shadow:
+    --button-shadow:
         -2px -2px 4px rgba(255, 255, 255, 1),
         1px 1px 8px rgba(200, 200, 200, 0.05),
         inset 2px 2px 4px rgba(255, 255, 255, 0.1),
         2px 2px 8px rgba(0, 0, 0, 0.15);
-    --neu-shadow-hover:
+    --button-shadow-hover:
         inset -2px -2px 8px rgba(255, 255, 255, 1),
         inset -2px -2px 12px rgba(255, 255, 255, 0.5),
+        inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+        inset 2px 2px 8px rgba(0, 0, 0, 0.15);
+    --neu-shadow:
+        inset -1px -1px 2px rgba(255, 255, 255, 0.9),
+        inset 3px 3px 8px rgba(255, 255, 255, 0.25),
         inset 2px 2px 4px rgba(255, 255, 255, 0.1),
         inset 2px 2px 8px rgba(0, 0, 0, 0.15);
     --button-color: rgb(175, 175, 175);
@@ -66,12 +71,16 @@
     --component-border: #FFFFFF59;
     --skeleton-color: #202020;
     --shimmer-color: rgba(40, 40, 40, 0.2);
-    --neu-shadow: -2px -2px 6px rgb(26, 57, 73, 0.75),
+    --button-shadow: -2px -2px 6px rgb(26, 57, 73, 0.75),
         1px 1px 6px rgba(0, 0, 0, 0.5),
         inset 2px 2px 4px rgba(26, 57, 73, 0.1),
         2px 2px 8px rgba(2, 12, 17, 0.15);
-    --neu-shadow-hover: inset -2px -2px 6px rgba(26, 57, 73, 0.75),
+    --button-shadow-hover: inset -2px -2px 6px rgba(26, 57, 73, 0.75),
         inset -1px -1px 6px rgba(0, 0, 0, 0.6),
+        inset 2px 2px 4px rgba(26, 57, 73, 0.1),
+        inset 2px 2px 8px rgba(2, 12, 17, 0.15);
+    --neu-shadow: inset -1px -1px 6px rgba(26, 57, 73, 0.75),
+        inset 3px 3px 8px rgba(0, 0, 0, 0.35),
         inset 2px 2px 4px rgba(26, 57, 73, 0.1),
         inset 2px 2px 8px rgba(2, 12, 17, 0.15);
     --button-color: rgb(50, 93, 116);
