@@ -19,7 +19,7 @@
     font-style: italic;
     opacity: 0.15;
     color: var(--text-obscurer);
-    transition: color var(--transition-duration) ease-in-out;
+    transition: color var(--transition-duration);
 }
 
 .errorContent {
@@ -29,7 +29,7 @@
     word-wrap: break-word;
     text-align: center;
     color: var(--text);
-    transition: color var(--transition-duration) ease-in-out;
+    transition: color var(--transition-duration);
 }
 
 @media screen and (min-width: 768px) {

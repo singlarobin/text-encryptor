@@ -9,7 +9,7 @@
     word-wrap: break-word;
     background-color: var(--card-bg);
     box-shadow: var(--card-shadow-hover);
-    transition: box-shadow var(--transition-duration) ease-in-out, color var(--transition-duration) ease-in-out, background-color var(--transition-duration) ease-in-out;
+    transition: box-shadow var(--transition-duration), color var(--transition-duration), background-color var(--transition-duration);
     border-radius: 0.5rem;
 }
 

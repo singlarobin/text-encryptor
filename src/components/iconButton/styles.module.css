@@ -5,7 +5,7 @@
     background-color: transparent;
     cursor: pointer;
     filter: brightness(100%);
-    transition: background-color var(--transition-duration) ease-in-out, filter var(--transition-duration) ease-in-out;
+    transition: background-color var(--transition-duration), filter var(--transition-duration);
 }
 
 .iconButton:hover {

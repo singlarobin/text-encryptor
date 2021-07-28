@@ -7,7 +7,7 @@ import Loader from '../loader';
 import Error from '../error';
 import classes from './styles.module.css';
 import { isEmptyString, copyText } from '../../utils';
-import { SEVERITY, MESSAGE_API_URL, VALID_FOR_OPTIONS, HOMEPAGE_PATH } from '../constants';
+import { SEVERITY, MESSAGE_API_URL, VALID_FOR_OPTIONS } from '../constants';
 import useAsyncExec from '../../hooks/useAsyncExec';
 
 const Generate = () => {
@@ -24,12 +24,16 @@ const Generate = () => {
     const [urlCopied, setUrlCopied] = useState(false);
 
     const handleInputTextChange = useCallback(value => setInputTextVal(value), []);
+
     const handleInputSecretKeyChange = useCallback(value => setInputSecretKey(value), []);
+
     const handleValidityChange = useCallback(value => setValidity(value), []);
+
     const handleSnackbarClose = useCallback(() => setOpenSnackbar(false), []);
-    const handleRedirectToHome = useCallback(() => {
+
+    const handleReset = useCallback(() => {
         setError(null);
-        setUrl(HOMEPAGE_PATH);
+        setUrl('');
     }, []);
 
     const openInNewTab = useCallback(() => {
@@ -90,28 +94,31 @@ const Generate = () => {
 
     return <Fragment>
         {!isEmptyString(error) ?
-            <Error error={error} buttonLabel={`Create Message`} onClick={handleRedirectToHome} />
-            : isEmptyString(url) ? <Fragment>
+            <Error error={error} buttonLabel='Create Message' onClick={handleReset} />
+            : isEmptyString(url) ? <div className={classes.generatorContainer}>
                 <Input inputVal={inputTextVal} handleInputChange={handleInputTextChange}
                     placeholderValue='Enter Text' rows={10} />
                 <div className={classes.container}>
                     <Input inputVal={inputSecretKey} handleInputChange={handleInputSecretKeyChange}
-                        placeholderValue='Enter Secret Key' rows={1}
-                        style={{ marginTop: '0rem' }} />
+                        placeholderValue='Enter Secret Key' style={{ flex: 1 }} rows={1} />
                     <Select validity={validity} handleValidityChange={handleValidityChange} />
                 </div>
-                <Button onClick={handleEncryption} style={{ margin: '1rem auto', padding: '0.5rem 0.75rem' }}>
+                <div>
+                    <Button onClick={handleEncryption}>
                     Encrypt
-                </Button>
-            </Fragment> : <Fragment>
+                    </Button>
+                </div>
+            </div> : <div className={classes.generatorContainer}>
                 <p className={classes.urlContent} onClick={openInNewTab}>{url}</p>
-                <Button onClick={handleUrlCopy} style={{ margin: '0 auto', padding: '0.25rem 0.5rem' }}>
+                <div className={classes.buttonContainer}>
+                    <Button onClick={handleUrlCopy}>
                     Cop{urlCopied ? 'ied!' : 'y'}
-                </Button>
-                <Button onClick={handleRedirectToHome} style={{ margin: '1rem auto', padding: '0.5rem 0.75rem' }}>
+                    </Button>
+                    <Button onClick={handleReset}>
                     Create Message
-                </Button>
-            </Fragment>}
+                    </Button>
+                </div>
+            </div>}
         <Loader loading={loading} />
         {openSnackbar &&
             <SnackBar message={snackbarMessage} severity={snackbarSeverity} handleClose={handleSnackbarClose} />}

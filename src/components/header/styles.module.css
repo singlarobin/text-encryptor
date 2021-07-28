@@ -5,12 +5,12 @@
     text-shadow: 12px 12px 2px rgba(0, 0, 0, 0.15);
     color: var(--theme-color);
     margin: 2rem auto;
-    transition: color var(--transition-duration) ease-in-out;
+    transition: color var(--transition-duration);
 }
 
 .headerContent span {
     color: var(--text-light);
-    transition: color var(--transition-duration) ease-in-out;
+    transition: color var(--transition-duration);
 }
 
 @media screen and (min-width: 1024px) {

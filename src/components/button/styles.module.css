@@ -1,15 +1,37 @@
 .buttonContent {
-    background-color: var(--secondary-theme-color);
-    color: var(--text-light);
+    color: var(--button-color);
+    background-color: transparent;
     font-size: 1rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
     border: none;
     outline: none;
-    box-shadow: none;
-    border-radius: 0.25rem;
-    transition: box-shadow var(--transition-duration) ease-in-out, background-color var(--transition-duration) ease-in-out, color var(--transition-duration) ease-in-out ;
+    padding: 1rem 1.8rem;
+    box-shadow: var(--neu-shadow);
+    border-radius: 6px;
+    transition: box-shadow var(--transition-duration), background-color var(--transition-duration), color var(--transition-duration) ;
 }
 
-.buttonContent:hover {
-    box-shadow: var(--card-shadow-hover);
+.buttonContent:hover, .buttonContent:focus {
+    color: var(--button-color-hover);
+    box-shadow: var(--neu-shadow-hover);
     cursor: pointer;
+    transition: box-shadow var(--transition-duration);
+}
+
+.buttonContent span {
+    display: inline-block;
+    transform: scale(1);
+    transition: transform var(--transition-duration);
+}
+
+.buttonContent:hover span, .buttonContent:focus span {
+    transform: scale(0.98);
+    transition: transform var(--transition-duration);
+}
+
+.buttonContent:active span {
+    transform: scale(1.04);
+    transition: transform var(--transition-duration);
 }

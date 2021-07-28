@@ -1,7 +1,4 @@
 .inputContent {
-    width: 90vw;
-    max-width: 600px;
-    margin: 0.75rem auto;
     padding: 0.75rem;
     font-family: inherit;
     color: var(--text);
@@ -12,25 +9,23 @@
     outline: none;
     resize: none;
     box-shadow: var(--card-shadow-hover);
-    transition: box-shadow var(--transition-duration) ease-in-out, background-color var(--transition-duration) ease-in-out, color var(--transition-duration) ease-in-out;
+    transition: box-shadow var(--transition-duration), background-color var(--transition-duration), color var(--transition-duration);
 }
 
 .inputContent::placeholder {
     opacity: 0.5;
     color: var(--text);
-    transition: color var(--transition-duration) ease-in-out;
+    transition: color var(--transition-duration);
 }
 
 @media screen and (min-width: 768px) {
     .inputContent {
-        width: 80vw;
         font-size: 1rem;
     }
 }
 
 @media screen and (min-width: 1024px) {
     .inputContent {
-        width: 75rem;
         padding: 1rem;
     }
 }

@@ -5,7 +5,6 @@ import ExpandIcon from '../../assests/expandIcon';
 import { useState } from 'react';
 import { themed } from '../../utils/theme';
 
-// TODO - add hr above the description content
 const Description = () => {
     const [showContent, setShowContent] = useState(false);
 
