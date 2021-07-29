@@ -101,7 +101,7 @@ const Generate = () => {
                 <div className={classes.container}>
                     <Input inputVal={inputSecretKey} handleInputChange={handleInputSecretKeyChange}
                         placeholderValue='Enter Secret Key' style={{ flex: 1 }} rows={1} />
-                    <Select validity={validity} handleValidityChange={handleValidityChange} />
+                    <Select validity={validity} placeholder='Validity' handleValidityChange={handleValidityChange} />
                 </div>
                 <div>
                     <Button onClick={handleEncryption}>

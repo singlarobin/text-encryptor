@@ -3,6 +3,6 @@
     height: inherit;
     overflow-x: hidden;
     overflow-y: inherit;
-    background-color: var(--page-bg);
+    background: var(--page-bg-gradient);
     transition: background-color var(--transition-duration);
 }

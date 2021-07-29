@@ -7,7 +7,7 @@ import { themed } from '../../utils/theme';
 import { isEmptyString } from '../../utils';
 
 const Select = props => {
-    const { validity, handleValidityChange } = props;
+    const { validity, handleValidityChange, placeholder = '' } = props;
 
     return <Downshift onChange={e => handleValidityChange(e)} selectedItem={validity}
         itemToString={validOptions => validOptions ? validOptions.name.toString() : ''}>
@@ -23,7 +23,7 @@ const Select = props => {
         }) => (<div className={classes.selectContainer}>
             <div className={classes.selectContent}>
                 <input className={classes.selectInput} {...getInputProps({
-                    placeholder: 'Validity Duration',
+                    placeholder,
                     value: inputValue,
                 })} />
                 <IconButton {...getToggleButtonProps()} style={{
@@ -50,7 +50,7 @@ const Select = props => {
                             })}
                             style={{
                                 color: selectedItem === item[1] && '#36b6ab',
-                                backgroundColor: highlightedIndex === index && themed('#fff', '#152d3a')
+                                backgroundColor: highlightedIndex === index && themed('#d7d7d7', '#152d3a')
                             }}>
                             {item[1].name}
                         </div>)}

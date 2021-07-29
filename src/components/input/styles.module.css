@@ -12,6 +12,10 @@
     transition: box-shadow var(--transition-duration), background-color var(--transition-duration), color var(--transition-duration);
 }
 
+.inputContent:active, .inputContent:focus {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
 .inputContent::placeholder {
     opacity: 0.5;
     color: var(--text);
