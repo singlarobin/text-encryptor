@@ -1,5 +1,4 @@
 import classes from './styles.module.css';
-import { DESCRIPTION_VALUE } from '../constants';
 import ExpandIcon from '../../assests/expandIcon';
 import { useState } from 'react';
 import { themed } from '../../utils/theme';
@@ -23,7 +22,13 @@ const Description = () => {
                 }}
             />
         </div>
-        {showContent && <p className={classes.descriptionContent}>{DESCRIPTION_VALUE}</p>}
+        {showContent && <div className={classes.descriptionContent}>
+            <p>- Enter the message phrase that you intend to send to someone.</p>
+            <p>- Enter a secret key which acts as a password to protect your message.</p>
+            <p>- Choose for how long do you want your message to remain valid.</p>
+            <p>- Once encrypted, you can share the link with your friend(s) who can 
+            decrypt your message with the help of the secret key you provided.</p>
+        </div>}
     </div>;
 };
 

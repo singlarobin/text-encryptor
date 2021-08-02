@@ -44,7 +44,6 @@
         inset 2px 2px 6px rgba(0, 0, 0, 0.25);
     --button-color: rgb(175, 175, 175);
     --button-color-hover: rgb(100, 100, 100);
-    --page-bg-gradient: radial-gradient(ellipse at top, #fafafa, #cccccc, #959595);
     /* non-color constants */
     --transition-duration: 0.25s;
 }
@@ -86,7 +85,6 @@
         inset 2px 2px 8px rgba(2, 12, 17, 0.15);
     --button-color: rgb(50, 93, 116);
     --button-color-hover: rgb(99, 167, 204);
-    --page-bg-gradient: radial-gradient(ellipse at top, #1b4a63, #0f2936, #0a171f);
 }
 
 body {

@@ -10,6 +10,7 @@ import { isEmptyString, copyText } from '../../utils';
 import { SEVERITY, MESSAGE_API_URL, VALID_FOR_OPTIONS } from '../constants';
 import useAsyncExec from '../../hooks/useAsyncExec';
 
+// TODO - add color bars on background and shapes, play again with background
 const Generate = () => {
     const [inputTextVal, setInputTextVal] = useState('');
     const [inputSecretKey, setInputSecretKey] = useState('');
@@ -104,19 +105,13 @@ const Generate = () => {
                     <Select validity={validity} placeholder='Validity' handleValidityChange={handleValidityChange} />
                 </div>
                 <div>
-                    <Button onClick={handleEncryption}>
-                    Encrypt
-                    </Button>
+                    <Button onClick={handleEncryption} style={{ marginTop: '0.5rem' }}>Encrypt</Button>
                 </div>
             </div> : <div className={classes.generatorContainer}>
                 <p className={classes.urlContent} onClick={openInNewTab}>{url}</p>
                 <div className={classes.buttonContainer}>
-                    <Button onClick={handleUrlCopy}>
-                    Cop{urlCopied ? 'ied!' : 'y'}
-                    </Button>
-                    <Button onClick={handleReset}>
-                    Create Message
-                    </Button>
+                    <Button onClick={handleUrlCopy}>Cop{urlCopied ? 'ied!' : 'y'}</Button>
+                    <Button onClick={handleReset}>Create Message</Button>
                 </div>
             </div>}
         <Loader loading={loading} />

@@ -3,22 +3,6 @@
     height: inherit;
     overflow-x: hidden;
     overflow-y: inherit;
-    background: var(--page-bg-gradient);
-    background-size: 150% 150%;
-    transition: background 0.25s;
-    animation: backgroundAnimation 15s ease infinite;
-}
-
-@keyframes backgroundAnimation {
-    0% {
-        background-position: 0% 50%
-    }
-
-    50% {
-        background-position: 100% 50%
-    }
-
-    100% {
-        background-position: 0% 50%
-    }
+    background-color: var(--page-bg);
+    transition: background-color var(--transition-duration);
 }
