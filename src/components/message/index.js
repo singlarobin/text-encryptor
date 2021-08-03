@@ -81,24 +81,27 @@ const Message = props => {
 
     useEffect(() => fetchResult && fetchMessage(), [fetchResult, fetchMessage]);
 
+    // TODO - add copy button to copy decrypted message
     return <Fragment>
         {!isEmptyString(error) ? <Fragment>
             <Error error={error} buttonLabel={`Create Message`} onClick={handleRedirectToHome} />
         </Fragment> : <Fragment>
-            {isEmptyString(decryptMessage) ? <Fragment>
+            {isEmptyString(decryptMessage) ? <div className={classes.container}>
                 <Input inputVal={inputSecretKey} placeholderValue='Enter Secret Key' rows={1}
                     handleInputChange={handleInputSecretKeyChange} />
-                <Button onClick={handleDecryption}
-                    style={{ margin: '1rem auto', padding: '0.5rem 0.75rem' }}>
+                <div>
+                    <Button onClick={handleDecryption}>
                     Decrypt
-                </Button>
-            </Fragment> : <Fragment>
-                <p className={classes.messageContent}> {decryptMessage} </p>
-                <Button onClick={handleRedirectToHome}
-                    style={{ margin: '1rem auto', padding: '0.5rem 0.75rem' }}>
+                    </Button>
+                </div>
+            </div> : <div className={classes.container}>
+                <div className={classes.messageContent}>{decryptMessage}</div>
+                <div>
+                    <Button onClick={handleRedirectToHome}>
                     Create Message
-                </Button>
-            </Fragment>}
+                    </Button>
+                </div>
+            </div>}
             <Loader loading={loading} />
             {openSnackbar &&
                 <SnackBar message={snackbarMessage} severity={snackbarSeverity} handleClose={handleSnackbarClose} />}

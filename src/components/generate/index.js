@@ -117,7 +117,7 @@ const Generate = () => {
                         {urlCopied ? <ClipBoardChecked /> : <ClipBoard />}
                     </IconButton>
                 </div>
-                <div className={classes.buttonContainer}>
+                <div>
                     <Button onClick={handleReset}>Create Message</Button>
                 </div>
             </div>}

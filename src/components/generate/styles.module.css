@@ -12,11 +12,6 @@
     gap: 1rem;
 }
 
-.buttonContainer {
-    display: flex;
-    gap: 1rem;
-}
-
 .urlContent {
     width: inherit;
     max-width: inherit;
@@ -46,14 +41,8 @@
 }
 
 @media screen and (min-width: 768px) {
-    .urlContent {
-        width: 80vw;
-    }
-
     .generatorContainer {
-        display: flex;
         width: 80vw;
-        gap: 1rem;
     }
 
     .container {
@@ -63,7 +52,6 @@
 
 @media screen and (min-width: 1024px) {
     .urlContent {
-        width: 75vw;
         padding: 1rem;
     }
 
