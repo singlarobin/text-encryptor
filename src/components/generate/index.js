@@ -9,6 +9,9 @@ import classes from './styles.module.css';
 import { isEmptyString, copyText } from '../../utils';
 import { SEVERITY, MESSAGE_API_URL, VALID_FOR_OPTIONS } from '../constants';
 import useAsyncExec from '../../hooks/useAsyncExec';
+import ClipBoardChecked from '../../assets/clipboardChecked';
+import ClipBoard from '../../assets/clipboard';
+import IconButton from '../iconButton';
 
 // TODO - add color bars on background and shapes, play again with background
 const Generate = () => {
@@ -108,9 +111,13 @@ const Generate = () => {
                     <Button onClick={handleEncryption} style={{ marginTop: '0.5rem' }}>Encrypt</Button>
                 </div>
             </div> : <div className={classes.generatorContainer}>
-                <p className={classes.urlContent} onClick={openInNewTab}>{url}</p>
+                <div className={classes.urlContent}>
+                    <div className={classes.urlText} onClick={openInNewTab}>{url}</div>
+                    <IconButton onClick={handleUrlCopy}>
+                        {urlCopied ? <ClipBoardChecked /> : <ClipBoard />}
+                    </IconButton>
+                </div>
                 <div className={classes.buttonContainer}>
-                    <Button onClick={handleUrlCopy}>Cop{urlCopied ? 'ied!' : 'y'}</Button>
                     <Button onClick={handleReset}>Create Message</Button>
                 </div>
             </div>}

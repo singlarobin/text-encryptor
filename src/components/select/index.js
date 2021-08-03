@@ -26,10 +26,7 @@ const Select = props => {
                     placeholder,
                     value: inputValue,
                 })} />
-                <IconButton {...getToggleButtonProps()} style={{
-                    padding: '0rem',
-                    cursor: 'pointer',
-                }}>
+                <IconButton {...getToggleButtonProps()}>
                     <ExpandIcon strokeColor={themed('#666', '#f7f7f7')}
                         style={{
                             transform: isOpen ? 'rotate(180deg)' : 'rotate(0)',

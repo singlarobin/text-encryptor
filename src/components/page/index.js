@@ -33,8 +33,6 @@ const Page = props => {
                     position: 'absolute',
                     top: '16px',
                     right: '16px',
-                    padding: '0rem',
-                    cursor: 'pointer',
                 }}>
                 {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
             </IconButton>

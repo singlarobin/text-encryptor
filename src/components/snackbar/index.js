@@ -37,11 +37,7 @@ const SnackBar = props => {
     return <div className={classes.snackbarContainer}>
         {selectSeverityIcon}
         <div className={classes.message}>{message}</div>
-        <IconButton  onClick={snackbarClose}
-            style={{
-                padding: '0rem',
-                cursor: 'pointer',
-            }}>
+        <IconButton onClick={snackbarClose}>
             <CloseIcon />
         </IconButton>
     </div>;
