@@ -20,7 +20,7 @@
 
 .descriptionContent {
     margin-top: 0.75rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     max-width: 75%;
     color: var(--text-obscure);
     word-wrap: break-word;
@@ -42,5 +42,9 @@
     .descriptionContainer {
         width: 75vw;
         margin: 2.5rem 0;
+    }
+
+    .descriptionContent {
+        font-size: 0.95rem;
     }
 }

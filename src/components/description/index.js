@@ -1,5 +1,5 @@
 import classes from './styles.module.css';
-import ExpandIcon from '../../assests/expandIcon';
+import ExpandIcon from '../../assets/expandIcon';
 import { useState } from 'react';
 import { themed } from '../../utils/theme';
 

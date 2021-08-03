@@ -23,20 +23,23 @@ const Page = props => {
         if (typeof props.shouldComponentUpdate === 'function') props.shouldComponentUpdate(new Date().getTime());
     };
 
-    return <div className={classes.page} >
-        <IconButton onClick={handleThemeChange}
-            style={{
-                display: 'flex',
-                alignItems: 'center',
-                position: 'absolute',
-                top: '16px',
-                right: '16px',
-                padding: '0rem',
-                cursor: 'pointer',
-            }}>
-            {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
-        </IconButton>
-        {props.children}
+    return <div className={classes.page}>
+        <div className={classes.pageBackground} />
+        <div className={classes.pageContent}>
+            <IconButton onClick={handleThemeChange}
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    position: 'absolute',
+                    top: '16px',
+                    right: '16px',
+                    padding: '0rem',
+                    cursor: 'pointer',
+                }}>
+                {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
+            </IconButton>
+            {props.children}
+        </div>
     </div>;
 };
 

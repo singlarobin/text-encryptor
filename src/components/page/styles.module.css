@@ -3,6 +3,25 @@
     height: inherit;
     overflow-x: hidden;
     overflow-y: inherit;
+    position: relative;
     background-color: var(--page-bg);
     transition: background-color var(--transition-duration);
+}
+
+.pageBackground {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background: url('../../assets/images/text-encryptor-bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: lighten;
+}
+
+.pageContent {
+    width: inherit;
+    height: inherit;
+    overflow: inherit;
+    position: relative;
 }
