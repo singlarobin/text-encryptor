@@ -15,8 +15,7 @@ const Error = props => {
             </div>
         </div>
         {typeof onClick === 'function' &&
-            <Button onClick={onClick}
-                style={{ margin: '1rem auto', padding: '0.5rem 0.75rem' }}>
+            <Button onClick={onClick}>
                 {buttonLabel}
             </Button>}
     </Fragment>;

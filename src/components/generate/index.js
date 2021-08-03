@@ -5,6 +5,7 @@ import Button from '../button';
 import SnackBar from '../snackbar';
 import Loader from '../loader';
 import Error from '../error';
+import Description from '../description';
 import classes from './styles.module.css';
 import { isEmptyString, copyText } from '../../utils';
 import { SEVERITY, MESSAGE_API_URL, VALID_FOR_OPTIONS } from '../constants';
@@ -99,28 +100,36 @@ const Generate = () => {
     return <Fragment>
         {!isEmptyString(error) ?
             <Error error={error} buttonLabel='Create Message' onClick={handleReset} />
-            : isEmptyString(url) ? <div className={classes.generatorContainer}>
-                <Input inputVal={inputTextVal} handleInputChange={handleInputTextChange}
-                    placeholderValue='Enter Text' rows={10} />
-                <div className={classes.container}>
-                    <Input inputVal={inputSecretKey} handleInputChange={handleInputSecretKeyChange}
-                        placeholderValue='Enter Secret Key' style={{ flex: 1 }} rows={1} />
-                    <Select validity={validity} placeholder='Validity' handleValidityChange={handleValidityChange} />
-                </div>
-                <div>
-                    <Button onClick={handleEncryption} style={{ marginTop: '0.5rem' }}>Encrypt</Button>
-                </div>
-            </div> : <div className={classes.generatorContainer}>
-                <div className={classes.urlContent}>
-                    <div className={classes.urlText} onClick={openInNewTab}>{url}</div>
-                    <IconButton onClick={handleUrlCopy}>
-                        {urlCopied ? <ClipBoardChecked /> : <ClipBoard />}
-                    </IconButton>
-                </div>
-                <div>
-                    <Button onClick={handleReset}>Create Message</Button>
-                </div>
-            </div>}
+            : <>
+                {(isEmptyString(url)
+                    ? <div className={classes.generatorContainer}>
+                        <Input inputVal={inputTextVal} handleInputChange={handleInputTextChange}
+                            placeholderValue='Enter Text' rows={10} />
+                        <div className={classes.container}>
+                            <Input inputVal={inputSecretKey} handleInputChange={handleInputSecretKeyChange}
+                                placeholderValue='Enter Secret Key' style={{ flex: 1 }} rows={1} />
+                            <Select validity={validity} placeholder='Validity'
+                                handleValidityChange={handleValidityChange} />
+                        </div>
+                        <div>
+                            <Button onClick={handleEncryption}>Encrypt</Button>
+                        </div>
+                    </div>
+                    : <div className={classes.generatorContainer}>
+                        <div className={classes.urlContent}>
+                            <div className={classes.urlText} onClick={openInNewTab}>{url}</div>
+                            <IconButton onClick={handleUrlCopy}>
+                                {urlCopied ? <ClipBoardChecked /> : <ClipBoard />}
+                            </IconButton>
+                        </div>
+                        <div>
+                            <Button onClick={handleReset}>Create Message</Button>
+                        </div>
+                    </div>
+                )}
+                <Description />
+            </>
+        }
         <Loader loading={loading} />
         {openSnackbar &&
             <SnackBar message={snackbarMessage} severity={snackbarSeverity} handleClose={handleSnackbarClose} />}
