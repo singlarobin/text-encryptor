@@ -18,7 +18,7 @@ import IconButton from '../iconButton';
 const Generate = () => {
     const [inputTextVal, setInputTextVal] = useState('');
     const [inputSecretKey, setInputSecretKey] = useState('');
-    const [validity, setValidity] = useState(VALID_FOR_OPTIONS.MIN_15);
+    const [validity, setValidity] = useState(VALID_FOR_OPTIONS.MIN_30);
     const [loading, setLoading] = useState(false);
     const [openSnackbar, setOpenSnackbar] = useState(false);
     const [error, setError] = useState(null);
@@ -58,7 +58,7 @@ const Generate = () => {
             setFetchResult(false);
             handleInputTextChange('');
             handleInputSecretKeyChange('');
-            handleValidityChange(VALID_FOR_OPTIONS.MIN_15);
+            handleValidityChange(VALID_FOR_OPTIONS.MIN_30);
         });
     }, [inputTextVal, inputSecretKey, validity]);
 

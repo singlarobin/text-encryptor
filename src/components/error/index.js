@@ -1,11 +1,10 @@
-import { Fragment } from 'react';
 import classes from './styles.module.css';
 import Button from '../button';
 
 const Error = props => {
     const { error: { message, status }, buttonLabel, onClick } = props;
 
-    return <Fragment>
+    return <div className={classes.errorWrapper}>
         <div className={classes.errorContainer}>
             <div className={classes.errorStatus}>{status}</div>
             <div className={classes.errorContent}>
@@ -18,7 +17,7 @@ const Error = props => {
             <Button onClick={onClick}>
                 {buttonLabel}
             </Button>}
-    </Fragment>;
+    </div>;
 };
 
 export default Error;

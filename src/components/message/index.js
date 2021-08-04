@@ -81,7 +81,7 @@ const Message = props => {
 
     useEffect(() => fetchResult && fetchMessage(), [fetchResult, fetchMessage]);
 
-    // TODO - add copy button to copy decrypted message
+    // TODO - fix styles of input field
     return <Fragment>
         {!isEmptyString(error) ? <Fragment>
             <Error error={error} buttonLabel={`Create Message`} onClick={handleRedirectToHome} />
