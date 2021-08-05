@@ -14,7 +14,6 @@ import ClipBoardChecked from '../../assets/clipboardChecked';
 import ClipBoard from '../../assets/clipboard';
 import IconButton from '../iconButton';
 
-// TODO - add color bars on background and shapes, play again with background
 const Generate = () => {
     const [inputTextVal, setInputTextVal] = useState('');
     const [inputSecretKey, setInputSecretKey] = useState('');

@@ -81,31 +81,29 @@ const Message = props => {
 
     useEffect(() => fetchResult && fetchMessage(), [fetchResult, fetchMessage]);
 
-    // TODO - fix styles of input field
     return <Fragment>
-        {!isEmptyString(error) ? <Fragment>
-            <Error error={error} buttonLabel={`Create Message`} onClick={handleRedirectToHome} />
-        </Fragment> : <Fragment>
-            {isEmptyString(decryptMessage) ? <div className={classes.container}>
-                <Input inputVal={inputSecretKey} placeholderValue='Enter Secret Key' rows={1}
-                    handleInputChange={handleInputSecretKeyChange} />
-                <div>
-                    <Button onClick={handleDecryption}>
-                    Decrypt
-                    </Button>
-                </div>
-            </div> : <div className={classes.container}>
-                <div className={classes.messageContent}>{decryptMessage}</div>
-                <div>
-                    <Button onClick={handleRedirectToHome}>
-                    Create Message
-                    </Button>
-                </div>
-            </div>}
-            <Loader loading={loading} />
-            {openSnackbar &&
+        {!isEmptyString(error)
+            ? <Error error={error} buttonLabel={`Create Message`} onClick={handleRedirectToHome} />
+            : <Fragment>
+                {isEmptyString(decryptMessage)
+                    ? <div className={classes.container}>
+                        <Input inputVal={inputSecretKey} placeholderValue='Enter Secret Key' rows={1}
+                            handleInputChange={handleInputSecretKeyChange} />
+                        <div>
+                            <Button onClick={handleDecryption}>Decrypt</Button>
+                        </div>
+                    </div>
+                    : <div className={classes.container}>
+                        <div className={classes.messageContent}>{decryptMessage}</div>
+                        <div>
+                            <Button onClick={handleRedirectToHome}>Create Message</Button>
+                        </div>
+                    </div>
+                }
+                <Loader loading={loading} />
+                {openSnackbar &&
                 <SnackBar message={snackbarMessage} severity={snackbarSeverity} handleClose={handleSnackbarClose} />}
-        </Fragment>}
+            </Fragment>}
     </Fragment>;
 };
 
