@@ -10,7 +10,7 @@
     color: var(--text-light);
     padding: 0.75rem 1rem 0.5rem;
     border-radius: 0.25rem;
-    transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+    transition: color var(--transition-duration), background-color var(--transition-duration);
 }
 
 .message {

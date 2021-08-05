@@ -1,17 +1,15 @@
 .selectContainer {
-    margin: 0rem auto 0.75rem;
     position: relative;
-    width: 70vw;
 }
 
 .selectContent {
     display: flex;
     justify-content: space-between;
-    background-color: var(--card-bg);
+    background-color: transparent;
     padding: 0.75rem;
     border-radius: 0.5rem;
-    box-shadow: var(--card-shadow-hover);
-    transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out;
+    box-shadow: var(--neu-shadow);
+    transition: box-shadow var(--transition-duration);
 }
 
 .selectInput {
@@ -20,40 +18,42 @@
     flex-grow: 1;
     width: 50vw;
     color: var(--text);
-    background-color: var(--card-bg);
+    background-color: transparent;
     outline: none;
     border: none;
     resize: none;
-    transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+    transition: color var(--transition-duration);
 }
 
 .selectInput::placeholder {
-    opacity: 0.5;
-    color: var(--text);
-    transition: color 0.5s ease-in-out;
+    color: var(--text-obscurer);
+    transition: color var(--transition-duration);
 }
 
 .selectListContainer {
     position: absolute;
     top: 120%;
     left: 50%;
-    width: 60vw;
+    width: 100%;
+    box-shadow: var(--card-shadow-hover);
     transform: translateX(-50%);
-    transition: transform 0.5s ease-in-out;
     cursor: pointer;
-    border-radius: 0.5rem;
+    border-radius: 0.25rem;
+    z-index: 5;
+    transition: box-shadow var(--transition-duration);
 }
 
 .selectListItem {
     font-size: 0.9rem;
     font-family: inherit;
     color: var(--text);
-    background-color: var(--card-bg);
-    padding: 0.5rem 0.75rem;
+    background-color: var(--dialog-bg);
+    padding: 1rem 0.75rem;
     outline: none;
     border: none;
     box-shadow: none;
-    transition: color 0.5s ease-in-out, background-color 0.5s ease-in-out;
+    z-index: 10;
+    transition: color var(--transition-duration), background-color var(--transition-duration);
 }
 
 .selectListItem:first-of-type {
@@ -67,7 +67,7 @@
 }
 
 .selectListItem:hover {
-    filter: brightness(90%);
+    background-color: var(--card-bg);
 }
 
 @media screen and (min-width: 768px) {
@@ -76,13 +76,9 @@
     }
 
     .selectInput {
+        font-size: 1rem;
         width: 10rem;
     }
-
-    .selectListContainer {
-        width: 10rem;
-    }
-
 }
 
 @media screen and (min-width: 1024px) {

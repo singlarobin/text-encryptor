@@ -5,8 +5,11 @@ const Input = React.memo(props => {
     const { inputVal, handleInputChange, placeholderValue, rows, style } = props;
     const handleChange = e => handleInputChange(e.target.value);
 
-    return <textarea className={classes.inputContent} style={style} onChange={handleChange}
-        placeholder={placeholderValue} rows={rows} value={inputVal} />;
+    return rows === 1
+        ? <input className={classes.inputContent} style={style} onChange={handleChange}
+            placeholder={placeholderValue} rows={rows} value={inputVal} />
+        : <textarea className={classes.inputContent} style={style} onChange={handleChange}
+            placeholder={placeholderValue} rows={rows} value={inputVal} />;
 });
 
 export default Input;

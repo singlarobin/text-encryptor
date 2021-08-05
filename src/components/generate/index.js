@@ -5,15 +5,19 @@ import Button from '../button';
 import SnackBar from '../snackbar';
 import Loader from '../loader';
 import Error from '../error';
+import Description from '../description';
 import classes from './styles.module.css';
 import { isEmptyString, copyText } from '../../utils';
 import { SEVERITY, MESSAGE_API_URL, VALID_FOR_OPTIONS } from '../constants';
 import useAsyncExec from '../../hooks/useAsyncExec';
+import ClipBoardChecked from '../../assets/clipboardChecked';
+import ClipBoard from '../../assets/clipboard';
+import IconButton from '../iconButton';
 
 const Generate = () => {
     const [inputTextVal, setInputTextVal] = useState('');
     const [inputSecretKey, setInputSecretKey] = useState('');
-    const [validity, setValidity] = useState(VALID_FOR_OPTIONS.MIN_15);
+    const [validity, setValidity] = useState(VALID_FOR_OPTIONS.MIN_30);
     const [loading, setLoading] = useState(false);
     const [openSnackbar, setOpenSnackbar] = useState(false);
     const [error, setError] = useState(null);
@@ -24,10 +28,14 @@ const Generate = () => {
     const [urlCopied, setUrlCopied] = useState(false);
 
     const handleInputTextChange = useCallback(value => setInputTextVal(value), []);
+
     const handleInputSecretKeyChange = useCallback(value => setInputSecretKey(value), []);
+
     const handleValidityChange = useCallback(value => setValidity(value), []);
+
     const handleSnackbarClose = useCallback(() => setOpenSnackbar(false), []);
-    const handleRedirectToHome = useCallback(() => {
+
+    const handleReset = useCallback(() => {
         setError(null);
         setUrl('');
     }, []);
@@ -49,7 +57,7 @@ const Generate = () => {
             setFetchResult(false);
             handleInputTextChange('');
             handleInputSecretKeyChange('');
-            handleValidityChange(VALID_FOR_OPTIONS.MIN_15);
+            handleValidityChange(VALID_FOR_OPTIONS.MIN_30);
         });
     }, [inputTextVal, inputSecretKey, validity]);
 
@@ -90,30 +98,37 @@ const Generate = () => {
 
     return <Fragment>
         {!isEmptyString(error) ?
-            <Error error={error} buttonLabel={`Create Message`} onClick={handleRedirectToHome} />
-            : <Fragment>
-                {isEmptyString(url) ? <Fragment>
-                    <Input inputVal={inputTextVal} handleInputChange={handleInputTextChange}
-                        placeholderValue='Enter Text' rows={4} />
-                    <div className={classes.container}>
-                        <Input inputVal={inputSecretKey} handleInputChange={handleInputSecretKeyChange}
-                            placeholderValue='Enter Secret Key' rows={1}
-                            style={{ marginTop: '0rem' }} />
-                        <Select validity={validity} handleValidityChange={handleValidityChange} />
+            <Error error={error} buttonLabel='Create Message' onClick={handleReset} />
+            : <>
+                {(isEmptyString(url)
+                    ? <div className={classes.generatorContainer}>
+                        <Input inputVal={inputTextVal} handleInputChange={handleInputTextChange}
+                            placeholderValue='Enter Text' rows={10} />
+                        <div className={classes.container}>
+                            <Input inputVal={inputSecretKey} handleInputChange={handleInputSecretKeyChange}
+                                placeholderValue='Enter Secret Key' style={{ flex: 1 }} rows={1} />
+                            <Select validity={validity} placeholder='Validity'
+                                handleValidityChange={handleValidityChange} />
+                        </div>
+                        <div>
+                            <Button onClick={handleEncryption}>Encrypt</Button>
+                        </div>
                     </div>
-                    <Button onClick={handleEncryption} style={{ margin: '1rem auto', padding: '0.5rem 0.75rem' }}>
-                        Encrypt
-                    </Button>
-                </Fragment> : <Fragment>
-                    <p className={classes.urlContent} onClick={openInNewTab}> {url} </p>
-                    <Button onClick={handleUrlCopy} style={{ margin: '0 auto', padding: '0.25rem 0.5rem' }}>
-                        Cop{urlCopied ? 'ied!' : 'y'}
-                    </Button>
-                    <Button onClick={handleRedirectToHome} style={{ margin: '1rem auto', padding: '0.5rem 0.75rem' }}>
-                        Create Message
-                    </Button>
-                </Fragment>}
-            </Fragment>}
+                    : <div className={classes.generatorContainer}>
+                        <div className={classes.urlContent}>
+                            <div className={classes.urlText} onClick={openInNewTab}>{url}</div>
+                            <IconButton onClick={handleUrlCopy}>
+                                {urlCopied ? <ClipBoardChecked /> : <ClipBoard />}
+                            </IconButton>
+                        </div>
+                        <div>
+                            <Button onClick={handleReset}>Create Message</Button>
+                        </div>
+                    </div>
+                )}
+                <Description />
+            </>
+        }
         <Loader loading={loading} />
         {openSnackbar &&
             <SnackBar message={snackbarMessage} severity={snackbarSeverity} handleClose={handleSnackbarClose} />}

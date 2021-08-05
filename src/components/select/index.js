@@ -1,13 +1,13 @@
 import Downshift from 'downshift';
 import IconButton from '../iconButton';
-import ExpandIcon from '../../assests/expandIcon';
+import ExpandIcon from '../../assets/expandIcon';
 import classes from './styles.module.css';
 import { VALID_FOR_OPTIONS } from '../constants';
 import { themed } from '../../utils/theme';
 import { isEmptyString } from '../../utils';
 
 const Select = props => {
-    const { validity, handleValidityChange } = props;
+    const { validity, handleValidityChange, placeholder = '' } = props;
 
     return <Downshift onChange={e => handleValidityChange(e)} selectedItem={validity}
         itemToString={validOptions => validOptions ? validOptions.name.toString() : ''}>
@@ -23,17 +23,14 @@ const Select = props => {
         }) => (<div className={classes.selectContainer}>
             <div className={classes.selectContent}>
                 <input className={classes.selectInput} {...getInputProps({
-                    placeholder: 'Validity Duration',
+                    placeholder,
                     value: inputValue,
                 })} />
-                <IconButton {...getToggleButtonProps()} style={{
-                    padding: '0rem',
-                    cursor: 'pointer',
-                }}>
+                <IconButton {...getToggleButtonProps()}>
                     <ExpandIcon strokeColor={themed('#666', '#f7f7f7')}
                         style={{
                             transform: isOpen ? 'rotate(180deg)' : 'rotate(0)',
-                            transition: 'transform 0.5s ease-in-out'
+                            transition: 'transform 0.15s'
                         }} />
                 </IconButton>
             </div>
@@ -50,7 +47,7 @@ const Select = props => {
                             })}
                             style={{
                                 color: selectedItem === item[1] && '#36b6ab',
-                                filter: highlightedIndex === index && 'brightness(90%)'
+                                backgroundColor: highlightedIndex === index && themed('#d7d7d7', '#152d3a')
                             }}>
                             {item[1].name}
                         </div>)}

@@ -1,40 +1,50 @@
 .descriptionContainer {
-    width: 70vw;
-    max-width: 300px;
-    margin: 1rem auto;
+    width: 90vw;
+    max-width: 600px;
+    margin: 1.5rem 0;
 }
 
 .descriptionHeading {
-    display: flex;
-    justify-content: center;
+    cursor: pointer;
+    display: inline-flex;
     align-items: center;
+    gap: 0.25rem;
 }
 
 .descriptionLabel {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--secondary-theme-color);
-    transition: color 0.2s ease-in-out,
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--secondary-theme-color-obscure);
+    transition: color var(--transition-duration),
 }
 
 .descriptionContent {
-    margin: 0.75rem auto 0rem;
-    font-size: 0.75rem;
-    color: var(--text);
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    max-width: 75%;
+    color: var(--text-obscure);
     word-wrap: break-word;
-    transition: color 0.2s ease-in-out,
+    transition: color var(--transition-duration),
+}
+
+.descriptionContent p {
+    margin: 0 0 0.5rem;
 }
 
 @media screen and (min-width: 768px) {
     .descriptionContainer {
-        width: 60vw;
-        margin: 1.25rem auto 1.5rem;
+        width: 80vw;
+        margin: 2rem 0;
     }
 }
 
 @media screen and (min-width: 1024px) {
     .descriptionContainer {
-        width: 50vw;
-        margin: 1.5rem auto 2rem;
+        width: 75vw;
+        margin: 2.5rem 0;
+    }
+
+    .descriptionContent {
+        font-size: 0.95rem;
     }
 }
