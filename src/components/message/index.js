@@ -7,7 +7,7 @@ import SnackBar from '../snackbar';
 import Loader from '../loader';
 import Error from '../error';
 import { isEmptyString } from '../../utils';
-import { SEVERITY } from '../constants';
+import { HOMEPAGE_PATH, SEVERITY } from '../constants';
 import { MESSAGE_API_URL } from '../constants';
 import useAsyncExec from '../../hooks/useAsyncExec';
 
@@ -27,26 +27,11 @@ const Message = props => {
         setError({ message: result.error.message, status: result.status });
     }, []);
 
-    useEffect(() => {
-        //Check if id exists or not
-        setLoading(true);
-        fetch(url + id)
-            .then(response => response.json())
-            .then(result => {
-                if (!isEmptyString(result.error)) handleErrorInResponse(result);
-                setUrl(result.data ? url + id + '/decrypt' : url);
-            })
-            .catch(error => {
-                setError({ message: error.message, status: '500' });
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    }, []);
-
     const handleInputSecretKeyChange = useCallback(value => setInputSecretKey(value), []);
+
     const handleSnackbarClose = useCallback(() => setOpenSnackbar(false), []);
-    const handleRedirectToHome = useCallback(() => props.history.replace('/'), []);
+
+    const handleRedirectToHome = useCallback(() => props.history.replace(HOMEPAGE_PATH), []);
 
     const handleDecryption = useCallback(() => {
         const message = isEmptyString(inputSecretKey) ? 'Missing Secret Key!' : '';
@@ -77,30 +62,48 @@ const Message = props => {
             });
     }, [url, inputSecretKey]);
 
+    useEffect(() => {
+        //Check if id exists or not
+        setLoading(true);
+        fetch(url + id)
+            .then(response => response.json())
+            .then(result => {
+                if (!isEmptyString(result.error)) handleErrorInResponse(result);
+                setUrl(result.data ? url + id + '/decrypt' : url);
+            })
+            .catch(error => {
+                setError({ message: error.message, status: '500' });
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }, []);
+
     useEffect(() => fetchResult && fetchMessage(), [fetchResult, fetchMessage]);
 
     return <Fragment>
-        {!isEmptyString(error) ? <Fragment>
-            <Error error={error} buttonLabel={`Create Message`} onClick={handleRedirectToHome} />
-        </Fragment> : <Fragment>
-            {isEmptyString(decryptMessage) ? <Fragment>
-                <Input inputVal={inputSecretKey} placeholderValue='Enter Secret Key' rows={1}
-                    handleInputChange={handleInputSecretKeyChange} />
-                <Button onClick={handleDecryption}
-                    style={{ margin: '1rem auto', padding: '0.5rem 0.75rem' }}>
-                    Decrypt
-                </Button>
-            </Fragment> : <Fragment>
-                <p className={classes.messageContent}> {decryptMessage} </p>
-                <Button onClick={handleRedirectToHome}
-                    style={{ margin: '1rem auto', padding: '0.5rem 0.75rem' }}>
-                    Create Message
-                </Button>
-            </Fragment>}
-            <Loader loading={loading} />
-            {openSnackbar &&
+        {!isEmptyString(error)
+            ? <Error error={error} buttonLabel={`Create Message`} onClick={handleRedirectToHome} />
+            : <Fragment>
+                {isEmptyString(decryptMessage)
+                    ? <div className={classes.container}>
+                        <Input inputVal={inputSecretKey} placeholderValue='Enter Secret Key' rows={1}
+                            handleInputChange={handleInputSecretKeyChange} />
+                        <div>
+                            <Button onClick={handleDecryption}>Decrypt</Button>
+                        </div>
+                    </div>
+                    : <div className={classes.container}>
+                        <div className={classes.messageContent}>{decryptMessage}</div>
+                        <div>
+                            <Button onClick={handleRedirectToHome}>Create Message</Button>
+                        </div>
+                    </div>
+                }
+                <Loader loading={loading} />
+                {openSnackbar &&
                 <SnackBar message={snackbarMessage} severity={snackbarSeverity} handleClose={handleSnackbarClose} />}
-        </Fragment>}
+            </Fragment>}
     </Fragment>;
 };
 
