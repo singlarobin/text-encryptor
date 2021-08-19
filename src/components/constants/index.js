@@ -4,7 +4,6 @@ const MESSAGE_API_URI_PROD = 'https://swoosh-server.herokuapp.com/api/v1/message
 
 const MESSAGE_API_URL = process.env.NODE_ENV === 'development' ? MESSAGE_API_URI_DEV : MESSAGE_API_URI_PROD;
 
-// const HOMEPAGE_PATH = '/text-encryptor';
 const HOMEPAGE_PATH = '/';
 
 const TIME_UNIT = Object.freeze({
