@@ -3,6 +3,7 @@ on:
     push:
         branches:
             - master
+            - test-build
 jobs:
     build:
         env:
