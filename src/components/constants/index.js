@@ -45,7 +45,6 @@ const SEVERITY = Object.freeze({
 });
 
 export {
-    DESCRIPTION_VALUE,
     MESSAGE_API_URL,
     TIME_UNIT,
     VALID_FOR_OPTIONS,

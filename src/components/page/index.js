@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import IconButton from '../iconButton';
 import classes from './styles.module.css';
-import DarkModeIcon from '../../assests/darkModeIcon';
-import LightModeIcon from '../../assests/lightModeIcon';
+import DarkModeIcon from '../../assets/darkModeIcon';
+import LightModeIcon from '../../assets/lightModeIcon';
 import { themes, getTheme, setTheme } from '../../utils/theme';
 
 
