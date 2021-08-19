@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/text-encryptor/static/css/main.883a018d.chunk.css",
-    "main.js": "/text-encryptor/static/js/main.6c341401.chunk.js",
-    "main.js.map": "/text-encryptor/static/js/main.6c341401.chunk.js.map",
+    "main.js": "/text-encryptor/static/js/main.2579750b.chunk.js",
+    "main.js.map": "/text-encryptor/static/js/main.2579750b.chunk.js.map",
     "runtime-main.js": "/text-encryptor/static/js/runtime-main.b3f9a800.js",
     "runtime-main.js.map": "/text-encryptor/static/js/runtime-main.b3f9a800.js.map",
-    "static/js/2.0917aaf8.chunk.js": "/text-encryptor/static/js/2.0917aaf8.chunk.js",
-    "static/js/2.0917aaf8.chunk.js.map": "/text-encryptor/static/js/2.0917aaf8.chunk.js.map",
+    "static/js/2.8244dc5f.chunk.js": "/text-encryptor/static/js/2.8244dc5f.chunk.js",
+    "static/js/2.8244dc5f.chunk.js.map": "/text-encryptor/static/js/2.8244dc5f.chunk.js.map",
     "static/js/3.c956e880.chunk.js": "/text-encryptor/static/js/3.c956e880.chunk.js",
     "static/js/3.c956e880.chunk.js.map": "/text-encryptor/static/js/3.c956e880.chunk.js.map",
     "index.html": "/text-encryptor/index.html",
     "static/css/main.883a018d.chunk.css.map": "/text-encryptor/static/css/main.883a018d.chunk.css.map",
-    "static/js/2.0917aaf8.chunk.js.LICENSE.txt": "/text-encryptor/static/js/2.0917aaf8.chunk.js.LICENSE.txt",
+    "static/js/2.8244dc5f.chunk.js.LICENSE.txt": "/text-encryptor/static/js/2.8244dc5f.chunk.js.LICENSE.txt",
     "static/media/styles.module.css": "/text-encryptor/static/media/text-encryptor-bg.cde56f50.png"
   },
   "entrypoints": [
     "static/js/runtime-main.b3f9a800.js",
-    "static/js/2.0917aaf8.chunk.js",
+    "static/js/2.8244dc5f.chunk.js",
     "static/css/main.883a018d.chunk.css",
-    "static/js/main.6c341401.chunk.js"
+    "static/js/main.2579750b.chunk.js"
   ]
 }
