@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from '../header';
 import Generate from '../generate';
 import Message from '../message';
@@ -8,8 +8,8 @@ const Routing = () => {
     return <Router>
         <Header />
         <Switch>
-            <Route exact path='/text-encryptor/' component={Generate} />
-            <Route exact path='/text-encryptor/messages/:id' component={Message} />
+            <Route exact path='/' component={Generate} />
+            <Route exact path='/messages/:id' component={Message} />
             <Route path='*' component={ErrorPage} />
         </Switch>
     </Router>;
