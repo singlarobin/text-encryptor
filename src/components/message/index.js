@@ -6,10 +6,14 @@ import Input from '../input';
 import SnackBar from '../snackbar';
 import Loader from '../loader';
 import Error from '../error';
-import { isEmptyString } from '../../utils';
+import { isEmptyString, copyText } from '../../utils';
 import { HOMEPAGE_PATH, SEVERITY } from '../constants';
 import { MESSAGE_API_URL } from '../constants';
 import useAsyncExec from '../../hooks/useAsyncExec';
+import Description from '../description';
+import ClipBoardChecked from '../../assets/clipboardChecked';
+import ClipBoard from '../../assets/clipboard';
+import IconButton from '../iconButton';
 
 const Message = props => {
     const { id } = useParams();
@@ -22,6 +26,7 @@ const Message = props => {
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const [snackbarSeverity, setSnackbarSeverity] = useState(SEVERITY.INFO);
     const [fetchResult, setFetchResult] = useState(false);
+    const [messageCopied, setMessageCopied] = useState(false);
 
     const handleErrorInResponse = useCallback(result => {
         setError({ message: result.error.message, status: result.status });
@@ -81,6 +86,13 @@ const Message = props => {
 
     useEffect(() => fetchResult && fetchMessage(), [fetchResult, fetchMessage]);
 
+    const handleMessageCopy = useCallback(() => {
+        if (isEmptyString(decryptMessage)) return;
+        if (!isEmptyString(copyText(decryptMessage))) return;
+        setMessageCopied(true);
+        useAsyncExec(() => setMessageCopied(false), 2000);
+    }, [decryptMessage]);
+
     return <Fragment>
         {!isEmptyString(error)
             ? <Error error={error} buttonLabel={`Create Message`} onClick={handleRedirectToHome} />
@@ -94,12 +106,18 @@ const Message = props => {
                         </div>
                     </div>
                     : <div className={classes.container}>
-                        <div className={classes.messageContent}>{decryptMessage}</div>
+                        <div className={classes.messageContainer}>
+                            <div className={classes.messageContent}>{decryptMessage}</div>
+                            <IconButton onClick={handleMessageCopy}>
+                                {messageCopied ? <ClipBoardChecked /> : <ClipBoard />}
+                            </IconButton>
+                        </div>
                         <div>
                             <Button onClick={handleRedirectToHome}>Create Message</Button>
                         </div>
                     </div>
                 }
+                <Description />
                 <Loader loading={loading} />
                 {openSnackbar &&
                 <SnackBar message={snackbarMessage} severity={snackbarSeverity} handleClose={handleSnackbarClose} />}
