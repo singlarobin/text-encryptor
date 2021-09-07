@@ -7,7 +7,7 @@ import Loader from '../loader';
 import Error from '../error';
 import Description from '../description';
 import classes from './styles.module.css';
-import { isEmptyString, copyText } from '../../utils';
+import { isEmptyString, isEmptyObject, copyText } from '../../utils';
 import { SEVERITY, MESSAGE_API_URL, VALID_FOR_OPTIONS } from '../constants';
 import useAsyncExec from '../../hooks/useAsyncExec';
 import ClipBoardChecked from '../../assets/clipboardChecked';
@@ -97,7 +97,7 @@ const Generate = () => {
     }, [url]);
 
     return <Fragment>
-        {!isEmptyString(error) ?
+        {!isEmptyObject(error) ?
             <Error error={error} buttonLabel='Create Message' onClick={handleReset} />
             : <>
                 {(isEmptyString(url)

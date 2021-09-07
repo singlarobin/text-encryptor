@@ -6,7 +6,7 @@ import Input from '../input';
 import SnackBar from '../snackbar';
 import Loader from '../loader';
 import Error from '../error';
-import { isEmptyString, copyText } from '../../utils';
+import { isEmptyString, isEmptyObject, copyText } from '../../utils';
 import { HOMEPAGE_PATH, SEVERITY } from '../constants';
 import { MESSAGE_API_URL } from '../constants';
 import useAsyncExec from '../../hooks/useAsyncExec';
@@ -56,7 +56,7 @@ const Message = props => {
         fetch(url + '?secretKey=' + inputSecretKey)
             .then(response => response.json())
             .then(result => {
-                if (!isEmptyString(result.error)) handleErrorInResponse(result);
+                if (!isEmptyObject(result.error)) handleErrorInResponse(result);
                 setDecryptMessage(result.data?.message || '');
             })
             .catch(error => {
@@ -73,7 +73,7 @@ const Message = props => {
         fetch(url + id)
             .then(response => response.json())
             .then(result => {
-                if (!isEmptyString(result.error)) handleErrorInResponse(result);
+                if (!isEmptyObject(result.error)) handleErrorInResponse(result);
                 setUrl(result.data ? url + id + '/decrypt' : url);
             })
             .catch(error => {
@@ -94,7 +94,7 @@ const Message = props => {
     }, [decryptMessage]);
 
     return <Fragment>
-        {!isEmptyString(error)
+        {!isEmptyObject(error)
             ? <Error error={error} buttonLabel={`Create Message`} onClick={handleRedirectToHome} />
             : <Fragment>
                 {isEmptyString(decryptMessage)
