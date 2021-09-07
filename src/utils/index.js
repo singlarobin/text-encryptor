@@ -1,5 +1,7 @@
 const isEmptyString = value => !value || (typeof value === 'string' && value.trim() === '');
 
+const isEmptyObject = value => !value;
+
 const copyText = (textToCopy) => {
     let textArea = document.createElement('textarea');
     let error = null;
@@ -21,5 +23,6 @@ const copyText = (textToCopy) => {
 
 export {
     isEmptyString,
+    isEmptyObject,
     copyText
 };
