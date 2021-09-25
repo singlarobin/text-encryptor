@@ -1,8 +1,7 @@
 import classes from './styles.module.css';
 
 const Header = () => {
-    return <div className={classes.headerContent}>Sw<span>oo</span>sh</div>;
-
+    return <div className={classes.headerContent}>Swoosh</div>;
 };
 
 export default Header;

@@ -27,7 +27,7 @@ const Select = props => {
                     value: inputValue,
                 })} />
                 <IconButton {...getToggleButtonProps()}>
-                    <ExpandIcon strokeColor={themed('#666', '#f7f7f7')}
+                    <ExpandIcon strokeColor={themed('#136A87', '#A3F8FF')}
                         style={{
                             transform: isOpen ? 'rotate(180deg)' : 'rotate(0)',
                             transition: 'transform 0.15s'
@@ -46,8 +46,8 @@ const Select = props => {
                                 key: index,
                             })}
                             style={{
-                                color: selectedItem === item[1] && '#36b6ab',
-                                backgroundColor: highlightedIndex === index && themed('#d7d7d7', '#152d3a')
+                                color: selectedItem === item[1] && themed('#136A87', '#A3F8FF'),
+                                opacity: highlightedIndex === index && themed('0.3', '0.7')
                             }}>
                             {item[1].name}
                         </div>)}

@@ -1,37 +1,37 @@
 .generatorContainer {
     width: 90vw;
-    max-width: 600px;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+
+.generatorHeading {
+    display: none;
 }
 
 .container {
     display: flex;
-    flex-direction: column;
     gap: 1rem;
 }
 
 .urlContent {
-    width: inherit;
-    max-width: inherit;
     padding: 0.75rem;
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: 0.5rem;
-    background-color: transparent;
+    background: var(--glass-gradient-2);
     border-radius: 0.5rem;
     word-wrap: break-word;
-    box-shadow: var(--neu-shadow);
+    box-shadow: var(--input-container-box-shadow);
     transition: box-shadow var(--transition-duration);
 }
 
 .urlText {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 500;
     flex: 1;
-    color: var(--text);
+    color: var(--text-normal);
     transition: color var(--transition-duration);
 }
 
@@ -40,22 +40,39 @@
     cursor: pointer;
 }
 
+.infoContainer {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.infoContainer p {
+    font-size: 0.6rem;
+    font-weight: 500;
+    color: var(--text-normal);
+    word-wrap: break-word;
+    flex: 0.5;
+    margin: 0rem;
+}
+
 @media screen and (min-width: 768px) {
     .generatorContainer {
         width: 80vw;
     }
-
-    .container {
-        flex-direction: row;
-    }
 }
 
 @media screen and (min-width: 1024px) {
-    .urlContent {
-        padding: 1rem;
+    .generatorContainer {
+        width: 60vw;
     }
 
-    .generatorContainer {
-        width: 75vw;
+    .generatorHeading {
+        display: block;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: var(--text-highlight-2);
+    }
+
+    .container {
+        flex-direction: row;
     }
 }

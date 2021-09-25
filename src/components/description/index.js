@@ -1,34 +1,28 @@
 import classes from './styles.module.css';
 import ExpandIcon from '../../assets/expandIcon';
-import { useState } from 'react';
 import { themed } from '../../utils/theme';
 
 const Description = () => {
-    const [showContent, setShowContent] = useState(false);
-
-    const handleShowContent = () => setShowContent(!showContent);
-
     return <div className={classes.descriptionContainer}>
-        <div className={classes.descriptionHeading} onClick={handleShowContent}>
-            <div className={classes.descriptionLabel}>How it Works?</div>
-            <ExpandIcon
-                height='0.75rem'
-                width='0.75rem'
-                strokeColor={themed('#1480779f', '#36b6aba7')}
-                style={{
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    transform: showContent ? 'rotate(180deg)' : 'rotate(0)',
-                    transition: 'transform 0.15s'
-                }}
-            />
+        <div className={classes.descriptionContent}>
+            <ExpandIcon strokeColor={themed('#0E9E9C', '#A3F8FF')} />
+            <p>Enter your message</p>
         </div>
-        {showContent && <div className={classes.descriptionContent}>
-            <p>- Enter the message phrase that you intend to send to someone.</p>
-            <p>- Enter a secret key which acts as a password to protect your message.</p>
-            <p>- Choose for how long do you want your message to remain valid.</p>
-            <p>- Once encrypted, you can share the link with your friend(s) who can 
-            decrypt your message with the help of the secret key you provided.</p>
-        </div>}
+
+        <div className={classes.descriptionContent}>
+            <ExpandIcon strokeColor={themed('#0E9E9C', '#A3F8FF')} />
+            <p>Protect it with a secret key</p>
+        </div>
+
+        <div className={classes.descriptionContent}>
+            <ExpandIcon strokeColor={themed('#0E9E9C', '#A3F8FF')} />
+            <p>Share the link</p>
+        </div>
+
+        <div className={classes.descriptionContent}>
+            <ExpandIcon strokeColor={themed('#0E9E9C', '#A3F8FF')} />
+            <p>Decrypt the message with key</p>
+        </div>
     </div>;
 };
 

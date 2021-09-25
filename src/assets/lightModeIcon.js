@@ -16,6 +16,6 @@ LightModeIcon.defaultProps = {
     height: '1.5rem',
     width: '1.5rem',
     fill: 'none',
-    stroke: '#666',
+    stroke: '#136A87',
     strokeWidth: 1.5,
 };

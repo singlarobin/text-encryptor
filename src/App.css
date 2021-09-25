@@ -1,7 +1,14 @@
 .appContainer {
-    width: inherit;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: inherit;
+    justify-content: center;
+    margin: 1rem auto;
+    flex: 1;
+}
+
+@media screen and (min-width: 1024px) {
+    .appContainer {
+        height: inherit;
+        margin: 0rem;
+        align-items: center;
+    }
 }

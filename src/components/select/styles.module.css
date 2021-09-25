@@ -5,19 +5,19 @@
 .selectContent {
     display: flex;
     justify-content: space-between;
-    background-color: transparent;
-    padding: 0.75rem;
+    background: var(--glass-gradient-2);
+    padding: 0.5rem;
     border-radius: 0.5rem;
-    box-shadow: var(--neu-shadow);
+    box-shadow: var(--input-container-box-shadow);
     transition: box-shadow var(--transition-duration);
 }
 
 .selectInput {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-family: inherit;
     flex-grow: 1;
-    width: 50vw;
-    color: var(--text);
+    width: 8.5rem;
+    color: var(--text-normal);
     background-color: transparent;
     outline: none;
     border: none;
@@ -26,7 +26,8 @@
 }
 
 .selectInput::placeholder {
-    color: var(--text-obscurer);
+    color: var(--text-heading-2);
+    opacity: 0.6;
     transition: color var(--transition-duration);
 }
 
@@ -35,24 +36,23 @@
     top: 120%;
     left: 50%;
     width: 100%;
-    box-shadow: var(--card-shadow-hover);
+    box-shadow: var(--input-container-box-shadow);
     transform: translateX(-50%);
     cursor: pointer;
     border-radius: 0.25rem;
-    z-index: 5;
+    backdrop-filter: blur(1rem);
     transition: box-shadow var(--transition-duration);
 }
 
 .selectListItem {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-family: inherit;
-    color: var(--text);
-    background-color: var(--dialog-bg);
+    color: var(--text-highlight-3);
+    background: var(--glass-gradient-2);
     padding: 1rem 0.75rem;
     outline: none;
     border: none;
     box-shadow: none;
-    z-index: 10;
     transition: color var(--transition-duration), background-color var(--transition-duration);
 }
 
@@ -67,22 +67,5 @@
 }
 
 .selectListItem:hover {
-    background-color: var(--card-bg);
-}
-
-@media screen and (min-width: 768px) {
-    .selectContainer {
-        width: 13rem;
-    }
-
-    .selectInput {
-        font-size: 1rem;
-        width: 10rem;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .selectContent {
-        padding: 1rem;
-    }
+    opacity: 0.3;
 }
