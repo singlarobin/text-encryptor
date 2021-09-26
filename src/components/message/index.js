@@ -121,7 +121,7 @@ const Message = props => {
                             </IconButton>
                         </div>
                         <div>
-                            <Button onClick={handleRedirectToHome}>Create Message</Button>
+                            <Button onClick={handleRedirectToHome} style={{ padding: '0.5rem' }}>Create Message</Button>
                         </div>
                         <div className={classes.infoContainer}>
                             <InfoIcon width='1rem' height='1rem' strokeColor={themed('#136A87', '#A3F8FF')} />

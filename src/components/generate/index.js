@@ -130,7 +130,7 @@ const Generate = () => {
                             </IconButton>
                         </div>
                         <div>
-                            <Button onClick={handleReset} style={{ padding: '0.5 0.75rem' }}>Create Message</Button>
+                            <Button onClick={handleReset} style={{ padding: '0.5rem' }}>Create Message</Button>
                         </div>
                         <div className={classes.infoContainer}>
                             <InfoIcon width='1rem' height='1rem' strokeColor={themed('#136A87', '#A3F8FF')} />
