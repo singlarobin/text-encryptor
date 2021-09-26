@@ -10,10 +10,11 @@ import { isEmptyString, isEmptyObject, copyText } from '../../utils';
 import { HOMEPAGE_PATH, SEVERITY } from '../constants';
 import { MESSAGE_API_URL } from '../constants';
 import useAsyncExec from '../../hooks/useAsyncExec';
-import Description from '../description';
 import ClipBoardChecked from '../../assets/icons/clipboardChecked';
 import ClipBoard from '../../assets/icons/clipboard';
+import InfoIcon from '../../assets/icons/infoIcon';
 import IconButton from '../iconButton';
+import { themed } from '../../utils/theme';
 
 const Message = props => {
     const { id } = useParams();
@@ -98,16 +99,22 @@ const Message = props => {
             ? <Error error={error} buttonLabel={`Create Message`} onClick={handleRedirectToHome} />
             : <Fragment>
                 {isEmptyString(decryptMessage)
-                    ? <div className={classes.container}>
+                    ? <div className={classes.messageContainer}>
+                        <div className={classes.messageHeading}>
+                            DECRYPT MESSAGE
+                        </div>
                         <Input inputVal={inputSecretKey} placeholderValue='Enter Secret Key' rows={1}
                             handleInputChange={handleInputSecretKeyChange} />
                         <div>
                             <Button onClick={handleDecryption}>Decrypt</Button>
                         </div>
                     </div>
-                    : <div className={classes.container}>
-                        <div className={classes.messageContainer}>
-                            <div className={classes.messageContent}>{decryptMessage}</div>
+                    : <div className={classes.messageContainer}>
+                        <div className={classes.messageHeading}>
+                            VOILA!
+                        </div>
+                        <div className={classes.messageContent}>
+                            <div className={classes.messageText}>{decryptMessage}</div>
                             <IconButton onClick={handleMessageCopy}>
                                 {messageCopied ? <ClipBoardChecked /> : <ClipBoard />}
                             </IconButton>
@@ -115,9 +122,13 @@ const Message = props => {
                         <div>
                             <Button onClick={handleRedirectToHome}>Create Message</Button>
                         </div>
+                        <div className={classes.infoContainer}>
+                            <InfoIcon width='1rem' height='1rem' strokeColor={themed('#136A87', '#A3F8FF')} />
+                            <p>Share the link with the recipient along with the secret key to
+                                allow them to decrypt your message.</p>
+                        </div>
                     </div>
                 }
-                <Description />
                 <Loader loading={loading} />
                 {openSnackbar &&
                 <SnackBar message={snackbarMessage} severity={snackbarSeverity} handleClose={handleSnackbarClose} />}
