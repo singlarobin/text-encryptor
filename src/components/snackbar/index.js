@@ -9,6 +9,7 @@ import SuccessIcon from '../../assets/icons/successIcon';
 import WarningIcon from '../../assets/icons/warningIcon';
 import { SEVERITY } from '../constants';
 import useAsyncExec from '../../hooks/useAsyncExec';
+import { themed } from '../../utils/theme';
 
 const SnackBar = props => {
     const { message, severity, handleClose } = props;
@@ -24,13 +25,13 @@ const SnackBar = props => {
     const selectSeverityIcon = useMemo(() => {
         switch (severity) {
         case SEVERITY.INFO:
-            return <InfoIcon />;
+            return <InfoIcon strokeColor={themed('#0E9E9C', '#6CFFEC')} />;
         case SEVERITY.WARNING:
-            return <WarningIcon />;
+            return <WarningIcon strokeColor={themed('#0E9E9C', '#6CFFEC')} />;
         case SEVERITY.ERROR:
-            return <ErrorIcon />;
+            return <ErrorIcon strokeColor={themed('#0E9E9C', '#6CFFEC')} />;
         default:
-            return <SuccessIcon />;
+            return <SuccessIcon strokeColor={themed('#0E9E9C', '#6CFFEC')} />;
         }
     }, [severity]);
 
@@ -38,7 +39,7 @@ const SnackBar = props => {
         {selectSeverityIcon}
         <div className={classes.message}>{message}</div>
         <IconButton onClick={snackbarClose}>
-            <CloseIcon />
+            <CloseIcon strokeColor={themed('#0E9E9C', '#6CFFEC')} />
         </IconButton>
     </div>;
 };

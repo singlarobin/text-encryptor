@@ -2,7 +2,7 @@
   bottom: 50%;
   right: 50%;
   position: absolute;
-  background-color: var(--text-obscurer);
+  background-color: var(--text-heading-1);
   width: 24px;
   height: 24px;
   border-radius: 16px;
