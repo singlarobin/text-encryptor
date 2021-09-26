@@ -14,11 +14,6 @@
     position: fixed;
     height: 100vh;
     width: 100vw;
-    /* background: url('../../assets/images/text-encryptor-bg.png'); */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-blend-mode: lighten;
 }
 
 .pageContent {
@@ -48,25 +43,27 @@
     width: 8rem;
     height: 12rem;
     position: absolute;
-    top: 10%;
-    right: 0%;
+    top: 20%;
+    right: -10%;
     transform: rotate(-8deg);
+    opacity: 0.5;
 }
 
 .circle {
     width: 40rem;
     height: 40rem;
     position: absolute;
-    top: 30%;
+    top: 50%;
     left: -30%;
+    opacity: 0.6;
 }
 
 .triangle {
     width: 20rem;
     height: 18rem;
     position: absolute;
-    bottom: -20%;
-    right: -20%;
+    bottom: -5%;
+    right: -30%;
     transform: rotate(70deg);
 }
 
@@ -140,6 +137,7 @@
 }
 
 @media screen and (min-width: 1024px) {
+
     .mobileView {
         display: none;
     }
@@ -155,6 +153,8 @@
         border-radius: 2rem;
         backdrop-filter: blur(1rem);
         z-index: 3;
+        transform: translateZ(10px);
+        transform-style: preserve-3d;
         box-shadow: inset 2px 5px 10px #FFFFFF29;
     }
 
@@ -176,20 +176,25 @@
 
     .rectangle {
         top: 8%;
-        right: 10%;
-        transform: rotate(0deg);
-        z-index: 1;
+        right: -12%;
+        transform: rotate(-15deg);
+        width: 12rem;
+        height: 15rem;
     }
 
     .circle {
-        top: 30%;
-        left: 6%;
+        top: 15%;
+        left: -15%;
+        width: 50rem;
+        height: 50rem;
     }
 
     .triangle {
-        bottom: 5%;
+        bottom: -15%;
         right: 15%;
         transform: rotate(0deg);
+        width: 18rem;
+        height: 18rem;
     }
 
     .leftEllipse {
@@ -206,18 +211,6 @@
 }
 
 @media screen and (min-width: 1500px) {
-    .rectangle {
-        right: 18%;
-    }
-
-    .circle {
-        left: 15%;
-    }
-
-    .triangle {
-        right: 25%;
-    }
-
     .leftEllipse {
         left: 10%;
     }
