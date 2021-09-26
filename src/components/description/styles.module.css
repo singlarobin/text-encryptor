@@ -2,10 +2,13 @@
     margin: 1rem;
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
 }
 
 .descriptionContent {
     display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .descriptionContent p {
@@ -14,7 +17,7 @@
     color: var(--text-normal);
     word-wrap: break-word;
     transition: color var(--transition-duration);
-    margin: 0 0 0.5rem 1rem;
+    margin: 0rem;
     flex: 1;
 }
 
