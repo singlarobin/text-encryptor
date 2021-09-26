@@ -30,11 +30,6 @@
     transition: color var(--transition-duration);
 }
 
-.messageText:hover {
-    text-decoration: underline;
-    cursor: pointer;
-}
-
 .infoContainer {
     display: flex;
     gap: 0.5rem;

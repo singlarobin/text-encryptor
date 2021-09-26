@@ -116,7 +116,8 @@ const Message = props => {
                         <div className={classes.messageContent}>
                             <div className={classes.messageText}>{decryptMessage}</div>
                             <IconButton onClick={handleMessageCopy}>
-                                {messageCopied ? <ClipBoardChecked /> : <ClipBoard />}
+                                {messageCopied ? <ClipBoardChecked color={themed('#136A87', '#A3F8FF')} />
+                                    : <ClipBoard color={themed('#136A87', '#A3F8FF')} />}
                             </IconButton>
                         </div>
                         <div>
@@ -131,7 +132,8 @@ const Message = props => {
                 }
                 <Loader loading={loading} />
                 {openSnackbar &&
-                <SnackBar message={snackbarMessage} severity={snackbarSeverity} handleClose={handleSnackbarClose} />}
+                    <SnackBar message={snackbarMessage} severity={snackbarSeverity}
+                        handleClose={handleSnackbarClose} />}
             </Fragment>}
     </Fragment>;
 };
