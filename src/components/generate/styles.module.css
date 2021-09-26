@@ -61,9 +61,10 @@
 
     .generatorHeading {
         display: block;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         font-weight: bold;
         color: var(--text-highlight-2);
+        transition: color var(--transition-duration);
     }
 
     .container {

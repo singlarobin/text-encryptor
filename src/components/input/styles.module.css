@@ -5,19 +5,26 @@
     background: var(--glass-gradient-2);
     font-size: 0.8rem;
     border-radius: 0.5rem;
-    border: none;
+    border: 1px solid transparent;
     outline: none;
     resize: none;
     box-shadow: var(--input-container-box-shadow);
-    transition: box-shadow var(--transition-duration), background-color var(--transition-duration), color var(--transition-duration);
+    transition: box-shadow var(--transition-duration), background-color var(--transition-duration), color var(--transition-duration), border 0.15s;
 }
 
-.inputContent:active, .inputContent:focus {
-    background: rgba(255, 255, 255, 0.1);
+.inputContent:active,
+.inputContent:focus {
+    border-color: var(--text-normal);
 }
 
 .inputContent::placeholder {
-    opacity: 0.5;
+    opacity: 0.75;
     color: var(--text-normal);
     transition: color var(--transition-duration);
+}
+
+@media (min-width: 1024px) {
+    .inputContent {
+        font-size: 0.95rem;
+    }
 }

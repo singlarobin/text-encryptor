@@ -32,5 +32,6 @@
 @media screen and (min-width: 1024px) {
     .footerContainer {
         width: 20vw;
+        font-size: 1.2rem;
     }
 }

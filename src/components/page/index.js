@@ -10,6 +10,7 @@ import Footer from '../footer';
 import Triangle from '../../assets/shapes/triangle';
 import Rectangle from '../../assets/shapes/rectangle';
 import Circle from '../../assets/shapes/circle';
+import { throttle } from '../../utils';
 
 const Page = props => {
     const [darkMode, setDarkMode] = useState(false);
@@ -26,13 +27,13 @@ const Page = props => {
         return () => window.removeEventListener('resize', handlePageResize);
     }, []);
 
-    const handlePageResize = () => {
+    const handlePageResize = throttle(() => {
         setWebViewDimensions(
-            window.innerWidth >= 768
+            window.innerWidth >= 1024
                 ? webViewRef?.current?.getBoundingClientRect()
                 : null
         );
-    };
+    }, 100);
 
     const loadTheme = () => {
         const currTheme = getTheme();

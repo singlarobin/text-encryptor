@@ -137,6 +137,9 @@
 }
 
 @media screen and (min-width: 1024px) {
+    .pageContent {
+        overflow: hidden;
+    }
 
     .mobileView {
         display: none;

@@ -21,8 +21,26 @@ const copyText = (textToCopy) => {
     return error;
 };
 
+const throttle = (cb, delay, ...args) => {
+    let shouldCallCb = true;
+    const prevArgs = args;
+    // eslint-disable-next-line no-unused-vars
+    return function () {
+        const context = this;
+        const newArgs = [].slice.apply(arguments);
+        if (shouldCallCb) {
+            cb.apply(context, [...prevArgs, ...newArgs]);
+            shouldCallCb = false;
+            setTimeout(() => {
+                shouldCallCb = true;
+            }, delay);
+        }
+    };
+};
+
 export {
     isEmptyString,
     isEmptyObject,
-    copyText
+    copyText,
+    throttle,
 };
