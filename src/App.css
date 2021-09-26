@@ -1,6 +1,4 @@
 .appContainer {
-    display: flex;
-    justify-content: center;
     margin: 1rem auto;
     flex: 1;
 }
@@ -9,6 +7,8 @@
     .appContainer {
         height: inherit;
         margin: 0rem;
+        display: flex;
+        justify-content: center;
         align-items: center;
     }
 }
