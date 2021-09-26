@@ -1,19 +1,27 @@
 .snackbarContainer {
     position: fixed;
-    right: 2rem;
-    bottom: 2rem;
+    left: 2%;
+    bottom: 10%;
     width: 80vw;;
     max-width: 400px;
     display: flex;
     align-items: center;
-    background-color: var(--secondary-theme-color);
-    color: var(--text-light);
+    background: var(--glass-gradient-2);
+    color: var(--text-normal);
     padding: 0.75rem 1rem 0.5rem;
     border-radius: 0.25rem;
-    transition: color var(--transition-duration), background-color var(--transition-duration);
+    transition: color var(--transition-duration);
 }
 
 .message {
     padding: 0 1rem;
     width: fit-content;
+    font-size: 0.6rem;
+}
+
+@media screen and (min-width: 1024px) {
+    .snackbarContainer {
+        left: -15%;
+        bottom: -15%;
+    } 
 }
