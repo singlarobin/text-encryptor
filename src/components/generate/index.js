@@ -5,14 +5,15 @@ import Button from '../button';
 import SnackBar from '../snackbar';
 import Loader from '../loader';
 import Error from '../error';
-import Description from '../description';
 import classes from './styles.module.css';
 import { isEmptyString, isEmptyObject, copyText } from '../../utils';
 import { SEVERITY, MESSAGE_API_URL, VALID_FOR_OPTIONS } from '../constants';
 import useAsyncExec from '../../hooks/useAsyncExec';
-import ClipBoardChecked from '../../assets/clipboardChecked';
-import ClipBoard from '../../assets/clipboard';
+import ClipBoardChecked from '../../assets/icons/clipboardChecked';
+import ClipBoard from '../../assets/icons/clipboard';
+import InfoIcon from '../../assets/icons/infoIcon';
 import IconButton from '../iconButton';
+import { themed } from '../../utils/theme';
 
 const Generate = () => {
     const [inputTextVal, setInputTextVal] = useState('');
@@ -102,31 +103,43 @@ const Generate = () => {
             : <>
                 {(isEmptyString(url)
                     ? <div className={classes.generatorContainer}>
+                        <div className={classes.generatorHeading}>
+                            CREATE MESSAGE
+                        </div>
                         <Input inputVal={inputTextVal} handleInputChange={handleInputTextChange}
-                            placeholderValue='Enter Text' rows={10} />
+                            placeholderValue='Enter Text' rows={5} />
+                        <Input inputVal={inputSecretKey} handleInputChange={handleInputSecretKeyChange}
+                            placeholderValue='Enter Secret Key' rows={1} />
                         <div className={classes.container}>
-                            <Input inputVal={inputSecretKey} handleInputChange={handleInputSecretKeyChange}
-                                placeholderValue='Enter Secret Key' style={{ flex: 1 }} rows={1} />
                             <Select validity={validity} placeholder='Validity'
                                 handleValidityChange={handleValidityChange} />
-                        </div>
-                        <div>
-                            <Button onClick={handleEncryption}>Encrypt</Button>
+                            <div>
+                                <Button onClick={handleEncryption}>Encrypt</Button>
+                            </div>
                         </div>
                     </div>
                     : <div className={classes.generatorContainer}>
+                        <div className={classes.generatorHeading}>
+                            VOILA!
+                        </div>
                         <div className={classes.urlContent}>
                             <div className={classes.urlText} onClick={openInNewTab}>{url}</div>
                             <IconButton onClick={handleUrlCopy}>
-                                {urlCopied ? <ClipBoardChecked /> : <ClipBoard />}
+                                {urlCopied ? <ClipBoardChecked color={themed('#136A87', '#A3F8FF')} />
+                                    : <ClipBoard color={themed('#136A87', '#A3F8FF')} />}
                             </IconButton>
                         </div>
-                        <div>
-                            <Button onClick={handleReset}>Create Message</Button>
+                        <div className={classes.infoContainer}>
+                            <InfoIcon width='1rem' height='1rem' strokeColor={themed('#136A87', '#A3F8FF')} />
+                            <p>Share the link with the recipient along with the secret key to
+                                allow them to decrypt your message.</p>
                         </div>
+                        <div>
+                            <Button onClick={handleReset} style={{ padding: '0.5 0.75rem' }}>Create Message</Button>
+                        </div>
+
                     </div>
                 )}
-                <Description />
             </>
         }
         <Loader loading={loading} />

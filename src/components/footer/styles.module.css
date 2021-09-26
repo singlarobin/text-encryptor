@@ -1,0 +1,36 @@
+.footerContainer {
+    width: 60vw;
+    max-width: 300px;
+    height: fit-content;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.easy {
+    color: var(--text-highlight-1);
+    transition: color var(--transition-duration);
+}
+
+.quick {
+    color: var(--text-highlight-2);
+    transition: color var(--transition-duration);
+}
+
+.secure {
+    color: var(--text-highlight-3);
+    transition: color var(--transition-duration);
+}
+
+@media screen and (min-width: 768px) {
+    .footerContainer {
+        width: 40vw;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .footerContainer {
+        width: 20vw;
+    }
+}

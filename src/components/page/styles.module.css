@@ -4,15 +4,17 @@
     overflow-x: hidden;
     overflow-y: inherit;
     position: relative;
-    background-color: var(--page-bg);
+    background: var(--background-gradient);
     transition: background-color var(--transition-duration);
+    display: flex;
+    justify-content: center;
 }
 
 .pageBackground {
     position: fixed;
     height: 100vh;
     width: 100vw;
-    background: url('../../assets/images/text-encryptor-bg.png');
+    /* background: url('../../assets/images/text-encryptor-bg.png'); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,4 +26,203 @@
     height: inherit;
     overflow: inherit;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobileView {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3;
+}
+
+.webView {
+    display: none;
+}
+
+.rectangle {
+    width: 8rem;
+    height: 12rem;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    transform: rotate(-8deg);
+}
+
+.circle {
+    width: 40rem;
+    height: 40rem;
+    position: absolute;
+    top: 30%;
+    left: -30%;
+}
+
+.triangle {
+    width: 20rem;
+    height: 18rem;
+    position: absolute;
+    bottom: -20%;
+    right: -20%;
+    transform: rotate(70deg);
+}
+
+.leftEllipse {
+    width: 40rem;
+    height: 25rem;
+    position: absolute;
+    bottom: -18%;
+    left: -120%;
+    background: var(--ellipse-gradient);
+    border-radius: 50%;
+    filter: blur(5rem);
+    transform: rotate(20deg);
+}
+
+.rightEllipse {
+    width: 35rem;
+    height: 45rem;
+    position: absolute;
+    top: -40%;
+    right: -140%;
+    background: var(--ellipse-gradient);
+    border-radius: 50%;
+    filter: blur(2rem);
+    transform: rotate(-55deg);
+}
+
+@media screen and (min-width: 480px) {
+    .rectangle {
+        right: 15%;
+    }
+
+    .circle {
+        left: -10%;
+    }
+
+    .triangle {
+        right: 10%;
+    }
+
+    .leftEllipse {
+        left: -50%;
+    }
+
+    .rightEllipse {
+        top: -40%;
+        right: -75%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .rectangle {
+        right: 30%;
+    }
+
+    .circle {
+        left: 20%;
+    }
+
+    .triangle {
+        right: 20%;
+    }
+
+    .leftEllipse {
+        left: -20%;
+    }
+
+    .rightEllipse {
+        right: -30%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .mobileView {
+        display: none;
+    }
+
+    .webView {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70vw;
+        max-width: 850px;
+        height: 70vh;
+        background: var(--glass-gradient);
+        border-radius: 2rem;
+        backdrop-filter: blur(1rem);
+        z-index: 3;
+        box-shadow: inset 2px 5px 10px #FFFFFF29;
+    }
+
+    .leftContainer {
+        height: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: var(--glass-gradient-2);
+        border-top-left-radius: 2rem;
+        border-bottom-left-radius: 2rem;
+        flex: 0.5;
+    }
+
+    .rightContainer {
+        height: inherit;
+        flex: 1;
+    }
+
+    .rectangle {
+        top: 8%;
+        right: 10%;
+        transform: rotate(0deg);
+        z-index: 1;
+    }
+
+    .circle {
+        top: 30%;
+        left: 6%;
+    }
+
+    .triangle {
+        bottom: 5%;
+        right: 15%;
+        transform: rotate(0deg);
+    }
+
+    .leftEllipse {
+        left: -1%;
+        bottom: -1%;
+        transform: rotate(30deg);
+    }
+
+    .rightEllipse {
+        top: -40%;
+        right: -10%;
+    }
+
+}
+
+@media screen and (min-width: 1500px) {
+    .rectangle {
+        right: 18%;
+    }
+
+    .circle {
+        left: 15%;
+    }
+
+    .triangle {
+        right: 25%;
+    }
+
+    .leftEllipse {
+        left: 10%;
+    }
+
+    .rightEllipse {
+        right: 5%;
+    }
 }

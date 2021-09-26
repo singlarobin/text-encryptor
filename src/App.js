@@ -9,7 +9,9 @@ const App = () => {
     const updateComponent = (refresher = null) => refresher && setRefresher(refresher);
 
     return <Page shouldComponentUpdate={updateComponent}>
-        <div className='appContainer'><Routing /></div>
+        <div className='appContainer'>
+            <Routing />
+        </div>
     </Page>;
 };
 
