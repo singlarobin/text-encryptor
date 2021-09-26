@@ -5,7 +5,6 @@
     display: flex;
     justify-content: space-evenly;
     font-size: 1rem;
-    font-family: 'Fira Code';
     font-weight: bold;
 }
 
@@ -34,5 +33,4 @@
     .footerContainer {
         width: 20vw;
     }
-
 }

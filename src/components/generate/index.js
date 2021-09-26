@@ -132,7 +132,7 @@ const Generate = () => {
                         <div className={classes.infoContainer}>
                             <InfoIcon width='1rem' height='1rem' strokeColor={themed('#136A87', '#A3F8FF')} />
                             <p>Share the link with the recipient along with the secret key to
-                                allow them to decrypt yourmessage.</p>
+                                allow them to decrypt your message.</p>
                         </div>
                         <div>
                             <Button onClick={handleReset} style={{ padding: '0.5 0.75rem' }}>Create Message</Button>
