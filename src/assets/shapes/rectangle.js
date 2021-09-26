@@ -31,10 +31,4 @@ const Rectangle = props => {
     </svg>;
 };
 
-
-
 export default Rectangle;
-
-
-
-

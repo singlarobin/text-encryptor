@@ -8,7 +8,7 @@ const Triangle = props => {
                 gradientUnits="objectBoundingBox">
                 {darkTheme ? <stop offset="0" stopOpacity="0" />
                     : <stop offset="0" stopColor="#fff" stopOpacity="0" />}
-                {darkTheme ? <stop offset="1" stopColor="#fff" /> : <stop offset="1" stopColor="#fff" />}
+                <stop offset="1" stopColor="#fff" />
             </linearGradient>
             <filter id="Polygon_1">
                 <feOffset dx="2" dy="5" input="SourceAlpha" />
@@ -35,7 +35,3 @@ const Triangle = props => {
 };
 
 export default Triangle;
-
-
-
-

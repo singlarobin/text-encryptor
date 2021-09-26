@@ -8,7 +8,7 @@ const Circle = props => {
                 gradientUnits="objectBoundingBox">
                 {darkTheme ? <stop offset="0" stopOpacity="0" />
                     : <stop offset="0" stopColor="#fff" stopOpacity="0" />}
-                {darkTheme ? <stop offset="1" stopColor="#fff" /> : <stop offset="1" stopColor="#fff" />}
+                <stop offset="1" stopColor="#fff" />
             </linearGradient>
             <filter id="Ellipse_3">
                 <feOffset dx="2" dy="5" input="SourceAlpha" />
@@ -31,7 +31,3 @@ const Circle = props => {
 };
 
 export default Circle;
-
-
-
-
