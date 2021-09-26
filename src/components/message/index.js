@@ -11,8 +11,8 @@ import { HOMEPAGE_PATH, SEVERITY } from '../constants';
 import { MESSAGE_API_URL } from '../constants';
 import useAsyncExec from '../../hooks/useAsyncExec';
 import Description from '../description';
-import ClipBoardChecked from '../../assets/clipboardChecked';
-import ClipBoard from '../../assets/clipboard';
+import ClipBoardChecked from '../../assets/icons/clipboardChecked';
+import ClipBoard from '../../assets/icons/clipboard';
 import IconButton from '../iconButton';
 
 const Message = props => {

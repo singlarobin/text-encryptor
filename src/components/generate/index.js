@@ -9,9 +9,9 @@ import classes from './styles.module.css';
 import { isEmptyString, isEmptyObject, copyText } from '../../utils';
 import { SEVERITY, MESSAGE_API_URL, VALID_FOR_OPTIONS } from '../constants';
 import useAsyncExec from '../../hooks/useAsyncExec';
-import ClipBoardChecked from '../../assets/clipboardChecked';
-import ClipBoard from '../../assets/clipboard';
-import InfoIcon from '../../assets/infoIcon';
+import ClipBoardChecked from '../../assets/icons/clipboardChecked';
+import ClipBoard from '../../assets/icons/clipboard';
+import InfoIcon from '../../assets/icons/infoIcon';
 import IconButton from '../iconButton';
 import { themed } from '../../utils/theme';
 

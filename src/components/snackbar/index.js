@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { useMemo, useEffect } from 'react';
 import classes from './styles.module.css';
 import IconButton from '../iconButton';
-import CloseIcon from '../../assets/closeIcon';
-import ErrorIcon from '../../assets/errorIcon';
-import InfoIcon from '../../assets/infoIcon';
-import SuccessIcon from '../../assets/successIcon';
-import WarningIcon from '../../assets/warningIcon';
+import CloseIcon from '../../assets/icons/closeIcon';
+import ErrorIcon from '../../assets/icons/errorIcon';
+import InfoIcon from '../../assets/icons/infoIcon';
+import SuccessIcon from '../../assets/icons/successIcon';
+import WarningIcon from '../../assets/icons/warningIcon';
 import { SEVERITY } from '../constants';
 import useAsyncExec from '../../hooks/useAsyncExec';
 

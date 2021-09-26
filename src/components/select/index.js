@@ -1,6 +1,6 @@
 import Downshift from 'downshift';
 import IconButton from '../iconButton';
-import ExpandIcon from '../../assets/expandIcon';
+import ExpandIcon from '../../assets/icons/expandIcon';
 import classes from './styles.module.css';
 import { VALID_FOR_OPTIONS } from '../constants';
 import { themed } from '../../utils/theme';
