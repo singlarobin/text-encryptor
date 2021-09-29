@@ -11,9 +11,9 @@ const Error = props => {
         <div className={classes.errorMessageWrapper}>
             <div className={classes.errorStatus}>{status}</div>
             <div className={classes.errorContent}>
-                {message}.
+                {message}
                 <br />
-            Click on the button below to create a message.
+            Click on the button below to create a new message.
             </div>
         </div>
         <div>
