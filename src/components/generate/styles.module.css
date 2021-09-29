@@ -42,11 +42,12 @@
 
 .infoContainer {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
 }
 
 .infoContainer p {
-    font-size: 0.6rem;
+    font-size: 0.65rem;
     font-weight: 500;
     color: var(--text-normal);
     word-wrap: break-word;
@@ -61,7 +62,7 @@
 
     .generatorHeading {
         display: block;
-        font-size: 1.5rem;
+        font-size: 2rem;
         font-weight: bold;
         color: var(--text-highlight-2);
         transition: color var(--transition-duration);
@@ -69,5 +70,15 @@
 
     .container {
         flex-direction: row;
+    }
+
+    .urlText {
+        font-size: 1rem;
+    }
+
+    .infoContainer p {
+        opacity: 0.8;
+        font-size: 0.75rem;
+        letter-spacing: -0.25px;
     }
 }

@@ -48,7 +48,6 @@ const Page = props => {
     };
 
     return <div className={classes.page}>
-        <div className={classes.pageBackground} />
         <div className={classes.pageContent}>
             <IconButton onClick={handleThemeChange}
                 style={{
