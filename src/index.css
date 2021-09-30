@@ -44,6 +44,8 @@
     --rectangle-gradient: linear-gradient(to right bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
     --rectangle-box-shadow: inset 2px 5px 10px #FFFFFF29;
 
+    --circle-gradient: linear-gradient(to right bottom, rgba(255,255,255,0.8),rgba(255,255,255,0.5));
+
     --ellipse-color-1: #B6CCFA;
     --ellipse-color-2: #6FFFEE;
     --ellipse-gradient: linear-gradient(to right, var(--ellipse-color-1), var(--ellipse-color-2));
@@ -107,6 +109,8 @@
     --glass-color: #FFF;
     --glass-gradient: linear-gradient(to right top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
     --glass-gradient-2: rgba(255, 255, 255, 0.2);
+
+    --circle-gradient: linear-gradient(to right bottom, rgba(0,0,0,0.3), rgba(255,255,255,0.3));
 
     --ellipse-color-1: #0D4A8C;
     --ellipse-color-2: #2EA798;

@@ -9,7 +9,6 @@ import Description from '../description';
 import Footer from '../footer';
 import Triangle from '../../assets/shapes/triangle';
 import Rectangle from '../../assets/shapes/rectangle';
-import Circle from '../../assets/shapes/circle';
 
 const Page = props => {
     const [darkMode, setDarkMode] = useState(false);
@@ -66,12 +65,7 @@ const Page = props => {
                 }} />
             </div>
 
-            <div className={classes.circle}>
-                <Circle darkTheme={darkMode} style={{
-                    width: 'inherit',
-                    height: 'inherit',
-                }} />
-            </div>
+            <div className={classes.circle}/>
 
             <div className={classes.triangle}>
                 <Triangle darkTheme={darkMode} style={{

@@ -25,6 +25,7 @@
     word-wrap: break-word;
     box-shadow: var(--input-container-box-shadow);
     transition: box-shadow var(--transition-duration);
+    backdrop-filter: blur(1rem);
 }
 
 .urlText {
