@@ -12,7 +12,7 @@ const ClipBoard = (props) => {
             fill='none'
             strokeLinecap='round'
             strokeLinejoin='round'
-            style={{ transform: 'stroke 0.15s' }}
+            style={{ transition: 'stroke 0.15s' }}
         >
             <path stroke='none' d='M0 0h24v24H0z' fill='none' />
             <path d='M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2' />
