@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-between;
     background: var(--glass-gradient-2);
-    padding: 0.5rem;
+    padding: 0.75rem 0.5rem;
     border-radius: 0.5rem;
     box-shadow: var(--input-container-box-shadow);
     transition: box-shadow var(--transition-duration);
@@ -27,7 +27,7 @@
 
 .selectInput::placeholder {
     color: var(--text-heading-2);
-    opacity: 0.6;
+    opacity: 0.75;
     transition: color var(--transition-duration);
 }
 
@@ -47,13 +47,14 @@
 .selectListItem {
     font-size: 0.8rem;
     font-family: inherit;
-    color: var(--text-highlight-3);
+    color: var(--text);
     background: var(--glass-gradient-2);
-    padding: 1rem 0.75rem;
+    padding: 0.5rem 0.75rem;
     outline: none;
     border: none;
     box-shadow: none;
-    transition: color var(--transition-duration), background-color var(--transition-duration);
+    filter: brightness(1);
+    transition: color var(--transition-duration), background var(--transition-duration), filter var(--transition-duration);
 }
 
 .selectListItem:first-of-type {
@@ -67,5 +68,11 @@
 }
 
 .selectListItem:hover {
-    opacity: 0.3;
+    filter: brightness(0.9);
+}
+
+@media (min-width: 1024px) {
+    .selectInput, .selectListItem {
+        font-size: 0.95rem;
+    }
 }

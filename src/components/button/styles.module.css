@@ -1,4 +1,4 @@
-.buttonContent {
+.button {
     color: var(--text-normal);
     background-color: transparent;
     font-size: 0.8rem;
@@ -7,32 +7,14 @@
     font-weight: 600;
     border: 1px solid var(--text-normal);
     outline: none;
-    padding: 0.65rem 1rem;
-    /* box-shadow: var(--button-shadow); */
+    padding: 0.85rem 1.2rem;
     border-radius: 6px;
+    box-shadow: none;
     transition: box-shadow var(--transition-duration), background-color var(--transition-duration), color var(--transition-duration);
 }
 
-.buttonContent:hover,
-.buttonContent:focus {
-    /* box-shadow: var(--button-shadow-hover); */
+.button:hover,
+.button:focus {
     cursor: pointer;
-    /* transition: box-shadow var(--transition-duration); */
-}
-
-.buttonContent span {
-    display: inline-block;
-    transform: scale(1);
-    transition: transform var(--transition-duration);
-}
-
-.buttonContent:hover span,
-.buttonContent:focus span {
-    transform: scale(0.98);
-    transition: transform var(--transition-duration);
-}
-
-.buttonContent:active span {
-    transform: scale(1.04);
-    transition: transform var(--transition-duration);
+    box-shadow: var(--shadow);
 }

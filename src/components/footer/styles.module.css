@@ -1,7 +1,6 @@
 .footerContainer {
-    width: 60vw;
-    max-width: 300px;
-    height: fit-content;
+    width: 100%;
+    max-width: 20rem;
     display: flex;
     justify-content: space-evenly;
     font-size: 1rem;
@@ -23,14 +22,15 @@
     transition: color var(--transition-duration);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
     .footerContainer {
-        width: 40vw;
+        padding: 0 0.5rem 0 0.75rem;
+        font-size: 1rem;
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1200px) {
     .footerContainer {
-        width: 20vw;
+        font-size: 1.2rem;
     }
 }

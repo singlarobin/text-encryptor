@@ -4,10 +4,10 @@
     box-shadow: none;
     background-color: transparent;
     cursor: pointer;
-    filter: brightness(120%);
+    filter: brightness(1);
     transition: background-color var(--transition-duration), filter var(--transition-duration);
 }
 
 .iconButton:hover {
-    filter: brightness(80%);
+    filter: brightness(0.85);
 }
