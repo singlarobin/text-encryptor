@@ -41,6 +41,7 @@
     right: -10%;
     transform: rotate(-8deg);
     opacity: 0.5;
+    z-index: 2;
 }
 
 .circle {
@@ -52,6 +53,8 @@
     top: 50%;
     left: -30%;
     opacity: 0.5;
+    border-radius: 50%;
+    z-index: 2;
 }
 
 .triangle {
@@ -61,6 +64,7 @@
     bottom: 0;
     right: -30%;
     transform: rotate(70deg);
+    z-index: 2;
 }
 
 .leftEllipse {
@@ -187,7 +191,7 @@
     .rectangle {
         top: 8%;
         right: -12%;
-        transform: rotate(-15deg);
+        transform: rotate(0deg);
         width: 12rem;
         height: 15rem;
     }
@@ -195,8 +199,8 @@
     .circle {
         top: 15%;
         left: -15%;
-        width: 50rem;
-        height: 50rem;
+        width: 15rem;
+        height: 15rem;
     }
 
     .triangle {
