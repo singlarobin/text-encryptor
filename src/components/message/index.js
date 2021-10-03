@@ -121,12 +121,11 @@ const Message = props => {
                             </IconButton>
                         </div>
                         <div>
-                            <Button onClick={handleRedirectToHome} style={{ padding: '0.5rem' }}>Create Message</Button>
+                            <Button onClick={handleRedirectToHome}>Create Message</Button>
                         </div>
                         <div className={classes.infoContainer}>
                             <InfoIcon width='1rem' height='1rem' strokeColor={themed('#136A87', '#A3F8FF')} />
-                            <p>Share the link with the recipient along with the secret key to
-                                allow them to decrypt your message.</p>
+                            <p>The message and the link will expire soon. Be sure to use the message before that!</p>
                         </div>
                     </div>
                 }

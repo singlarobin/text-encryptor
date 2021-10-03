@@ -13,13 +13,13 @@
     --text-contrast: #fcfaf2;
     --text-prominent: #000;
     --text-light: #fff;
-    --text: #191919;
+    --text: #091b25;
     --text-obscure: #666;
     --text-obscurer: #888;
     --text-opposite: #e6e6e6;
     --card-shadow: 0px 2px 1px -1px rgba(255, 255, 255, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
     --card-shadow-hover: 0px 4px 3px -3px rgba(255, 255, 255, 0.2), 0px 3px 3px 0px rgba(0, 0, 0, 0.14), 0px 3px 5px 0px rgba(0, 0, 0, 0.12);
-    --shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
+    --shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     --theme-color: #ce185e;
     --theme-color-obscure: #ce185e9f;
     --secondary-theme-color: #148077;
@@ -38,7 +38,7 @@
 
     --glass-color: #FFF;
     --glass-gradient: linear-gradient(to right top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
-    --glass-gradient-2: rgba(255, 255, 255, 0.5);
+    --glass-gradient-2: rgba(255, 255, 255, 0.6);
 
 
     --rectangle-gradient: linear-gradient(to right bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
@@ -72,7 +72,7 @@
     --button-color: rgb(175, 175, 175);
     --button-color-hover: rgb(100, 100, 100);
     /* non-color constants */
-    --transition-duration: 0.25s;
+    --transition-duration: 0.15s;
 }
 
 [theme-mode="dark"] {
@@ -81,7 +81,7 @@
     --card-container-bg: #112733;
     --dialog-bg: #1f3b4b;
     --overlay-bg: #2d59723f;
-    --text-contrast: #061f2c;
+    --text-contrast: #7f8e96;
     --text-prominent: #fff;
     --text-light: #f7f7f7;
     --text: #efefef;
@@ -90,7 +90,7 @@
     --text-opposite: #091b25;
     --card-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
     --card-shadow-hover: 0px 4px 3px -3px rgba(0, 0, 0, 0.2), 0px 3px 3px 0px rgba(0, 0, 0, 0.14), 0px 3px 5px 0px rgba(0, 0, 0, 0.12);
-    --shadow: 0px 0px 8px #191919;
+    --shadow: 0px 0px 10px #19191946;
     --theme-color: #e23678;
     --theme-color-obscure: #e23678a7;
     --secondary-theme-color: #36b6ab;
@@ -102,13 +102,13 @@
     --text-normal: #A3F8FF;
 
     --text-highlight-1: #C1FBFF;
-    --text-highlight-2: #A3F8FF;
+    --text-highlight-2: #5AE9FF;
     --text-highlight-3: #6CFFEC;
     --background-gradient: linear-gradient(to right, var(--accent-color-1), var(--accent-color-2));
 
     --glass-color: #FFF;
     --glass-gradient: linear-gradient(to right top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
-    --glass-gradient-2: rgba(255, 255, 255, 0.2);
+    --glass-gradient-2: rgba(255, 255, 255, 0.25);
 
     --circle-gradient: linear-gradient(to right bottom, rgba(0,0,0,0.3), rgba(255,255,255,0.3));
 
@@ -116,7 +116,7 @@
     --ellipse-color-2: #2EA798;
     --ellipse-gradient: linear-gradient(to right, var(--ellipse-color-1), var(--ellipse-color-2));
 
-    --input-container-box-shadow: 0px 1px 10px #00000014;
+    --input-container-box-shadow: 2px 2px 10px #00000010;
 
     --component-border: #FFFFFF59;
     --skeleton-color: #202020;

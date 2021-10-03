@@ -33,27 +33,38 @@
 
 .infoContainer {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    opacity: 0.8;
 }
 
 .infoContainer p {
-    font-size: 0.6rem;
-    font-weight: 500;
+    font-size: 0.7rem;
     color: var(--text-normal);
     word-wrap: break-word;
     flex: 0.5;
-    margin: 0rem;
+    margin: 0;
+    transition: color var(--transition-duration);
 }
 
 @media screen and (min-width: 1024px) {
+    .messageContent {
+        padding: 1rem 0.75rem;
+    }
+    
+    .messageText {
+        font-size: 1rem;
+    }
+
     .messageContainer {
         width: 60vw;
     }
 
     .messageHeading {
         display: block;
-        font-size: 1.2rem;
+        font-size: 2.5rem;
         font-weight: bold;
         color: var(--text-highlight-2);
+        transition: color var(--transition-duration);
     }
 }

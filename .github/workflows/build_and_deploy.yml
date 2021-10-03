@@ -7,7 +7,7 @@ on:
 jobs:
     build:
         env:
-          CI: false
+            CI: false
         runs-on: ubuntu-latest
         strategy:
             matrix:

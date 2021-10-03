@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import IconButton from '../iconButton';
 import classes from './styles.module.css';
 import DarkModeIcon from '../../assets/icons/darkModeIcon';
@@ -9,11 +9,31 @@ import Description from '../description';
 import Footer from '../footer';
 import Triangle from '../../assets/shapes/triangle';
 import Rectangle from '../../assets/shapes/rectangle';
+import Circle from '../../assets/shapes/circle';
+import { throttle } from '../../utils';
 
 const Page = props => {
     const [darkMode, setDarkMode] = useState(false);
+    const webViewRef = useRef(null);
+    const [webViewDimensions, setWebViewDimensions] = useState(null);
 
-    useEffect(() => loadTheme(), []);
+    useEffect(() => {
+        loadTheme();
+        handlePageResize();
+    }, []);
+
+    useEffect(() => {
+        window.addEventListener('resize', handlePageResize);
+        return () => window.removeEventListener('resize', handlePageResize);
+    }, []);
+
+    const handlePageResize = throttle(() => {
+        setWebViewDimensions(
+            window.innerWidth >= 1024
+                ? webViewRef?.current?.getBoundingClientRect()
+                : null
+        );
+    }, 100);
 
     const loadTheme = () => {
         const currTheme = getTheme();
@@ -28,7 +48,6 @@ const Page = props => {
     };
 
     return <div className={classes.page}>
-        <div className={classes.pageBackground} />
         <div className={classes.pageContent}>
             <IconButton onClick={handleThemeChange}
                 style={{
@@ -47,7 +66,7 @@ const Page = props => {
                 {props.children}
                 <Footer />
             </div>
-            <div className={classes.webView}>
+            <div ref={webViewRef} className={classes.webView}>
                 <div className={classes.leftContainer}>
                     <Header />
                     <Description style={{ flex: '1' }} />
@@ -58,16 +77,28 @@ const Page = props => {
                 </div>
             </div>
 
-            <div className={classes.rectangle}>
+            <div className={classes.rectangle} style={webViewDimensions && {
+                top: webViewDimensions?.top + (0.2 * webViewDimensions?.height),
+                left: webViewDimensions?.right - (0.1 * webViewDimensions?.width),
+            }}>
                 <Rectangle darkTheme={darkMode} style={{
                     width: 'inherit',
                     height: 'inherit',
                 }} />
             </div>
-
-            <div className={classes.circle}/>
-
-            <div className={classes.triangle}>
+            <div className={classes.circle} style={webViewDimensions && {
+                top: webViewDimensions?.top + (0.35 * webViewDimensions?.height),
+                left: webViewDimensions?.left - (0.15 * webViewDimensions?.width),
+            }}>
+                <Circle darkTheme={darkMode} style={{
+                    width: 'inherit',
+                    height: 'inherit',
+                }} />
+            </div>
+            <div className={classes.triangle} style={webViewDimensions && {
+                top: webViewDimensions?.bottom - (0.2 * webViewDimensions?.height),
+                left: webViewDimensions?.right - (0.5 * webViewDimensions?.width),
+            }}>
                 <Triangle darkTheme={darkMode} style={{
                     width: 'inherit',
                     height: 'inherit',
