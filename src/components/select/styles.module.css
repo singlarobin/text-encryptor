@@ -1,5 +1,6 @@
 .selectContainer {
     position: relative;
+    backdrop-filter: blur(1rem);
 }
 
 .selectContent {
@@ -72,7 +73,9 @@
 }
 
 @media (min-width: 1024px) {
-    .selectInput, .selectListItem {
+
+    .selectInput,
+    .selectListItem {
         font-size: 0.95rem;
     }
 }

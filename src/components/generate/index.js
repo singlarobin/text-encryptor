@@ -107,7 +107,7 @@ const Generate = () => {
                             CREATE MESSAGE
                         </div>
                         <Input inputVal={inputTextVal} handleInputChange={handleInputTextChange}
-                            placeholderValue='Enter Text' rows={5} style={{ backdropFilter: 'blur(1rem)' }} />
+                            placeholderValue='Enter Text' rows={5} />
                         <Input inputVal={inputSecretKey} handleInputChange={handleInputSecretKeyChange}
                             placeholderValue='Enter Secret Key' rows={1} />
                         <div className={classes.container}>
@@ -130,8 +130,7 @@ const Generate = () => {
                             </IconButton>
                         </div>
                         <div>
-                            <Button onClick={handleReset}
-                                style={{ backdropFilter: 'blur(1rem)' }}>Create Message</Button>
+                            <Button onClick={handleReset}>Create Message</Button>
                         </div>
                         <div className={classes.infoContainer}>
                             <InfoIcon width='1rem' height='1rem' strokeColor={themed('#136A87', '#A3F8FF')} />

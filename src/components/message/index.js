@@ -104,9 +104,9 @@ const Message = props => {
                             DECRYPT MESSAGE
                         </div>
                         <Input inputVal={inputSecretKey} placeholderValue='Enter Secret Key' rows={1}
-                            handleInputChange={handleInputSecretKeyChange} style={{ backdropFilter: 'blur(1rem)' }} />
+                            handleInputChange={handleInputSecretKeyChange} />
                         <div>
-                            <Button onClick={handleDecryption} style={{ backdropFilter: 'blur(1rem)' }}>Decrypt</Button>
+                            <Button onClick={handleDecryption}>Decrypt</Button>
                         </div>
                     </div>
                     : <div className={classes.messageContainer}>

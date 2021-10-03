@@ -10,6 +10,7 @@
     padding: 0.85rem 1.2rem;
     border-radius: 6px;
     box-shadow: none;
+    backdrop-filter: blur(1rem);
     transition: box-shadow var(--transition-duration), background-color var(--transition-duration), color var(--transition-duration);
 }
 
