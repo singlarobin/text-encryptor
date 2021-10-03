@@ -6,9 +6,8 @@ const Rectangle = props => {
         <defs>
             <linearGradient id="linear-gradient" x1="0.956" y1="0.926" x2="0" y2="-0.029"
                 gradientUnits="objectBoundingBox">
-                {darkTheme ? <stop offset="0" stopOpacity="0" />
-                    : <stop offset="0" stopColor="#fff" stopOpacity="0" />}
-                {darkTheme ? <stop offset="1" stopColor="#fff" stopOpacity="0.102" />
+                <stop offset="0" stopColor="#fff" stopOpacity="0" />
+                {darkTheme ? <stop offset="1" stopColor="#fff" stopOpacity="0.3" />
                     : <stop offset="1" stopColor="#fff" />}
             </linearGradient>
             <filter id="Rectangle_1">
