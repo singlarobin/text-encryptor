@@ -5,25 +5,8 @@
 }
 
 :root {
-    --page-bg: #f7f7f7;
-    --card-bg: #fff;
-    --card-container-bg: #fff;
-    --dialog-bg: #e9e9e9;
-    --overlay-bg: #f0f0f060;
-    --text-contrast: #fcfaf2;
-    --text-prominent: #000;
-    --text-light: #fff;
     --text: #091b25;
-    --text-obscure: #666;
-    --text-obscurer: #888;
-    --text-opposite: #e6e6e6;
-    --card-shadow: 0px 2px 1px -1px rgba(255, 255, 255, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-    --card-shadow-hover: 0px 4px 3px -3px rgba(255, 255, 255, 0.2), 0px 3px 3px 0px rgba(0, 0, 0, 0.14), 0px 3px 5px 0px rgba(0, 0, 0, 0.12);
     --shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    --theme-color: #ce185e;
-    --theme-color-obscure: #ce185e9f;
-    --secondary-theme-color: #148077;
-    --secondary-theme-color-obscure: #1480779f;
 
     --accent-color-1: #A9BFED;
     --accent-color-2: #A1E7FE;
@@ -44,55 +27,20 @@
     --rectangle-gradient: linear-gradient(to right bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
     --rectangle-box-shadow: inset 2px 5px 10px #FFFFFF29;
 
+    --circle-gradient: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
+
     --ellipse-color-1: #B6CCFA;
     --ellipse-color-2: #6FFFEE;
     --ellipse-gradient: linear-gradient(to right, var(--ellipse-color-1), var(--ellipse-color-2));
     --input-container-box-shadow: 2px 2px 10px #00000014;
 
-    --component-border: rgba(0, 0, 0, 0.23);
-    --skeleton-color: #e7e7e7;
-    --shimmer-color: rgba(255, 255, 255, 0.2);
-    --button-shadow:
-        -2px -2px 2px rgba(255, 255, 255, 0.6),
-        1px 1px 6px rgba(255, 255, 255, 0.2),
-        inset 2px 2px 2px rgba(255, 255, 255, 0.6),
-        2px 2px 6px rgba(255, 255, 255, 0.2);
-    --button-shadow-hover:
-        inset -2px -2px 2px rgba(255, 255, 255, 0.6),
-        inset -2px -2px 4px rgba(255, 255, 255, 0.2),
-        inset 2px 2px 2px rgba(255, 255, 255, 0.6),
-        inset 2px 2px 4px rgba(255, 255, 255, 0.2);
-
-    --neu-shadow: inset -1px -1px 6px rgba(255, 255, 255, 0.4),
-        inset 3px 3px 8px rgba(255, 255, 255, 0.25),
-        inset 2px 2px 10px rgba(255, 255, 255, 0.1),
-        inset 2px 2px 6px rgba(0, 0, 0, 0.25);
-    --button-color: rgb(175, 175, 175);
-    --button-color-hover: rgb(100, 100, 100);
     /* non-color constants */
     --transition-duration: 0.15s;
 }
 
 [theme-mode="dark"] {
-    --page-bg: #0e202a;
-    --card-bg: #152d3a;
-    --card-container-bg: #112733;
-    --dialog-bg: #1f3b4b;
-    --overlay-bg: #2d59723f;
-    --text-contrast: #7f8e96;
-    --text-prominent: #fff;
-    --text-light: #f7f7f7;
     --text: #efefef;
-    --text-obscure: #b1b1b1;
-    --text-obscurer: #868686;
-    --text-opposite: #091b25;
-    --card-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-    --card-shadow-hover: 0px 4px 3px -3px rgba(0, 0, 0, 0.2), 0px 3px 3px 0px rgba(0, 0, 0, 0.14), 0px 3px 5px 0px rgba(0, 0, 0, 0.12);
     --shadow: 0px 0px 10px #19191946;
-    --theme-color: #e23678;
-    --theme-color-obscure: #e23678a7;
-    --secondary-theme-color: #36b6ab;
-    --secondary-theme-color-obscure: #36b6aba7;
 
     --accent-color-1: #0C2582;
     --accent-color-2: #0E9E9C;
@@ -108,29 +56,13 @@
     --glass-gradient: linear-gradient(to right top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
     --glass-gradient-2: rgba(255, 255, 255, 0.25);
 
+    --circle-gradient: linear-gradient(to right bottom, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.3));
+
     --ellipse-color-1: #0D4A8C;
     --ellipse-color-2: #2EA798;
     --ellipse-gradient: linear-gradient(to right, var(--ellipse-color-1), var(--ellipse-color-2));
 
     --input-container-box-shadow: 2px 2px 10px #00000010;
-
-    --component-border: #FFFFFF59;
-    --skeleton-color: #202020;
-    --shimmer-color: rgba(40, 40, 40, 0.2);
-    --button-shadow: -2px -2px 6px rgb(26, 57, 73, 0.75),
-        1px 1px 6px rgba(0, 0, 0, 0.5),
-        inset 2px 2px 4px rgba(26, 57, 73, 0.1),
-        2px 2px 8px rgba(2, 12, 17, 0.15);
-    --button-shadow-hover: inset -2px -2px 6px rgba(26, 57, 73, 0.75),
-        inset -1px -1px 6px rgba(0, 0, 0, 0.6),
-        inset 2px 2px 4px rgba(26, 57, 73, 0.1),
-        inset 2px 2px 8px rgba(2, 12, 17, 0.15);
-    --neu-shadow: inset -1px -1px 6px rgba(32, 70, 88, 0.75),
-        inset 3px 3px 7px rgba(0, 0, 0, 0.25),
-        inset 2px 2px 4px rgba(26, 57, 73, 0.1),
-        inset 2px 2px 8px rgba(2, 12, 17, 0.15);
-    --button-color: rgb(50, 93, 116);
-    --button-color-hover: rgb(99, 167, 204);
 }
 
 body {
@@ -162,26 +94,3 @@ code {
     height: inherit;
     width: inherit;
 }
-
-/* Light */
-/* --button-shadow:
-        -2px -2px 4px rgba(255, 255, 255, 0.4),
-        1px 1px 8px rgba(200, 200, 200, 0.05),
-        inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-        2px 2px 8px rgba(0, 0, 0, 0.15);
-    --button-shadow-hover:
-        inset -2px -2px 8px rgba(255, 255, 255, 0.4),
-        inset -2px -2px 12px rgba(255, 255, 255, 0.3),
-        inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-        inset 2px 2px 8px rgba(0, 0, 0, 0.15); */
-
-
-/* Dark */
- /* --button-shadow: -2px -2px 6px rgb(26, 57, 73, 0.75),
-        1px 1px 6px rgba(0, 0, 0, 0.5),
-        inset 2px 2px 4px rgba(26, 57, 73, 0.1),
-        2px 2px 8px rgba(2, 12, 17, 0.15);
-    --button-shadow-hover: inset -2px -2px 6px rgba(26, 57, 73, 0.75),
-        inset -1px -1px 6px rgba(0, 0, 0, 0.6),
-        inset 2px 2px 4px rgba(26, 57, 73, 0.1),
-        inset 2px 2px 8px rgba(2, 12, 17, 0.15); */

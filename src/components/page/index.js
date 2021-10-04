@@ -9,7 +9,6 @@ import Description from '../description';
 import Footer from '../footer';
 import Triangle from '../../assets/shapes/triangle';
 import Rectangle from '../../assets/shapes/rectangle';
-import Circle from '../../assets/shapes/circle';
 import { throttle } from '../../utils';
 
 const Page = props => {
@@ -78,7 +77,7 @@ const Page = props => {
             </div>
 
             <div className={classes.rectangle} style={webViewDimensions && {
-                top: webViewDimensions?.top + (0.2 * webViewDimensions?.height),
+                top: webViewDimensions?.top - (0.2 * webViewDimensions?.height),
                 left: webViewDimensions?.right - (0.1 * webViewDimensions?.width),
             }}>
                 <Rectangle darkTheme={darkMode} style={{
@@ -90,10 +89,6 @@ const Page = props => {
                 top: webViewDimensions?.top + (0.35 * webViewDimensions?.height),
                 left: webViewDimensions?.left - (0.15 * webViewDimensions?.width),
             }}>
-                <Circle darkTheme={darkMode} style={{
-                    width: 'inherit',
-                    height: 'inherit',
-                }} />
             </div>
             <div className={classes.triangle} style={webViewDimensions && {
                 top: webViewDimensions?.bottom - (0.2 * webViewDimensions?.height),

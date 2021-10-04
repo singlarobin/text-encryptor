@@ -9,6 +9,7 @@
     outline: none;
     resize: none;
     box-shadow: var(--input-container-box-shadow);
+    backdrop-filter: blur(1rem);
     transition: box-shadow var(--transition-duration), background var(--transition-duration), color var(--transition-duration), border var(--transition-duration);
 }
 

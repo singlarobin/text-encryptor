@@ -6,9 +6,9 @@ const Triangle = props => {
         <defs>
             <linearGradient id="linear-gradient" x1="1.01" y1="0.996" x2="0.263" y2="0.382"
                 gradientUnits="objectBoundingBox">
-                {darkTheme ? <stop offset="0" stopOpacity="0" />
-                    : <stop offset="0" stopColor="#fff" stopOpacity="0" />}
-                <stop offset="1" stopColor="#fff" />
+                <stop offset="0" stopColor="#fff" stopOpacity="0" />
+                {darkTheme ? <stop offset="1" stopColor="#fff" stopOpacity="0.3" />
+                    : <stop offset="1" stopColor="#fff" />}
             </linearGradient>
             <filter id="Polygon_1">
                 <feOffset dx="2" dy="5" input="SourceAlpha" />
