@@ -61,7 +61,7 @@
     width: 18rem;
     height: 15rem;
     position: absolute;
-    bottom: 0;
+    bottom: -10%;
     right: -30%;
     transform: rotate(70deg);
     z-index: 2;
@@ -93,7 +93,7 @@
     transition: background var(--transition-duration);
 }
 
-@media screen and (min-height: 600px) {
+@media screen and (min-height: 768px) {
     .pageContent {
         overflow: hidden;
     }
@@ -146,7 +146,7 @@
 
 @media screen and (min-width: 1024px) {
     .pageContent {
-        overflow: hidden;
+        overflow-y: scroll;
     }
 
     .mobileView {
@@ -189,52 +189,29 @@
     }
 
     .rectangle {
-        top: 8%;
-        right: -12%;
         transform: rotate(0deg);
         width: 12rem;
         height: 15rem;
     }
 
     .circle {
-        top: 15%;
-        left: -15%;
         width: 15rem;
         height: 15rem;
     }
 
     .triangle {
-        bottom: -15%;
-        right: 15%;
         transform: rotate(0deg);
         width: 18rem;
         height: 18rem;
     }
 
     .leftEllipse {
-        left: -1%;
-        bottom: -1%;
         transform: rotate(30deg);
-    }
-
-    .rightEllipse {
-        top: -40%;
-        right: -10%;
     }
 }
 
 @media screen and (min-width: 1200px) {
     .leftContainer {
         flex: 0.5;
-    }
-}
-
-@media screen and (min-width: 1500px) {
-    .leftEllipse {
-        left: 10%;
-    }
-
-    .rightEllipse {
-        right: 5%;
     }
 }
