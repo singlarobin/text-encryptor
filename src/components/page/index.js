@@ -53,9 +53,9 @@ const Page = props => {
                     display: 'flex',
                     alignItems: 'center',
                     position: 'absolute',
-                    top: '16px',
-                    right: '16px',
-                    zIndex: '4',
+                    top: 16,
+                    right: 16,
+                    zIndex: 4,
                 }}>
                 {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
             </IconButton>
@@ -68,7 +68,7 @@ const Page = props => {
             <div ref={webViewRef} className={classes.webView}>
                 <div className={classes.leftContainer}>
                     <Header />
-                    <Description style={{ flex: '1' }} />
+                    <Description style={{ flex: 1 }} />
                     <Footer />
                 </div>
                 <div className={classes.rightContainer}>
@@ -77,7 +77,7 @@ const Page = props => {
             </div>
 
             <div className={classes.rectangle} style={webViewDimensions && {
-                top: webViewDimensions?.top - (0.2 * webViewDimensions?.height),
+                top: webViewDimensions?.top - (0.075 * webViewDimensions?.height),
                 left: webViewDimensions?.right - (0.1 * webViewDimensions?.width),
             }}>
                 <Rectangle darkTheme={darkMode} style={{
