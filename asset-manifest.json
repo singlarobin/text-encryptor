@@ -1,22 +1,17 @@
 {
   "files": {
-    "main.css": "/text-encryptor/static/css/main.091e3942.chunk.css",
-    "main.js": "/text-encryptor/static/js/main.816f23c4.chunk.js",
-    "main.js.map": "/text-encryptor/static/js/main.816f23c4.chunk.js.map",
+    "main.css": "/text-encryptor/static/css/main.836d36de.chunk.css",
+    "main.js": "/text-encryptor/static/js/main.1f0be5fd.chunk.js",
     "runtime-main.js": "/text-encryptor/static/js/runtime-main.ef3cb054.js",
-    "runtime-main.js.map": "/text-encryptor/static/js/runtime-main.ef3cb054.js.map",
     "static/js/2.c7871ef6.chunk.js": "/text-encryptor/static/js/2.c7871ef6.chunk.js",
-    "static/js/2.c7871ef6.chunk.js.map": "/text-encryptor/static/js/2.c7871ef6.chunk.js.map",
     "static/js/3.e4aeba5c.chunk.js": "/text-encryptor/static/js/3.e4aeba5c.chunk.js",
-    "static/js/3.e4aeba5c.chunk.js.map": "/text-encryptor/static/js/3.e4aeba5c.chunk.js.map",
     "index.html": "/text-encryptor/index.html",
-    "static/css/main.091e3942.chunk.css.map": "/text-encryptor/static/css/main.091e3942.chunk.css.map",
     "static/js/2.c7871ef6.chunk.js.LICENSE.txt": "/text-encryptor/static/js/2.c7871ef6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ef3cb054.js",
     "static/js/2.c7871ef6.chunk.js",
-    "static/css/main.091e3942.chunk.css",
-    "static/js/main.816f23c4.chunk.js"
+    "static/css/main.836d36de.chunk.css",
+    "static/js/main.1f0be5fd.chunk.js"
   ]
 }
