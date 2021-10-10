@@ -4,13 +4,12 @@
     "description": "Lets you send messages to anyone easily, with end-to-end encryption guaranteed!",
     "version": "1.0.0",
     "icons": {
-        "192": "logo192.png",
-        "512": "logo512.png"
+        "128": "logo.png"
     },
     "browser_action": {
         "default_popup": "index.html",
         "default_title": "Swoosh",
-        "default_icon": "logo192.png"
+        "default_icon": "logo.png"
     },
     "permissions": [],
     "offline_enabled": false
