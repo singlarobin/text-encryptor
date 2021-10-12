@@ -7,7 +7,7 @@ import Loader from '../loader';
 import Error from '../error';
 import classes from './styles.module.css';
 import { isEmptyString, isEmptyObject, copyText } from '../../utils';
-import { SEVERITY, MESSAGE_API_URL, VALID_FOR_OPTIONS } from '../constants';
+import { SEVERITY, MESSAGE_API_URL } from '../constants';
 import useAsyncExec from '../../hooks/useAsyncExec';
 import ClipBoardChecked from '../../assets/icons/clipboardChecked';
 import ClipBoard from '../../assets/icons/clipboard';
