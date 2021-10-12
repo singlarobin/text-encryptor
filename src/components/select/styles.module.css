@@ -14,7 +14,7 @@
 }
 
 .selectInput {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-family: inherit;
     flex-grow: 1;
     width: 8.5rem;
@@ -46,7 +46,7 @@
 }
 
 .selectListItem {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-family: inherit;
     color: var(--text);
     background: var(--glass-gradient-2);
@@ -76,6 +76,6 @@
 
     .selectInput,
     .selectListItem {
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
 }

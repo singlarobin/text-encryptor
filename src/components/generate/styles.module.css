@@ -30,7 +30,7 @@
 }
 
 .urlText {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 500;
     flex: 1;
     color: var(--text-normal);
@@ -50,7 +50,7 @@
 }
 
 .infoContainer p {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     color: var(--text-normal);
     word-wrap: break-word;
     flex: 0.5;
@@ -85,7 +85,7 @@
     }
 
     .infoContainer p {
-        font-size: 0.75rem;
+        font-size: 0.85rem;
         letter-spacing: -0.25px;
     }
 }

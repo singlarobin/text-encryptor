@@ -16,7 +16,7 @@
 .message {
     padding: 0 1rem;
     width: fit-content;
-    font-size: 0.6rem;
+    font-size: 0.8rem;
 }
 
 @media screen and (min-width: 1024px) {
