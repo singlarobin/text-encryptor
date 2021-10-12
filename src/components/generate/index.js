@@ -18,7 +18,7 @@ import { themed } from '../../utils/theme';
 const Generate = () => {
     const [inputTextVal, setInputTextVal] = useState('');
     const [inputSecretKey, setInputSecretKey] = useState('');
-    const [validity, setValidity] = useState(VALID_FOR_OPTIONS.MIN_30);
+    const [validity, setValidity] = useState(null);
     const [loading, setLoading] = useState(false);
     const [openSnackbar, setOpenSnackbar] = useState(false);
     const [error, setError] = useState(null);
@@ -49,7 +49,8 @@ const Generate = () => {
     const handleEncryption = useCallback(() => {
         const message = (isEmptyString(inputTextVal) || isEmptyString(inputSecretKey) || isEmptyString(validity)) ?
             'Missing either Text to Encrypt or Secret Key or Validity Duration!' : '';
-        const severity = (isEmptyString(inputTextVal) || isEmptyString(inputSecretKey)) && SEVERITY.INFO;
+        const severity = (isEmptyString(inputTextVal) || isEmptyString(inputSecretKey)) || isEmptyString(validity)
+            && SEVERITY.INFO;
         setSnackbarMessage(message);
         setSnackbarSeverity(severity);
         setOpenSnackbar(!isEmptyString(message));
@@ -58,7 +59,7 @@ const Generate = () => {
             setFetchResult(false);
             handleInputTextChange('');
             handleInputSecretKeyChange('');
-            handleValidityChange(VALID_FOR_OPTIONS.MIN_30);
+            handleValidityChange(null);
         });
     }, [inputTextVal, inputSecretKey, validity]);
 
